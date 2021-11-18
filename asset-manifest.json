@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/react-pofol/static/css/main.45fac5f8.chunk.css",
+    "main.js": "/react-pofol/static/js/main.9b4f07c9.chunk.js",
+    "main.js.map": "/react-pofol/static/js/main.9b4f07c9.chunk.js.map",
+    "runtime-main.js": "/react-pofol/static/js/runtime-main.9d0ceb55.js",
+    "runtime-main.js.map": "/react-pofol/static/js/runtime-main.9d0ceb55.js.map",
+    "static/js/2.7bded4fc.chunk.js": "/react-pofol/static/js/2.7bded4fc.chunk.js",
+    "static/js/2.7bded4fc.chunk.js.map": "/react-pofol/static/js/2.7bded4fc.chunk.js.map",
+    "static/js/3.1c0619ed.chunk.js": "/react-pofol/static/js/3.1c0619ed.chunk.js",
+    "static/js/3.1c0619ed.chunk.js.map": "/react-pofol/static/js/3.1c0619ed.chunk.js.map",
+    "index.html": "/react-pofol/index.html",
+    "static/css/main.45fac5f8.chunk.css.map": "/react-pofol/static/css/main.45fac5f8.chunk.css.map",
+    "static/js/2.7bded4fc.chunk.js.LICENSE.txt": "/react-pofol/static/js/2.7bded4fc.chunk.js.LICENSE.txt",
+    "static/media/common.scss": "/react-pofol/static/media/me.5003eb5e.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.9d0ceb55.js",
+    "static/js/2.7bded4fc.chunk.js",
+    "static/css/main.45fac5f8.chunk.css",
+    "static/js/main.9b4f07c9.chunk.js"
+  ]
+}
