@@ -1,8 +1,6 @@
 import React,{useEffect,useState,useRef} from "react"
 import MsgComp from "../component/MsgComp";
 export default function Main({msgList,onLoading,onAddAsync,onUpdated}){
-
-    
     useEffect(()=>{
     chatStart();
     },[]);

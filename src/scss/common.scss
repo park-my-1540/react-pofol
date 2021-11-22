@@ -30,8 +30,10 @@ section {
         background:linear-gradient(143deg, $main_2 0%, $main_1 100%);
     }
 }
-.main{
+section{
   @include posCenter;
+}
+.main{
   font-size: 18px;
     .main-box{
         position: relative;
