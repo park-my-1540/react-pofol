@@ -1,6 +1,9 @@
 
 import React from "react";
-export default function DetailPage(){
+function DetailPage({router}){
+    // const postId = props.router.params;
+    // console.log(postId );
+    console.log(router);
     return (
         <>
             <div className="sub-container">
@@ -25,3 +28,4 @@ export default function DetailPage(){
         </>
     )
 }    
+export default DetailPage;

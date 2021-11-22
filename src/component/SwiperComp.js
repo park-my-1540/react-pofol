@@ -19,7 +19,6 @@ export default function SwiperComp() {
    
   useEffect(()=>{
     elementAlign();
-    console.log("zsdf");
   },[])
   function elementAlign() {
     const boxs=[...document.getElementsByClassName("imageHolder")];

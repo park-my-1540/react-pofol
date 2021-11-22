@@ -1,13 +1,11 @@
 
 import React from "react";
 import SwiperComp from './SwiperComp';
-import DetailPage from './DetailPage';
 import '../scss/portfolio.scss'
-
-export default function Portfolio(){
+export default function Portfolio({location}){
+    console.log(location);
     return (
         <>
-        {/* <DetailPage/> */}
          <section className="portfolio">
             <SwiperComp/>
          </section>

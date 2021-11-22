@@ -1,8 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
-
-
+import {Link,Route,Routes} from 'react-router-dom';
+import DetailPage from "./DetailPage";
 export default function SwiperItem({handleMouseMove ,handleMouseLeave ,pofoldata}) {
   return (
+      <>
         <div class="main" onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave} >
           <div class="wrap">
             <div class="imageHolder bg0">
@@ -25,7 +26,14 @@ export default function SwiperItem({handleMouseMove ,handleMouseLeave ,pofoldata
               <img src={pofoldata.image}/>
             </div>
           </div>
-          <a href="#none" className="btn-link">view Project</a>
+          <Link to={{
+              pathname : `/project/${pofoldata.id}`,
+              state : {
+                  portfolData : {pofoldata}
+              }
+              }}>view Project</Link>
+         
         </div>
+        </>
   );
 }
