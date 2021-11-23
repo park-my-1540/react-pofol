@@ -1,17 +1,18 @@
 
 import React from "react";
-function DetailPage({router}){
-    // const postId = props.router.params;
-    // console.log(postId );
-    console.log(router);
+import {useParams,useLocation  } from "react-router-dom";
+function DetailPage(){
+    let params = useLocation ();
+    let project = params.state; 
+    console.log(params.state);
     return (
         <>
             <div className="sub-container">
                 <section className="sub-main">
-                    <h1>GIG inc</h1>
+                    <h1>{project.project}</h1>
                 </section>
                 <section className="sub-main">
-                    <h1>GIG CorporationRate site renewal</h1>
+                    <h1>{project.title}</h1>
                     <div className="main-box">
                         <div className="pc-box">
                             <img src="https://yuta-abe.com/assets/img/projects/gig/img_pc.png"/>
