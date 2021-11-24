@@ -3,8 +3,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import 'swiper/swiper.scss';
 import "swiper/components/navigation/navigation.scss";
 import "swiper/components/pagination/pagination.scss";
-import {gsap} from 'gsap'
 import SwiperItem from "./SwiperItem";
+import {preloadImages} from "../lib/ProLoadImage";
 import SwiperCore, { Mousewheel, Pagination, Navigation } from "swiper";
 
 SwiperCore.use([Mousewheel, Pagination, Navigation]);
@@ -19,6 +19,11 @@ export default function SwiperComp() {
    
   useEffect(()=>{
     elementAlign();
+    preloadImages([
+      'https://yuta-abe.com/assets/img/projects/gig/thumb.jpg'
+    ], function(){
+      console.log('All images were loaded');
+    });
   },[])
   function elementAlign() {
     const boxs=[...document.getElementsByClassName("imageHolder")];
@@ -70,6 +75,9 @@ export default function SwiperComp() {
       {
         data.map((data)=>
           <SwiperSlide>
+              <div className={`control-img ${data.id}`}>
+                <img src={data.image}/>
+              </div>
             <SwiperItem 
               handleMouseMove={handleMouseMove} 
               handleMouseLeave={handleMouseLeave}

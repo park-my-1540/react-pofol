@@ -7,7 +7,7 @@ import DetailPage from "./component/DetailPage"
 function App() {
   return (
     <>
-      <Link to="/">home</Link>
+      {/* <Link to="/">home</Link> */}
       {/* <Link to="/project">ss</Link> */}
       <Routes>
         <Route path="/" element={<Portfolio/>} />

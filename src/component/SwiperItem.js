@@ -1,9 +1,28 @@
-import React, { useEffect, useRef, useState } from "react";
-import {Link,Route,Routes} from 'react-router-dom';
-export default function SwiperItem({handleMouseMove ,handleMouseLeave ,pofoldata}) {
+import React ,{useRef} from "react";
+import {Link} from 'react-router-dom';
+
+import {gsap} from 'gsap'
+import { TweenMax } from "gsap";
+
+import CustomLink from "./CustomLink";
+  export default function SwiperItem({handleMouseMove ,handleMouseLeave ,pofoldata}) {
+  const navStyle = {
+    textDecoration: 'none',
+    color: '#fff',
+    zIndex : '1000',
+    marginLeft: '-50px',
+    textDecoration: 'none',
+    color: '#fff',
+    position: 'absolute',
+    top: '65%',
+    left: '64%',
+    marginTop: '-9px'
+  }
+
   return (
       <>
         <div class="main" onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave} >
+       
           <div class="wrap">
             <div class="imageHolder bg0">
               <div class="circle">01</div>
@@ -25,9 +44,18 @@ export default function SwiperItem({handleMouseMove ,handleMouseLeave ,pofoldata
               <img src={pofoldata.image}/>
             </div>
           </div>
-          <Link to={`/project/${pofoldata.id}`}
+          <CustomLink to={`/project/${pofoldata.id}`}
                 state ={pofoldata}
-          >view Project</Link>
+                style = {navStyle}
+                >
+            view Project
+          </CustomLink>
+          {/* <Link to={`/project/${pofoldata.id}`}
+                state ={pofoldata}
+                style = {navStyle}
+                onClick={testFuc}
+                // onClick={(e)=>testFuc(e)}
+          >view Project</Link> */}
         </div>
         </>
   );
