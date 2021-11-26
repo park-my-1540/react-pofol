@@ -1,16 +1,23 @@
 import {gsap} from 'gsap'
-import { TweenMax } from "gsap";
-export function sclaeAnimation({target}){
-    /**
-     * 선언하고 타겟받으면 실행하는 식으로 ㄱㄱ
-     * 
-     */
-     scaleAnim = TweenMax.fromTo(
-        target, 500,
-        {
-            width:3000,
-            height:3000
-        }
-     )
 
+
+//useTopGsap : 받아온 attr 속성을 0로
+export function topGsap(target,attr,val){
+    let topTo = gsap.to(target, {
+        [attr]:val,
+        duration: 2, 
+        ease: "easeing"
+     });
+     topTo.play();
+}
+
+// useTopGsap : 받아온 attr 속성을 0로
+export function opacityGsap(target){
+    let topTo = gsap.to(target, {
+        opacity:1,
+        duration: 2, 
+        delay :2,
+        ease: "ease-out"
+     });
+     topTo.play();
 }

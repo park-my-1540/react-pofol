@@ -1,28 +1,4 @@
-$main_1 : #efd5ff;
-$main_6 : #d47bf7;
-$main_2 : #515ada;
-$main_3 : #ffffff80;
-$main_4 : #00000080;
-$main_5 : #0003;
-@mixin clear {
-    &:after{
-        content: '';
-        display: block;
-        clear: both;
-    }
-}
-@mixin border($pt,$pr,$pb,$pl) {
-   border-radius: $pt $pr $pb $pl;
-}
-@mixin border_all($pt) {
-   border-radius: $pt;
-}
-@mixin  posCenter {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
+@import 'common';
 .portfolio{
   height: 100vh;
   overflow: hidden;
