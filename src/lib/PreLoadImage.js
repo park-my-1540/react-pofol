@@ -5,7 +5,7 @@ export function preloadImages(urls, allImagesLoadedCallback){
   	preloadImage(url, function(){
     	loadedCounter++;
 			console.log('Number of loaded images: ' + loadedCounter);
-      if(loadedCounter == toBeLoadedNumber){
+      if(loadedCounter === toBeLoadedNumber){
       	allImagesLoadedCallback();
       }
     });

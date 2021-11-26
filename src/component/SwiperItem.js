@@ -1,8 +1,4 @@
-import React ,{useRef} from "react";
-import {Link} from 'react-router-dom';
-
-import {gsap} from 'gsap'
-import { TweenMax } from "gsap";
+import React from "react";
 
 import CustomLink from "./CustomLink";
   export default function SwiperItem({handleMouseMove ,handleMouseLeave ,pofoldata}) {
@@ -22,7 +18,6 @@ import CustomLink from "./CustomLink";
   return (
       <>
         <div class="main" onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave} >
-       
           <div class="wrap">
             <div class="imageHolder bg0">
               <div class="circle">01</div>
@@ -50,12 +45,6 @@ import CustomLink from "./CustomLink";
                 >
             view Project
           </CustomLink>
-          {/* <Link to={`/project/${pofoldata.id}`}
-                state ={pofoldata}
-                style = {navStyle}
-                onClick={testFuc}
-                // onClick={(e)=>testFuc(e)}
-          >view Project</Link> */}
         </div>
         </>
   );

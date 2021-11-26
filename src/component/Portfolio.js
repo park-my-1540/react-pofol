@@ -2,13 +2,13 @@
 import React from "react";
 import SwiperComp from './SwiperComp';
 import '../scss/portfolio.scss'
-export default function Portfolio({location}){
+export default function Portfolio(){
+    
     return (
         <>
+        <div className="dim-wrap"></div>
          <section className="portfolio">
-             <div className="test-wrap">
-                <SwiperComp/>
-             </div>
+            <SwiperComp/>
          </section>
         </>
     )

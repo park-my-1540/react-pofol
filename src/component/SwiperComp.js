@@ -1,10 +1,10 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import 'swiper/swiper.scss';
 import "swiper/components/navigation/navigation.scss";
 import "swiper/components/pagination/pagination.scss";
 import SwiperItem from "./SwiperItem";
-import {preloadImages} from "../lib/ProLoadImage";
+import {preloadImages} from "../lib/PreLoadImage";
 import SwiperCore, { Mousewheel, Pagination, Navigation } from "swiper";
 
 SwiperCore.use([Mousewheel, Pagination, Navigation]);
@@ -14,7 +14,10 @@ export default function SwiperComp() {
     {id:'01',title : "제목",project : "프로젝트명",desc : "01 반응형0-제목같은", image : 'https://yuta-abe.com/assets/img/projects/gig/thumb.jpg'},
     {id:'02',title : "제목",project : "프로젝트2",desc : "01 반응형0-제목같은", image : 'https://yuta-abe.com/assets/img/projects/gig/thumb.jpg'},
     {id:'03',title : "제목",project : "프로젝트3",desc : "01 반응형0-제목같은", image : 'https://yuta-abe.com/assets/img/projects/gig/thumb.jpg'},
-    {id:'04',title : "제목",project : "프로젝트명44",desc : "01 반응형0-제목같은", image : 'https://yuta-abe.com/assets/img/projects/gig/thumb.jpg'}
+    {id:'04',title : "제목",project : "프로젝트명44",desc : "01 반응형0-제목같은", image : 'https://yuta-abe.com/assets/img/projects/gig/thumb.jpg'},
+    {id:'05',title : "제목",project : "프로젝트명44",desc : "01 반응형0-제목같은", image : 'https://yuta-abe.com/assets/img/projects/gig/thumb.jpg'},
+    {id:'06',title : "제목",project : "프로젝트명44",desc : "01 반응형0-제목같은", image : 'https://yuta-abe.com/assets/img/projects/gig/thumb.jpg'},
+    {id:'07',title : "제목",project : "프로젝트명44",desc : "01 반응형0-제목같은", image : 'https://yuta-abe.com/assets/img/projects/gig/thumb.jpg'}
   ]
    
   useEffect(()=>{
@@ -28,7 +31,6 @@ export default function SwiperComp() {
   function elementAlign() {
     const boxs=[...document.getElementsByClassName("imageHolder")];
     const parentWid = document.getElementsByClassName("swiper-slide")[0].offsetWidth; //배열이라 ? 
-    const parentHeight = document.getElementsByClassName("swiper-slide")[0].offsetHeight; //배열이라 ? 
     boxs.forEach(element => {
         element.style.width = parentWid + "px";
         element.style.height = parentWid + "px";
@@ -75,9 +77,6 @@ export default function SwiperComp() {
       {
         data.map((data)=>
           <SwiperSlide>
-              <div className={`control-img ${data.id}`}>
-                <img src={data.image}/>
-              </div>
             <SwiperItem 
               handleMouseMove={handleMouseMove} 
               handleMouseLeave={handleMouseLeave}
