@@ -1,19 +1,41 @@
+@import 'common';
 section {
     width: 100%;
-    height: 100vh;
+    height: 100%;
     &.main{
-        background:linear-gradient(143deg, $main_2 0%, $main_1 100%);
+        // background:linear-gradient(143deg, $main_2 0%, $main_1 100%);
     }
 }
 section{
   @include posCenter;
 }
+.wrapper{
+  .typograpy-wrap{
+    span{
+      display: inline-block;
+      font-size: 6rem;
+      font-family: 'Cardo';
+      width: 90px;
+      height: 80px;
+      margin: 10px;
+    }
+  }
+}
 .main{
+  overflow: hidden;
   font-size: 18px;
+    .wrapper{
+      width: 60%;
+      height: 100%;
+      float: right;
+      border-left:1px solid $main_4;
+    }
     .main-box{
         position: relative;
+        float: left;
         overflow: hidden;
-        width: 700px;
+        width: 35%;
+        height: 775px;
         background: $main_4;
         color:#fff;
         box-shadow: 0 5px 30px rgb(0 0 0 / 20%);
@@ -37,7 +59,7 @@ section{
         .content{
           padding: 0 20px;
           margin-top: 70px;
-          height: 500px;
+          height: 70%;
           overflow-y: auto;
           &::-webkit-scrollbar{
             width: 6px;

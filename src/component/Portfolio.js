@@ -6,10 +6,10 @@ export default function Portfolio(){
     
     return (
         <>
-        <div className="dim-wrap"></div>
-         <section className="portfolio">
+        <section className="portfolio">
+            <div className="dim-wrap"></div>
             <SwiperComp/>
-         </section>
+        </section>
         </>
     )
 }    

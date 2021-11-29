@@ -1,9 +1,6 @@
 
 import React ,{useEffect} from "react";
 import {useLocation,Link } from "react-router-dom";
-import AOS from "aos";
-import "aos/dist/aos.css";
-import {gsap} from 'gsap'
 import '../scss/import.scss'
 import '../scss/detail.scss'
 import { Scrollbar } from "smooth-scrollbar-react";
@@ -14,9 +11,12 @@ function DetailPage(){
     let project = params.state.state; 
 
     useEffect(() => {
-        AOS.init({
-            duration : 1000
-        });
+        /**
+         * 메인 배너 ,
+         * 메인 배너 프로젝트명.
+         * 스크롤 텍스트 애니메이션 효과
+         */
+  
         const _target = document.querySelector('.sub-main');
         topGsap(_target,'marginTop',0);
      
@@ -25,7 +25,6 @@ function DetailPage(){
 
         const _target03 = document.querySelector('.sub-tit');
         _target03.classList.add('on');
-        // opacityGsap(_target03);
 
         const _target04 = document.querySelector('.tit-scroll-wrap');
         _target04.classList.add('on');

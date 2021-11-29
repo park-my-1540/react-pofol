@@ -1,9 +1,10 @@
-$main_1 : #efd5ff;
-$main_6 : #d47bf7;
+$main_1 : #f2f2f2;
+$main_2 : #3a5dae;
 $main_2 : #515ada;
 $main_3 : #ffffff80;
-$main_4 : #00000080;
-$main_5 : #0003;
+$main_4 : #1a1b1c33;
+$main_5 : #1a1b1c;
+$main_6 : #1a1b1c;
 @mixin clear {
     &:after{
         content: '';
@@ -31,8 +32,13 @@ $main_5 : #0003;
     overflow: hidden;
 }
 html,body{
-  font-family: 'Maison', 'Noto Sans KR', 'Sans-serif', Arial, '돋움';
+    font-family: 'Maison', 'Noto Sans KR', 'Sans-serif', Arial, '돋움';
+    background: $main_1;
 }  
+html,body,#root{
+    width: 100%;
+    height: 100%;
+}
 .blind{
     @include blind;
 }

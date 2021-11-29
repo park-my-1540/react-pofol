@@ -1,5 +1,4 @@
-import Portfolio from "./component/Portfolio";
-import MessageContainer from "./container/MessageContainer";
+import Main from "./component/Main";
 import './scss/import.scss'
 import {Route,Routes,Link} from 'react-router-dom';
 import DetailPage from "./component/DetailPage"
@@ -7,7 +6,7 @@ import { Scrollbar } from "smooth-scrollbar-react";
 function App() {
   return (
     <>
-     <Scrollbar 
+     {/* <Scrollbar 
         className="sub-container"
         alwaysShowTracks
         plugins={{
@@ -15,13 +14,13 @@ function App() {
                 effect: "glow"
             } 
             }}
-        >
+        > */}
         <Routes>
-          <Route path="/" element={<Portfolio/>} />
+          <Route path="/" element={<Main/>} />
           <Route path="/project/:id" element={<DetailPage/>} />
         </Routes>
 
-      </Scrollbar>
+      {/* </Scrollbar> */}
       {/* <Link to="/">home</Link> */}
       {/* <Link to="/project">ss</Link> */}
    </>
