@@ -17,7 +17,7 @@ export default function SwiperComp() {
 
   useEffect(()=>{
   },[])
-  const [fstIndex,setFstIndex] = useState(true);
+  const [isFstIdx,setIsFstIdx] = useState(true);
 
   const onChanged = (swiper) =>{
 
@@ -28,12 +28,12 @@ export default function SwiperComp() {
       // swiper.mousewheel.disable();
       transGsap(aside,'left',0,1);
       transGsap(msgBox,'right',-msgBox.offsetWidth,1);
-      setFstIndex(false);
+      setIsFstIdx(false);
     }else{
       swiper.mousewheel.enable(); 
       transGsap(msgBox,'right',0,1);
       transGsap(aside,'left',-aside.offsetWidth,1);
-      setFstIndex(true);
+      setIsFstIdx(true);
     }
 
   }
@@ -43,7 +43,7 @@ export default function SwiperComp() {
       <div className="main-header">
         HEADER
       </div>
-        <MainTypo fstIndex={fstIndex}/>
+        <MainTypo isFstIdx={isFstIdx}/>
         <Swiper direction={'vertical'}  
           navigation={{
             nextEl: '.main-next',
@@ -76,7 +76,7 @@ export default function SwiperComp() {
                 <h1>Controlled <br/>Cannabis Systems</h1>
               </div>
             </div>
-            <SwiperSlide><MessageContainer fstIndex={fstIndex}/></SwiperSlide>
+            <SwiperSlide><MessageContainer isFstIdx={isFstIdx}/></SwiperSlide>
             <SwiperSlide><div className="test-container">Slide2</div></SwiperSlide>
             <SwiperSlide><Portfolio/></SwiperSlide>
         </Swiper>

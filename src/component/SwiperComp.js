@@ -40,19 +40,19 @@ export default function SwiperComp() {
     elementAlign();
   })
 
-    function handleMouseMove  (e) {
-      const window_height = e.currentTarget.offsetHeight,
-            window_width = e.currentTarget.offsetWidth;
-            mouseXpos = e.nativeEvent.offsetX,
-            mouseYpos = e.nativeEvent.offsetY,
-            YrotateDeg = (window_width / 2 - mouseXpos) * 0.05,
-            XrotateDeg = (window_height / 2 - mouseYpos) * -0.05;
-            
-      e.currentTarget.firstChild.style.transform = `rotateX(${XrotateDeg}deg) rotateY(${YrotateDeg}deg)`;
-    };
-    function handleMouseLeave  (e) {
-      e.currentTarget.firstChild.style.transform = `rotateX(${0}deg) rotateY(${0}deg)`;
-    };
+  function handleMouseMove(e) {
+    const window_height = e.currentTarget.offsetHeight,
+        window_width = e.currentTarget.offsetWidth,
+        mouseXpos = e.nativeEvent.offsetX,
+        mouseYpos = e.nativeEvent.offsetY,
+        YrotateDeg = (window_width / 2 - mouseXpos) * 0.05,
+        XrotateDeg = (window_height / 2 - mouseYpos) * -0.05;
+          
+    e.currentTarget.firstChild.style.transform = `rotateX(${XrotateDeg}deg) rotateY(${YrotateDeg}deg)`;
+  };
+  function handleMouseLeave(e) {
+    e.currentTarget.firstChild.style.transform = `rotateX(${0}deg) rotateY(${0}deg)`;
+  };
 
   return (
     <>

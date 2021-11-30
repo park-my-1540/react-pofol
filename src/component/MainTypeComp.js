@@ -1,7 +1,7 @@
 import React,{useEffect,useCallback} from "react"
 import '../scss/chat.scss'
 import { hoverGsap,typoGsap ,reverseTypoGsap} from "../lib/gsapFuncs";
-export default function MainTypeComp({fstIndex}){
+export default function MainTypeComp({isFstIdx}){
     /**
      * 첫번째 인덱스면
      * mouseenter hover 되고
@@ -21,7 +21,7 @@ export default function MainTypeComp({fstIndex}){
         const typograpy=[...document.querySelectorAll('.typograpy-wrap span')],
                 typograpyWrap=document.querySelector('.typograpy-wrap');
         
-        if(fstIndex){
+        if(isFstIdx){
             typograpy.forEach((text)=>{
                 text.addEventListener('mouseover',typoEventListner);
             })
@@ -33,7 +33,7 @@ export default function MainTypeComp({fstIndex}){
             typoGsap(typograpyWrap);
         }
                 
-    },[fstIndex])
+    },[isFstIdx])
 
     return (
         <div className="wrapper">
