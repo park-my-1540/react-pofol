@@ -1,5 +1,5 @@
 export default function Main({msgState,msg,time}){
-    var msgMe = (
+    const msgMe = (
         <div className="msg-box">
             <p className="profile-img"></p>
             <div className="msg-txt me">
@@ -10,7 +10,7 @@ export default function Main({msgState,msg,time}){
             </div>
         </div>
     )
-    var msgYou = (
+    const msgYou = (
         <div className="msg-box">
             <div className="msg-txt you">
                 <p className="txt">{msg}</p>
@@ -18,7 +18,7 @@ export default function Main({msgState,msg,time}){
             </div>
         </div>
     )
-    var msgLoading = (
+    const msgLoading = (
         <div className="msg-box loading">
             <p className="profile-img"></p>
             <div className="msg-txt">
@@ -30,12 +30,8 @@ export default function Main({msgState,msg,time}){
             </div>
         </div>
     )
-    if(msgState === "msgMe"){
-        return (msgMe)
-    }else if(msgState === "msgYou"){
-        return msgYou
-    }
-    else if(msgState === "msgLoading"){
-        return msgLoading
-    }
+
+    if(msgState === "msgMe") return (msgMe);
+    else if(msgState === "msgYou") return msgYou ;
+    else if(msgState === "msgLoading") return msgLoading ;
 }

@@ -11,28 +11,27 @@ section{
 }
 .wrapper{
   .typograpy-wrap{
+    z-index: 999;
+    position: fixed;
     span{
       display: inline-block;
       font-size: 6rem;
       font-family: 'Cardo';
-      width: 90px;
-      height: 80px;
-      margin: 10px;
     }
   }
 }
 .main{
   overflow: hidden;
   font-size: 18px;
-    .wrapper{
+     .wrapper{
       width: 60%;
       height: 100%;
-      float: right;
-      border-left:1px solid $main_4;
+      float: left;
+      border-right:1px solid $main_4;
     }
     .main-box{
         position: relative;
-        float: left;
+        float: right;
         overflow: hidden;
         width: 35%;
         height: 775px;

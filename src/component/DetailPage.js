@@ -4,7 +4,7 @@ import {useLocation,Link } from "react-router-dom";
 import '../scss/import.scss'
 import '../scss/detail.scss'
 import { Scrollbar } from "smooth-scrollbar-react";
-import { topGsap,opacityGsap } from "../lib/gsapFuncs";
+import { transGsap } from "../lib/gsapFuncs";
 
 function DetailPage(){
     let params = useLocation ();
@@ -18,10 +18,10 @@ function DetailPage(){
          */
   
         const _target = document.querySelector('.sub-main');
-        topGsap(_target,'marginTop',0);
+        transGsap(_target,'marginTop',0);
      
         const _target02 = document.querySelector('.fixed-bg');
-        topGsap(_target02,'top',0);
+        transGsap(_target02,'top',0);
 
         const _target03 = document.querySelector('.sub-tit');
         _target03.classList.add('on');

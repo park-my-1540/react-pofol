@@ -1,6 +1,5 @@
 import React,{useEffect,useState,useRef} from "react"
 import MsgComp from "./MsgComp";
-import '../scss/chat.scss'
 
 export default function Main({msgList,onLoading,onAddAsync,onUpdated}){
     useEffect(()=>{
@@ -24,7 +23,7 @@ export default function Main({msgList,onLoading,onAddAsync,onUpdated}){
                 onAddAsync(nextId.current++,"msgMe", fadeChat[rand_1_fatChat],timeFuction());
             },2000)
         }
-        var objDiv = document.getElementById("content");
+        const objDiv = document.getElementById("content");
         
         if(msgList.length && objDiv.offsetHeight>400){ //스크롤 마지막 메시지로 이동
             objDiv.scrollTop = objDiv.scrollHeight;
@@ -63,25 +62,30 @@ export default function Main({msgList,onLoading,onAddAsync,onUpdated}){
 
     return (
         <>
-                <div className="main-box">
-                    <div className="header">
-                        <p className="profile-img"></p>
-                        <div class="cont">
-                            <p className="txt">PARKMEEYOUNG</p>
-                            <p className="time">KOREA</p>
-                        </div>
-                    </div>
-                    <div className="content" id="content">
-                        {
-                          msgList && msgList.map((msg)=><MsgComp msgState={msg.target} msg={msg.text} time={msg.time}/>)
-                        }
-                    </div>
-                    <div className="send-box">
-                        <input type="text" placeholder="Type message..." value={inputs} class="txt-input" onChange={(e)=>{setInputs(e.target.value)}} onKeyDown={(e)=>{if(e.keyCode === 13){sendMsg()}}}></input>
-                        <button type="button" class="btn-send" onClick={sendMsg}>SEND</button>
+         <section className="main">
+            <div className="main-box">
+                <div className="header">
+                    <p className="profile-img"></p>
+                    <div class="cont">
+                        <p className="txt">PARKMEEYOUNG</p>
+                        <p className="time">KOREA</p>
                     </div>
                 </div>
-
+                <div className="content" id="content">
+                    {
+                        msgList && msgList.map((msg)=><MsgComp msgState={msg.target} msg={msg.text} time={msg.time}/>)
+                    }
+                </div>
+                <div className="send-box">
+                    <input type="text" placeholder="Type message..." value={inputs} class="txt-input" onChange={(e)=>{setInputs(e.target.value)}} onKeyDown={(e)=>{if(e.keyCode === 13){sendMsg()}}}></input>
+                    <button type="button" class="btn-send" onClick={sendMsg}>SEND</button>
+                </div>
+            </div>
+            <div className="mouse-wrap">
+                <div className="mouse"><span></span></div>
+                <span className="txt">scroll</span>
+            </div>        
+         </section>
         </>
     )
 }

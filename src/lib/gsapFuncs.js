@@ -1,68 +1,40 @@
-import {gsap,timeline} from 'gsap'
+import {gsap} from 'gsap'
 
 
-//useTopGsap : 받아온 attr 속성을 0로
-export function topGsap(target,attr,val){
+//transGsap : 받아온 attr 속성을 0로
+export function transGsap(target,attr,val,dur=2){
     let topTo = gsap.to(target, {
         [attr]:val,
-        duration: 2, 
+        duration: dur, 
         ease: "easeing"
      });
      topTo.play();
 }
 
-// useTopGsap : 받아온 attr 속성을 0로
-export function opacityGsap(target){
-    let topTo = gsap.to(target, {
-        opacity:1,
-        duration: 2, 
-        delay :2,
-        ease: "ease-out"
-     });
-     topTo.play();
+// hoverGsap 
+export function hoverGsap(target){
+    let tl = gsap.timeline();
+    tl.to(target, {transform: 'matrix(0.8, 0, 0, 1.5, 0, 0)', duration: 0.1});
+    tl.to(target, {transform: 'matrix(1, 0, 0, 1, 0, 0)', duration: 0.1});
+    tl.pause();
+    tl.play();
+    tl.seek(0.2);
+    tl.reverse();
 }
 
-// useTopGsap : 받아온 attr 속성을 0로
-export function hoverGsap(target){
-    // let topTo = TweenMax.staggerTo(target, 
-    //  {
-    //     transform: 'scale(1.5)',
-    //     // transform: 'matrix(0.8, 0, 0, 1.5, 0, 0)',
-    //     color:'red',
-    //     duration: 3, 
-    //     ease: "ease"
-    //  },
-    //  {
-    //     transform: 'scale(1)',
-    //     // transform: 'matrix(1, 0, 0, 1, 0, 0)',
-    //     color:'black',
-    //     duration: 3, 
-    //     ease: "ease"
-    //  },
-    //  );
-    //  topTo.play();
-    //  if(flag === "over"){
-    //  }else if(flag === "leave"){
-    //     topTo.reverse();
-    // var tl = new gsap.timeline({paused:true});
-    // tl.to(target, 0.2, {backgroundColor:"yellow"})
-    //   .to(target, 0.2, {height:100})
-    //   .to(target, 0.2, 
-    //   {color:"red", rotation:360, y:40})
-    // target.animation = tl;
-    // if(flag === "over"){
-    //      tl.play();
-    //  }else if(flag === "leave"){
-    //     tl.reverse();
-    //     console.log("reverse");
-    //  }
-     var tl = gsap.timeline();
-        tl.to(target, {transform: 'matrix(0.8, 0, 0, 1.5, 0, 0)', duration: 0.1});
-        tl.to(target, {transform: 'matrix(1, 0, 0, 1, 0, 0)', duration: 0.1});
+// typoGsap  
+export function typoGsap(target){
+    let tl = gsap.timeline();
+    tl.to(target, {transform: 'translate(-10%, 300%) scale(0.3)', duration: 0.5});
+    tl.pause();
+    tl.play();
+}
 
-        // then we can control the whole thing easily...
-        tl.pause();
-        tl.play();
-        tl.seek(1.5);
-        tl.reverse();
+// typoGsap-reverse  
+export function reverseTypoGsap(target){
+    let tl = gsap.timeline();
+    tl.to(target, {transform: 'translate(0,0)', duration: 0.5});
+    tl.to(target, {transform: 'scale(1)', duration: 0.5});
+    tl.pause();
+    tl.play();
 }

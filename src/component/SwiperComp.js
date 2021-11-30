@@ -41,13 +41,13 @@ export default function SwiperComp() {
   })
 
     function handleMouseMove  (e) {
-      var window_height = e.currentTarget.offsetHeight;
-      var window_width = e.currentTarget.offsetWidth;
-      
-      var mouseXpos = e.nativeEvent.offsetX;
-      var mouseYpos = e.nativeEvent.offsetY;
-      var YrotateDeg = (window_width / 2 - mouseXpos) * 0.05;
-      var XrotateDeg = (window_height / 2 - mouseYpos) * -0.05;
+      const window_height = e.currentTarget.offsetHeight,
+            window_width = e.currentTarget.offsetWidth;
+            mouseXpos = e.nativeEvent.offsetX,
+            mouseYpos = e.nativeEvent.offsetY,
+            YrotateDeg = (window_width / 2 - mouseXpos) * 0.05,
+            XrotateDeg = (window_height / 2 - mouseYpos) * -0.05;
+            
       e.currentTarget.firstChild.style.transform = `rotateX(${XrotateDeg}deg) rotateY(${YrotateDeg}deg)`;
     };
     function handleMouseLeave  (e) {

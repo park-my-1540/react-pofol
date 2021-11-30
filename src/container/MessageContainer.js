@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector,useDispatch } from "react-redux";
 import {update_msg,change_msgAsync,loading,set_timeAsync} from "../module/messages";
 import Main from "../component/MsgSecComp";
-import MainTypo from "../component/MainTypeComp";
+import '../scss/chat.scss'
 function MessageContainer(){
 
     const msgList = useSelector(state => state.messages);
@@ -13,12 +13,7 @@ function MessageContainer(){
     const onAddAsync =(id,text,target,time) => dispatch(change_msgAsync(id,text,target,time));
     const onsetTimeAsync = (id) => dispatch(set_timeAsync(id));
         
-    return (
-        <>
-            <Main msgList={msgList} onUpdated={onUpdated} onLoading={onLoading} onsetTimeAsync={onsetTimeAsync} onAddAsync={onAddAsync}/>
-            <MainTypo/>
-        </>
-        );
+    return <Main msgList={msgList} onUpdated={onUpdated} onLoading={onLoading} onsetTimeAsync={onsetTimeAsync} onAddAsync={onAddAsync}/>;
 }
 
 export default MessageContainer;
