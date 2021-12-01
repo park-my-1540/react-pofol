@@ -1,4 +1,4 @@
-@import 'common';
+@import 'style';
 .sub-wrap{
     background: #000;
 }
@@ -22,7 +22,7 @@
         width: 100vw;
         height: 100%;
         margin-top: 100vh;
-        background-color: #00000059;
+        background-color: $main_6;
         color: #fff;
         &::after{
             content: '';
@@ -61,18 +61,14 @@
             }
         }
         .sub-tit{
-            position: absolute;
-            top: 50%;
-            left: 50%;
+            @include posCenter2;            
             opacity: 0;
-            transform: translate(-50%,-50%);
             color: #fff;
-            font-size: 75px;
+            font-size: 5em;
             z-index: 9;
             transform: translate(-50%,-30%);
             -webkit-clip-path: inset(100% 0 0 0);
             clip-path: inset(100% 0 0 0);
-            opacity: 0;
             transition: opacity .6s cubic-bezier(.58,.45,.27,.98) 1s;
             transition-property: opacity,transform,-webkit-clip-path;
             transition-property: opacity,transform,clip-path;
@@ -167,84 +163,4 @@
             }
         }
     }
-    .empty{
-        height: 900px;
-        border: 1px solid blue;
-    }
 }
-// * {
-//     margin: 0;
-//     padding: 0;
-//     box-sizing: border-box;
-//   }
-  
-//   body {
-//     color: #525252;
-//     background: #000;
-//   }
-  
-//   .App {
-//     width: 500px;
-//     max-width: 90vw;
-//     margin: 20px auto 0;
-//     height: 1500px;
-//   }
-  
-//   h1,
-//   h2,
-//   h3 {
-//     background-image: linear-gradient(
-//       90deg,
-//       #f79533 0%,
-//       #f37055 15%,
-//       #ef4e7b 30%,
-//       #a166ab 44%,
-//       #5073b8 58%,
-//       #1098ad 72%,
-//       #07b39b 86%,
-//       #6dba82 100%
-//     );
-//     background-size: cover;
-//     -webkit-background-clip: text;
-//     -webkit-text-fill-color: transparent;
-//     background-clip: text;
-//     text-fill-color: transparent;
-//     font-weight: 100;
-//   }
-  
-//   .sample-container,
-//   .sample-container-2 {
-//     margin: 30px 0;
-//     background: #fff;
-//   }
-  
-//   button {
-//     border: 0;
-//     outline: 0;
-//     padding: 7px 10px;
-//     background: #dedede;
-//     cursor: pointer;
-//   }
-  
-//   h4 {
-//     margin: 10px 0 20px;
-//   }
-  
-//   .scrollbar-track-x,
-//   .scrollbar-thumb-x {
-//     height: 5px !important;
-//   }
-  
-//   .scrollbar-track-y,
-//   .scrollbar-thumb-y {
-//     width: 5px !important;
-//   }
-  
-//   .scroll-content:hover ~ .scrollbar-track {
-//     opacity: 1;
-//   }
-  
-//   .custom-class {
-//     background: #fff;
-//   }
-  

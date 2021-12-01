@@ -1,44 +1,37 @@
-@import 'common';
-section {
-    width: 100%;
-    height: 100%;
-    &.main{
-        // background:linear-gradient(143deg, $main_2 0%, $main_1 100%);
-    }
-}
-section{
-  @include posCenter;
-}
+@import 'style';
+
 .wrapper{
   .typograpy-wrap{
-    z-index: 999;
     position: fixed;
+    transform: translate(20%, 230%);
+    z-index: 999;
     span{
       display: inline-block;
-      font-size: 6rem;
-      font-family: 'Cardo';
+      font-size: 6em;
     }
   }
 }
 .main{
-  overflow: hidden;
-  font-size: 18px;
-     .wrapper{
-      width: 60%;
-      height: 100%;
-      float: left;
-      border-right:1px solid $main_4;
+  @include clear;
+  font-size: 1.2em;
+    .inner{
+      overflow: hidden;
+      float: right;
+      width: 30%;
+      height: 90%;
+      padding: 10px 10px 10px 40px;
+      border-left: 1px solid $main_4;
     }
-    .main-box{
-        position: relative;
-        float: right;
-        overflow: hidden;
-        width: 35%;
-        height: 775px;
-        background: $main_4;
-        color:#fff;
-        box-shadow: 0 5px 30px rgb(0 0 0 / 20%);
-        @include border(20px,20px,20px,20px);
+    .chat-box{
+      position: relative;
+      float: right;
+      overflow: hidden;
+      width: 100%;
+      height: 100%;
+      background: $main_4;
+      color:#fff;
+      box-shadow: 0 5px 30px rgb(0 0 0 / 20%);
+      @include border(20px);
         .header{
             @include clear;
             position: absolute;
@@ -87,10 +80,8 @@ section{
                 color: #fff;
             }
             button{
-                @include border(10px,10px,10px,10px);
-                padding:5px 7px;
+                @include border(10px);
                 color: #fff;
-                border: none;
                 background : $main_6;
             }
         }
@@ -98,7 +89,7 @@ section{
     .time{
         margin-top: 9px;
         color: $main_3;
-        font-size: 16px;
+        font-size: 1em;
     }
     .msg-box{
         @include clear;
@@ -118,7 +109,7 @@ section{
             margin:0 3px 5px;
             position: relative;    
             background: #fff;
-            @include border_all(50%);
+            @include border(50%);
             &:nth-child(1) {
                 color: lime;
                 -webkit-animation: ball 1s linear infinite;

@@ -1,8 +1,8 @@
-@import 'common';
+@import 'style';
 .main-wrapper{
     width: 100%;
     height: 100%;
-    overflow: hidden;
+    @include clear;
     .mainSwipper{
         height: 100%;
         .swiper-wrapper{
@@ -24,52 +24,50 @@
         top: 0;
         height: 50px;
         width: 100%;
+        background: $main_1;
         border-bottom: 1px solid $main_4;
     }
     .main-ctrl{
         position: relative;
-        height: 30%;
+        height: 40%;
         .main-prev,.main-next{
             position: absolute;
             top: 0;
             left: 50%;
-            border:none;
-            background: none;
+            transform:translateX(-50%);
         }
         .main-next{
             top:auto;
             bottom: 0;
         }
-        .main-prev{transform: rotate(180deg);}
+        .main-prev{
+            transform:translateX(-50%) rotate(180deg);
+        }
         .main-pagination{
-            position: absolute;
-            top: 30%;
-            left: 50%;
+           @include posCenter2;
             .swiper-pagination-bullet{
                 position: relative;
                 display: block;
-                margin-bottom: 15px;
-                width: 10px;
-                height: 10px;
-                &>span{
+                width: 12px;
+                height: 12px;
+                margin-bottom: 17px;
+                & > span{
                     display: block;
+                    width: 150px;
                     line-height: 12px;
                     margin-left: 26px;
-                    width: 105px;
                     text-align: end;
+                    font-size: 1.15em;
                 }
             }
             .swiper-pagination-bullet-active{
                 background-color:$main_2 ;
                 &::after{
                     content: "";
-                    position: absolute;
-                    top: 50%;
-                    left: 50%;
-                    transform: translate(-50%,-50%);
-                    border: 1.2px solid $main_2;
-                    width: 14px;
-                    height: 14px;
+                    @include posCenter2;
+                    border: 1.4px solid $main_2;
+                    width: 16px;
+                    height: 16px;
                     border-radius: inherit;
                 }
             }
@@ -84,9 +82,7 @@
         float: left;
         border: 1px solid $main_4;
         z-index: 1;
-        &.hide{
-            display: none;
-        }
+        background: $main_1;
         .header{
             height: 50px;
         }
@@ -95,7 +91,7 @@
             bottom: 0;
             h1{
                 line-height: 1.1;
-                font-size: 2rem;
+                font-size: 2em;
             }
         }
     }
@@ -109,8 +105,8 @@
     width: 50px;
     height: 50px;
     position: absolute;
-    top: 50%;
-    right: 10%;
+    top: 70%;
+    right: 35%;
     border-radius: 50%;
     background: $main_2;
     .mouse{
@@ -120,7 +116,7 @@
         height: 25px;
         margin-left: 17px;
         margin-top: 13px;
-        @include border(20px,20px,20px,20px);
+        @include border(20px);
         &>span{
             &:after{
                 content: '';

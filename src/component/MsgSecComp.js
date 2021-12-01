@@ -63,28 +63,28 @@ export default function Main({msgList,onLoading,onAddAsync,onUpdated}){
     return (
         <>
          <section className="main">
-            <div className="main-box">
-                <div className="header">
-                    <p className="profile-img"></p>
-                    <div class="cont">
-                        <p className="txt">PARKMEEYOUNG</p>
-                        <p className="time">KOREA</p>
+            <div className="inner">
+                <div className="chat-box">
+                    <div className="header">
+                        <p className="profile-img"></p>
+                        <div class="cont">
+                            <p className="txt">PARKMEEYOUNG</p>
+                            <p className="time">KOREA</p>
+                        </div>
+                    </div>
+                    <div className="content" id="content">
+                        { msgList && msgList.map((msg)=><MsgComp msgState={msg.target} msg={msg.text} time={msg.time}/>)}
+                    </div>
+                    <div className="send-box">
+                        <input type="text" placeholder="Type message..." value={inputs} class="txt-input" onChange={(e)=>{setInputs(e.target.value)}} onKeyDown={(e)=>{if(e.keyCode === 13){sendMsg()}}}></input>
+                        <button type="button" class="btn-send" onClick={sendMsg}>SEND</button>
                     </div>
                 </div>
-                <div className="content" id="content">
-                    {
-                        msgList && msgList.map((msg)=><MsgComp msgState={msg.target} msg={msg.text} time={msg.time}/>)
-                    }
-                </div>
-                <div className="send-box">
-                    <input type="text" placeholder="Type message..." value={inputs} class="txt-input" onChange={(e)=>{setInputs(e.target.value)}} onKeyDown={(e)=>{if(e.keyCode === 13){sendMsg()}}}></input>
-                    <button type="button" class="btn-send" onClick={sendMsg}>SEND</button>
-                </div>
+                <div className="mouse-wrap">
+                    <div className="mouse"><span></span></div>
+                    <span className="txt">scroll</span>
+                </div>        
             </div>
-            <div className="mouse-wrap">
-                <div className="mouse"><span></span></div>
-                <span className="txt">scroll</span>
-            </div>        
          </section>
         </>
     )

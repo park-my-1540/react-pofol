@@ -1,0 +1,45 @@
+/*variable*/
+//color
+$main_1 : #f2f2f2;
+$main_2 : #3a5dae;
+$main_2 : #515ada;
+$main_3 : #ffffff80;
+$main_4 : #1a1b1c33;
+$main_5 : #1a1b1c;
+$main_6 : #00000059;
+
+//fontSize
+
+/*mixin*/
+@mixin clear {
+    &:after{
+        content: '';
+        display: block;
+        clear: both;
+    }
+}
+@mixin border($pt,$pr:$pt,$pb:$pt,$pl:$pt) {
+   border-radius: $pt $pr $pb $pl;
+}
+@mixin  posCenter {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+@mixin  posCenter2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+@mixin  blind {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}
+@mixin  showBox($color) {
+    border: 1px solid $color;
+}

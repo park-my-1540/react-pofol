@@ -22,10 +22,10 @@ export default function SwiperComp() {
   const onChanged = (swiper) =>{
 
     const aside = document.querySelector('.aside'),
-          msgBox = document.querySelector('.main-box');
+          msgBox = document.querySelector('.chat-box');
 
     if(swiper.activeIndex !== 0){ 
-      // swiper.mousewheel.disable();
+      swiper.mousewheel.disable();
       transGsap(aside,'left',0,1);
       transGsap(msgBox,'right',-msgBox.offsetWidth,1);
       setIsFstIdx(false);
@@ -58,7 +58,7 @@ export default function SwiperComp() {
               el: '.main-pagination',
               clickable:true,
               renderBullet:function(index,className){
-                const list = ['Home','About','Portfolio'];
+                const list = ['Home','About','Project','Practice'];
                 return `<p class="${className}"><span>${list[index]}</span></p>`
               }
           }} 
@@ -68,17 +68,15 @@ export default function SwiperComp() {
                 <p>Control</p><span className="branch"></span>
               </div>
               <div className="main-ctrl">
-                <button className="main-prev"><svg width="19" height="12" viewBox="0 0 19 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1L9.21373 11L18 1" stroke="#1A1B1C" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+                <button className="main-prev"><span className="blind">이전으로</span><svg width="19" height="12" viewBox="0 0 19 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1L9.21373 11L18 1" stroke="#1A1B1C" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
                 <div class="main-pagination"></div>
-                <button className="main-next"><svg width="19" height="12" viewBox="0 0 19 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1L9.21373 11L18 1" stroke="#1A1B1C" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
-              </div>
-              <div className="footer">
-                <h1>Controlled <br/>Cannabis Systems</h1>
+                <button className="main-next"><span className="blind">다음으로</span><svg width="19" height="12" viewBox="0 0 19 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1L9.21373 11L18 1" stroke="#1A1B1C" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
               </div>
             </div>
             <SwiperSlide><MessageContainer isFstIdx={isFstIdx}/></SwiperSlide>
             <SwiperSlide><div className="test-container">Slide2</div></SwiperSlide>
-            <SwiperSlide><Portfolio/></SwiperSlide>
+            <SwiperSlide><Portfolio cont={'project'}/></SwiperSlide>
+            <SwiperSlide><Portfolio cont={'prac'}/></SwiperSlide>
         </Swiper>
     </div>
     </>
