@@ -10,21 +10,21 @@ import SwiperCore, { Mousewheel, Pagination, Navigation } from "swiper";
 
 SwiperCore.use([Mousewheel, Pagination, Navigation]);
 
-export default function SwiperComp() {
-  const data = [
-    {id:'01',title : "제목",project : "프로젝트명",desc : "01 반응형0-제목같은", image : 'https://yuta-abe.com/assets/img/projects/gig/thumb.jpg'},
-    {id:'02',title : "제목",project : "프로젝트2",desc : "01 반응형0-제목같은", image : 'https://yuta-abe.com/assets/img/projects/gig/thumb.jpg'},
-    {id:'03',title : "제목",project : "프로젝트3",desc : "01 반응형0-제목같은", image : 'https://yuta-abe.com/assets/img/projects/gig/thumb.jpg'},
-    {id:'04',title : "제목",project : "프로젝트명44",desc : "01 반응형0-제목같은", image : 'https://yuta-abe.com/assets/img/projects/gig/thumb.jpg'},
-    {id:'05',title : "제목",project : "프로젝트명44",desc : "01 반응형0-제목같은", image : 'https://yuta-abe.com/assets/img/projects/gig/thumb.jpg'},
-    {id:'06',title : "제목",project : "프로젝트명44",desc : "01 반응형0-제목같은", image : 'https://yuta-abe.com/assets/img/projects/gig/thumb.jpg'},
-    {id:'07',title : "제목",project : "프로젝트명44",desc : "01 반응형0-제목같은", image : 'https://yuta-abe.com/assets/img/projects/gig/thumb.jpg'}
-  ]
+export default function SwiperComp({data}) {
+  // const data = [
+  //   {id:'01',title : "제목",project : "프로젝트명",desc : "01 반응형0-제목같은", image : '/images/dummy.jpg'},
+  //   {id:'02',title : "제목",project : "프로젝트2",desc : "01 반응형0-제목같은", image : '/images/dummy.jpg'},
+  //   {id:'03',title : "제목",project : "프로젝트3",desc : "01 반응형0-제목같은", image : '/images/dummy.jpg'},
+  //   {id:'04',title : "제목",project : "프로젝트명44",desc : "01 반응형0-제목같은", image : '/images/dummy.jpg'},
+  //   {id:'05',title : "제목",project : "프로젝트명44",desc : "01 반응형0-제목같은", image : '/images/dummy.jpg'},
+  //   {id:'06',title : "제목",project : "프로젝트명44",desc : "01 반응형0-제목같은", image : '/images/dummy.jpg'},
+  //   {id:'07',title : "제목",project : "프로젝트명44",desc : "01 반응형0-제목같은", image : '/images/dummy.jpg'}
+  // ]
    
   useEffect(()=>{
     elementAlign();
     preloadImages([
-      'https://yuta-abe.com/assets/img/projects/gig/thumb.jpg'
+      'images/dummy.jpg'
     ], function(){
       console.log('All images were loaded');
     });

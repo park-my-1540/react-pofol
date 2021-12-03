@@ -9,12 +9,12 @@ import SwiperCore, { Mousewheel, Pagination, Navigation } from "swiper";
 
 SwiperCore.use([Mousewheel, Pagination, Navigation]);
 
-export default function SwiperComp() {
-  const data = [
-    {id:'01',title : "제목",project : "날씨",desc : "01 반응형0-제목같은", image : 'https://yuta-abe.com/assets/img/projects/gig/thumb.jpg'},
-    {id:'02',title : "제목",project : "날씨디벨롭",desc : "01 반응형0-제목같은", image : 'https://yuta-abe.com/assets/img/projects/gig/thumb.jpg'},
-    {id:'03',title : "영화",project : "영화",desc : "01 반응형0-제목같은", image : 'https://yuta-abe.com/assets/img/projects/gig/thumb.jpg'}
-  ]
+export default function PracComp({data}) {
+  // const data = [
+  //   {id:'01',title : "제목",project : "날씨",desc : "01 반응형0-제목같은", image : 'images/dummy.jpg'},
+  //   {id:'02',title : "제목",project : "날씨디벨롭",desc : "01 반응형0-제목같은", image : 'images/dummy.jpg'},
+  //   {id:'03',title : "영화",project : "영화",desc : "01 반응형0-제목같은", image : 'images/dummy.jpg'}
+  // ]
 
   return (
     <>

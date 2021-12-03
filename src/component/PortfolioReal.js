@@ -1,7 +1,9 @@
-import React from "react";
+import React,{useEffect} from "react";
 
 import CustomLink from "./CustomLink";
-  export default function SwiperItem({pofoldata}) {
+import{allToClipGsap} from "../lib/gsapFuncs";
+
+  export default function PortfolioReal({pofoldata}) {
   const navStyle = {
     textDecoration: 'none',
     color: '#000',
@@ -13,13 +15,21 @@ import CustomLink from "./CustomLink";
     left: '64%',
     marginTop: '-9px'
   }
-  
-  return (
+  useEffect(() => {
+    let arr = [];
+    const tar01 = document.querySelector('.prg-title');
+    const tar02 = document.querySelector('.tag-wrap');
+    const tar03 = document.querySelector('.prj-img');
+    const tar04 = document.querySelector('.desc-wrap');
+    arr = [tar01,tar02,tar03,tar04];
+    allToClipGsap([tar01,tar02,tar03,tar04]);
+  }, [])
+  console.log(pofoldata.hashtag );
+  return (  
       <>
         <div className="inner">
             <div className="tag-wrap">
-                <span>반응형</span>
-                <span>비경상</span>
+              {pofoldata.hashtag.map((hs)=><span>{hs}</span>)}
             </div>
             <h2 className="prg-title">{pofoldata.title}</h2>
             <div className="prj-img">

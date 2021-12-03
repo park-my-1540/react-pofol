@@ -48,7 +48,8 @@ function DetailPage(){
         <>
             <div class="sub-wrap">
                 <div className="fixed-wrap">
-                    <div className="fixed-bg" style={{backgroundImage : `url(${project.image})`}}></div>
+                    <div className="fixed-bg" style={{backgroundImage : `url(${process.env.PUBLIC_URL}/${project.image})`}}></div>
+                    {/* <div className="fixed-bg" style={{backgroundImage : `url(${process.env.PUBLIC_URL.project.image})`}}></div> */}
                 </div>
                 <a href="#none" className="link_git"><span className="blind">깃으로 이동</span></a>
                 <Scrollbar 

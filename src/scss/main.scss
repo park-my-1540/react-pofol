@@ -80,12 +80,9 @@
         width: 20%;
         height: 100%;
         float: left;
-        border: 1px solid $main_4;
+        border-right: 1px solid $main_4;
         z-index: 1;
         background: $main_1;
-        .header{
-            height: 50px;
-        }
         .footer {
             position: absolute;
             bottom: 0;
@@ -99,14 +96,14 @@
 }
 .test-container{
     height: 100%;
-    border: 10px solid hotpink;
+   
 }
 .mouse-wrap{
     width: 50px;
     height: 50px;
     position: absolute;
-    top: 70%;
-    right: 35%;
+    top: 80%;
+    right: 32%;
     border-radius: 50%;
     background: $main_2;
     .mouse{
@@ -134,12 +131,12 @@
     }
     .txt{
         position: absolute;
-        top: -40px;
-        left: 20px;
+        top: -60px;
+        left: 15px;
         writing-mode: vertical-rl;
         transform: rotate(180deg);
-        color: $main_4;
-        font-size: 0.8em;
+        color: $main_2;
+        font-size: 1em;
     }
 }
 

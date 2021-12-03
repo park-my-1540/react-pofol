@@ -80,11 +80,11 @@ export default function Main({msgList,onLoading,onAddAsync,onUpdated}){
                         <button type="button" class="btn-send" onClick={sendMsg}>SEND</button>
                     </div>
                 </div>
-                <div className="mouse-wrap">
-                    <div className="mouse"><span></span></div>
-                    <span className="txt">scroll</span>
-                </div>        
             </div>
+            <div className="mouse-wrap">
+                <div className="mouse"><span></span></div>
+                <span className="txt">scroll</span>
+            </div>        
          </section>
         </>
     )

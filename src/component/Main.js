@@ -7,7 +7,7 @@ import SwiperCore, { Mousewheel, Pagination, Navigation } from "swiper";
 import MessageContainer from "../container/MessageContainer";
 import Portfolio from "../component/Portfolio";
 import MainTypo from "../component/MainTypeComp";
-
+import Header from '../component/Header';
 import '../scss/main.scss';
 import {transGsap} from '../lib/gsapFuncs';
 
@@ -18,11 +18,15 @@ export default function SwiperComp() {
   useEffect(()=>{
   },[])
   const [isFstIdx,setIsFstIdx] = useState(true);
+  const [actIdx,setActIdx] = useState(0);
+  const list = ['Home','About','Project','Practice'];
 
   const onChanged = (swiper) =>{
 
     const aside = document.querySelector('.aside'),
           msgBox = document.querySelector('.chat-box');
+
+    setActIdx(swiper.activeIndex);
 
     if(swiper.activeIndex !== 0){ 
       swiper.mousewheel.disable();
@@ -40,10 +44,8 @@ export default function SwiperComp() {
   return (
     <>
     <div className="main-wrapper">
-      <div className="main-header">
-        HEADER
-      </div>
-        <MainTypo isFstIdx={isFstIdx}/>
+        <Header actSec={list[actIdx]}/>
+        <MainTypo isFstIdx={isFstIdx} />
         <Swiper direction={'vertical'}  
           navigation={{
             nextEl: '.main-next',
@@ -58,15 +60,11 @@ export default function SwiperComp() {
               el: '.main-pagination',
               clickable:true,
               renderBullet:function(index,className){
-                const list = ['Home','About','Project','Practice'];
                 return `<p class="${className}"><span>${list[index]}</span></p>`
               }
           }} 
           className="mainSwipper">
             <div className="aside">
-              <div className="header">
-                <p>Control</p><span className="branch"></span>
-              </div>
               <div className="main-ctrl">
                 <button className="main-prev"><span className="blind">이전으로</span><svg width="19" height="12" viewBox="0 0 19 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1L9.21373 11L18 1" stroke="#1A1B1C" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
                 <div class="main-pagination"></div>
@@ -74,7 +72,9 @@ export default function SwiperComp() {
               </div>
             </div>
             <SwiperSlide><MessageContainer isFstIdx={isFstIdx}/></SwiperSlide>
-            <SwiperSlide><div className="test-container">Slide2</div></SwiperSlide>
+            <SwiperSlide><div className="test-container">
+            {/* <img src={process.env.PUBLIC_URL + '/images/dummy.jpg'}/>  */}
+              </div></SwiperSlide>
             <SwiperSlide><Portfolio cont={'project'}/></SwiperSlide>
             <SwiperSlide><Portfolio cont={'prac'}/></SwiperSlide>
         </Swiper>

@@ -1,0 +1,98 @@
+{
+    "project":[
+        {
+            "id":1,
+            "title": "제목",
+            "project" : "프로젝트명",
+            "hashtag":["반응형","적응형","비경상"],
+            "desc" : "01 반응형0-제목같은",
+            "sub_desc":"참여 정도 , 가이드 작업 , pc/mo 작업, 다국어작업 ",
+            "image" : ["/images/dummy.jpg","/images/img_pc.jpg","/images/img_mo.jpg"]
+        },
+        {
+            "id":2,
+            "title": "제목",
+            "project" : "프로젝트2",
+            "hashtag":["반응형","적응형","비경상"],
+            "desc" : "01 반응형0-제목같은",
+            "sub_desc":"참여 정도 , 가이드 작업 , pc/mo 작업, 다국어작업 ",
+            "image" : ["/images/dummy.jpg","/images/img_pc.jpg","/images/img_mo.jpg"]
+        },
+        {
+            "id":3,
+            "title": "제목",
+            "project" : "프로젝트3",
+            "hashtag":["반응형","적응형","비경상"],
+            "desc" : "01 반응형0-제목같은",
+            "sub_desc":"참여 정도 , 가이드 작업 , pc/mo 작업, 다국어작업 ",
+            "image" : ["/images/dummy.jpg","/images/img_pc.jpg","/images/img_mo.jpg"]
+        },
+        {
+            "id":4,
+            "title": "제목",
+            "project" : "프로젝트명4",
+            "hashtag":["반응형","적응형","비경상"],
+            "desc" : "01 반응형0-제목같은",
+            "sub_desc":"참여 정도 , 가이드 작업 , pc/mo 작업, 다국어작업 ",
+            "image" : ["/images/dummy.jpg","/images/img_pc.jpg","/images/img_mo.jpg"]
+        },
+        {
+            "id":5,
+            "title": "제목",
+            "project" : "프로젝트명55",
+            "hashtag":["반응형","적응형","비경상"],
+            "desc" : "01 반응형0-제목같은",
+            "sub_desc":"참여 정도 , 가이드 작업 , pc/mo 작업, 다국어작업 ",
+            "image" : ["/images/dummy.jpg","/images/img_pc.jpg","/images/img_mo.jpg"]
+        },
+        {
+            "id":6,
+            "title": "제목",
+            "project" : "프로젝트명44",
+            "hashtag":["반응형","적응형","비경상"],
+            "desc" : "01 반응형0-제목같은",
+            "sub_desc":"참여 정도 , 가이드 작업 , pc/mo 작업, 다국어작업 ",
+            "image" : ["/images/dummy.jpg","/images/img_pc.jpg","/images/img_mo.jpg"]
+        },
+        {
+            "id":7,
+            "title": "제목",
+            "project" : "프로젝트명66",
+            "hashtag":["반응형","적응형","비경상"],
+            "desc" : "01 반응형0-제목같은",
+            "sub_desc":"참여 정도 , 가이드 작업 , pc/mo 작업, 다국어작업 ",
+            "image" : ["/images/dummy.jpg","/images/img_pc.jpg","/images/img_mo.jpg"]
+        }
+    ],
+    "practice":[
+        {
+            "id":11,
+            "title": "날씨",
+            "project" : "프로젝트명44",
+            "hashtag":["반응형","적응형","비경상"],
+            "desc" : "01 반응형0-제목같은",
+            "sub_desc":"참여 정도 , 가이드 작업 , pc/mo 작업, 다국어작업 ",
+            "image" : ["/images/dummy.jpg","/images/img_pc.jpg","/images/img_mo.jpg"]
+        },
+        {
+            "id":12,
+            "title": "날씨 디벨롭",
+            "project" : "프로젝트명44",
+            "hashtag":["반응형","적응형","비경상"],
+            "desc" : "01 반응형0-제목같은",
+            "sub_desc":"참여 정도 , 가이드 작업 , pc/mo 작업, 다국어작업 ",
+            "image" : ["/images/dummy.jpg","/images/img_pc.jpg","/images/img_mo.jpg"]
+        },
+        {
+            "id":13,
+            "title": "영화",
+            "project" : "프로젝트명44",
+            "hashtag":["반응형","적응형","비경상"],
+            "desc" : "01 반응형0-제목같은",
+            "sub_desc":"참여 정도 , 가이드 작업 , pc/mo 작업, 다국어작업 ",
+            "image" : ["/images/dummy.jpg","/images/img_pc.jpg","/images/img_mo.jpg"]
+        }
+    ]
+    
+}
+  

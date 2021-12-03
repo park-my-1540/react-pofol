@@ -18,7 +18,7 @@
       overflow: hidden;
       float: right;
       width: 30%;
-      height: 90%;
+      height: 100%;
       padding: 10px 10px 10px 40px;
       border-left: 1px solid $main_4;
     }
@@ -36,8 +36,9 @@
             @include clear;
             position: absolute;
             top: 0;
+            left: 0;
             width: 100%;
-            height: 70px;
+            height: 80px;
             padding: 10px 0 10px 20px;
             background: $main_5;
             .cont{
@@ -49,10 +50,11 @@
             }
         }
         .content{
-          padding: 0 20px;
-          margin-top: 70px;
-          height: 70%;
+          padding: 20px 20px 0;
+          margin-top: 80px;
+          height: calc(100% - 160px);
           overflow-y: auto;
+          overflow-x: hidden;
           &::-webkit-scrollbar{
             width: 6px;
           }
@@ -70,19 +72,22 @@
         }
         .send-box{
             background: $main_5;
-            height: 70px;
+            height: 80px;
             input{
                 padding:0 15px;
-                height: 70px;
+                height: 80px;
                 background: none;
                 border: none;
-                width: calc(100% - 95px);
+                width: calc(100% - 115px);
                 color: #fff;
+                font-size: 1em;
             }
             button{
                 @include border(10px);
                 color: #fff;
                 background : $main_6;
+                font-size: 1em;
+                font-family: 'OTWelcomeBA';
             }
         }
     }
@@ -154,7 +159,7 @@
             padding:15px;
             background:$main_4;
             position: relative;
-            color: #ddd;
+            color: #f7f7f7;
             &::after{
               content: '';  
               display: block;
@@ -169,7 +174,6 @@
             float: right;
             .txt{
                 @include border(10px,10px,0,10px);
-                padding:10px;
                 background:linear-gradient(143deg,$main_2 0%, $main_6 100%);
                 color: #fff;
                 &::after{
