@@ -10,11 +10,18 @@ import SwiperCore, { Mousewheel, Pagination, Navigation } from "swiper";
 
 SwiperCore.use([Mousewheel, Pagination, Navigation]);
 
-export default function PracComp({data}) {
+export default function PracComp({data,actIdx}) {
+  useEffect(()=>{
+    console.log(actIdx);
+    if(actIdx===3){
+      console.log("zzz");
+      onChanged();
+    }
+  },[actIdx])
   const onChanged = (swiper) =>{
-    console.log("onChange");
+    console.log("changed");
     const swiper_type02 = document.querySelector('.swiper-container.type2');
-    const active_slide = swiper_type02.querySelector('.swiper-slide.swiper-slide-next');
+    const active_slide = swiper_type02.querySelector('.swiper-slide.swiper-slide-active');
     const tar01 = active_slide.querySelector('.prg-title');
     const tar02 = active_slide.querySelector('.tag-wrap');
     const tar03 = active_slide.querySelector('.prj-img');
@@ -35,9 +42,8 @@ export default function PracComp({data}) {
             return `<p class="${className}"><span>${list[index]}</span></p>`
           }
       }} 
-      onSlideChange = {onChanged}
-      onInit={(swiper) => onChanged}
-        className="type2">
+      onSlideChangeTransitionEnd = {onChanged}
+      className="type2">
       {
         data.map((data)=>
           <SwiperSlide>

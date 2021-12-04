@@ -24,7 +24,7 @@ export function hoverGsap(target){
 // typoGsap  
 export function typoGsap(target){
     let tl = gsap.timeline();
-    tl.to(target, {left: '0%',bottom:'80px',transform: 'translate(-20%,20%) scale(0.4,0.3)', duration: 1,ease:'elastic.out(1,1.3)'});
+    tl.to(target, {left: '0%',bottom:'0',transform: 'translate(-20%,20%) scale(0.4,0.3)', duration: 1,ease:'elastic.out(1,1.3)'});
     // tl.to(target, {transform: 'translate(-18%, 400%) scale(0.4)', duration: 1,ease:'elastic.out(1,1.3)'});
     tl.pause();
     tl.play();
@@ -54,19 +54,9 @@ export function allToClipGsap(target01,target02,target03,target04){
         
     var tl = gsap.timeline();
 
-    // tl.to(target01, 1, {'-webkit-clip-path': 'inset(100% 0 0 0)','clip-path': 'inset(100% 0 0 0)'})
-    // .to(target01, 1, {'-webkit-clip-path': 'inset(0% 0 0 0)','clip-path': 'inset(0% 0 0 0)'})
-    // .to(target02, 1, {'-webkit-clip-path': 'inset(100% 0 0 0)','clip-path': 'inset(100% 0 0 0)'})
-    // .to(target02, 1, {'-webkit-clip-path': 'inset(0% 0 0 0)','clip-path': 'inset(0% 0 0 0)'})
-    // .to(target03, 1, {'-webkit-clip-path': 'inset(100% 0 0 0)','clip-path': 'inset(100% 0 0 0)'})
-    // .to(target03, 1, {'-webkit-clip-path': 'inset(0% 0 0 0)','clip-path': 'inset(0% 0 0 0)'})
-    // .to(target04, 1, {'-webkit-clip-path': 'inset(100% 0 0 0)','clip-path': 'inset(100% 0 0 0)'})
-    // .to(target04, 1, {'-webkit-clip-path': 'inset(0% 0 0 0)','clip-path': 'inset(0% 0 0 0)'});
-
-
-    tl.to(target01, 1, {x:200})
-    .to(target02, 1, {x:200, scale:0.2})
-    .to(target03, 1, {x:200, scale:2, y:20})
-    .to(target04, 1, {x:200, scale:2, y:20});
+      tl.to(target01, {'-webkit-clip-path': 'inset(0 0% 0 0)','clip-path': 'inset(0 0% 0 0)',duration:0.5})
+        .to(target02, {'-webkit-clip-path': 'inset(0 0% 0 0)','clip-path': 'inset(0 0% 0 0)',duration:0.5})
+        .to(target03, {'-webkit-clip-path': 'inset(0 0% 0 0)','clip-path': 'inset(0 0% 0 0)',duration:0.5})
+        .to(target04, {'-webkit-clip-path': 'inset(0 0% 0 0)','clip-path': 'inset(0 0% 0 0)',duration:0.5});
     
 }

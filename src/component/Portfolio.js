@@ -6,9 +6,9 @@ import data from '../data/datas.json';
 import '../scss/portfolio.scss'
 
 
-export default function Portfolio({cont}){
+export default function Portfolio({cont,actIdx}){
     const project =  <SwiperComp data={data.project}/>;
-    const practice =  <PracComp data={data.practice}/>;
+    const practice =  <PracComp data={data.practice} actIdx={actIdx}/>;
     return (
         <>
         <section className="portfolio">

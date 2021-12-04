@@ -7,6 +7,10 @@
         height: calc(100% - 80px);
         &.type2{
           overflow: hidden;
+          .prg-title,.tag-wrap,.prj-img,.desc-wrap{
+            -webkit-clip-path:inset(0 100% 0 0);
+            clip-path:inset(0 100% 0 0);
+          }
         }
         .inner{
           padding: 30px 50px;
