@@ -1,6 +1,6 @@
 import React,{useEffect,useCallback} from "react"
 import '../scss/chat.scss'
-import { hoverGsap,typoGsap ,reverseTypoGsap} from "../lib/gsapFuncs";
+import { hoverGsap,typoGsap ,reverseTypoGsap,transGsap} from "../lib/gsapFuncs";
 export default function MainTypeComp({isFstIdx}){
     /**
      * 첫번째 인덱스면
@@ -18,34 +18,59 @@ export default function MainTypeComp({isFstIdx}){
     },[]);
 
     useEffect(()=>{
-        const typograpy=[...document.querySelectorAll('.typograpy-wrap span')],
-                typograpyWrap=document.querySelector('.typograpy-wrap');
+        const typograpy=[...document.querySelectorAll('.typograpy-wrap>span')],
+                typograpyWrap=document.querySelector('.typograpy-wrap'),
+                tagWrap=document.querySelector('.tag-wrap');
         
         if(isFstIdx){
             typograpy.forEach((text)=>{
                 text.addEventListener('mouseover',typoEventListner);
             })
-            reverseTypoGsap(typograpyWrap)
+            reverseTypoGsap(typograpyWrap);
+            transGsap(tagWrap,'left','5.5%',0.5);
         }else{
             typograpy.forEach((text)=>{
                 text.removeEventListener('mouseover',typoEventListner);
             })
             typoGsap(typograpyWrap);
+            transGsap(tagWrap,'left','-999px',0.5);
         }
                 
     },[isFstIdx])
 
     return (
+        <>
         <div className="wrapper">
+            <div className="tag-wrap">
+                <span>퍼블리싱</span>
+                <span>4년차</span>
+                <span>신입</span>
+                <span>프론트엔드</span>
+            </div>
             <div className="typograpy-wrap">
-                <span>H</span>
-                <span>I</span><br/>
-                <span>A</span>
-                <span>B</span>
-                <span>C</span>
+                <span>J</span>
+                <span>U</span>
+                <span>N</span>
+                <span>I</span>
+                <span>O</span>
+                <span>R</span><br/><br/><br/>
+                <span>F</span>
+                <span>O</span>
+                <span>N</span>
+                <span>T</span>
+                <span>E</span>
+                <span>N</span>
+                <span>D</span><br/>
                 <span>D</span>
                 <span>E</span>
+                <span>V</span>
+                <span>L</span>
+                <span>O</span>
+                <span>P</span>
+                <span>E</span>
+                <span>R</span>
             </div>
         </div>
+        </>
     )
 }

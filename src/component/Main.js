@@ -59,9 +59,10 @@ export default function SwiperComp() {
           pagination={{
               el: '.main-pagination',
               clickable:true,
-              renderBullet:function(index,className){
-                return `<p class="${className}"><span>${list[index]}</span></p>`
-              }
+              // renderBullet:function(index,className){
+              //   return `<p class="test"><span class="${className}"></span><span class="tit">${list[index]}</span></p>`
+              //   // return `<p class="${className}"><span>${list[index]}</span></p>`
+              // }
           }} 
           className="mainSwipper">
             <div className="aside">

@@ -3,11 +3,13 @@
 .wrapper{
   .typograpy-wrap{
     position: fixed;
-    transform: translate(20%, 230%);
+    // transform: translate(20%, 230%);
+    left:5%;
+    bottom: 80px;
     z-index: 999;
     span{
       display: inline-block;
-      font-size: 6em;
+      font-size: 7em;
     }
   }
 }
@@ -17,9 +19,9 @@
     .inner{
       overflow: hidden;
       float: right;
-      width: 30%;
+      width: 35%;
       height: 100%;
-      padding: 10px 10px 10px 40px;
+      padding: 0px 20px 10px 50px;
       border-left: 1px solid $main_4;
     }
     .chat-box{

@@ -1,33 +1,15 @@
 import React,{useEffect} from "react";
 
 import CustomLink from "./CustomLink";
-import{allToClipGsap} from "../lib/gsapFuncs";
+
 
   export default function PortfolioReal({pofoldata}) {
   const navStyle = {
-    textDecoration: 'none',
-    color: '#000',
-    zIndex : '1000',
-    marginLeft: '-50px',
-    textDecoration: 'none',
-    position: 'absolute',
-    top: '65%',
-    left: '64%',
-    marginTop: '-9px'
   }
-  useEffect(() => {
-    let arr = [];
-    const tar01 = document.querySelector('.prg-title');
-    const tar02 = document.querySelector('.tag-wrap');
-    const tar03 = document.querySelector('.prj-img');
-    const tar04 = document.querySelector('.desc-wrap');
-    arr = [tar01,tar02,tar03,tar04];
-    allToClipGsap([tar01,tar02,tar03,tar04]);
-  }, [])
-  console.log(pofoldata.hashtag );
+
   return (  
       <>
-        <div className="inner">
+        <div className="inner" id={pofoldata.id}>
             <div className="tag-wrap">
               {pofoldata.hashtag.map((hs)=><span>{hs}</span>)}
             </div>
@@ -44,7 +26,7 @@ import{allToClipGsap} from "../lib/gsapFuncs";
                 to={`/project/${pofoldata.id}`}
                 state ={pofoldata}
                 style = {navStyle}
-            >view Project
+            >view<br/>Project
           </CustomLink>
         </div>
         </>

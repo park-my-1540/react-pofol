@@ -1,21 +1,26 @@
-import React, { useEffect } from "react";
+import React, { useEffect ,useState} from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import 'swiper/swiper.scss';
 import "swiper/components/navigation/navigation.scss";
 import "swiper/components/pagination/pagination.scss";
 import SwiperItem from "./PortfolioReal";
 // import SwiperItem from "./SwiperItem";
+import{allToClipGsap} from "../lib/gsapFuncs";
 import SwiperCore, { Mousewheel, Pagination, Navigation } from "swiper";
 
 SwiperCore.use([Mousewheel, Pagination, Navigation]);
 
 export default function PracComp({data}) {
-  // const data = [
-  //   {id:'01',title : "제목",project : "날씨",desc : "01 반응형0-제목같은", image : 'images/dummy.jpg'},
-  //   {id:'02',title : "제목",project : "날씨디벨롭",desc : "01 반응형0-제목같은", image : 'images/dummy.jpg'},
-  //   {id:'03',title : "영화",project : "영화",desc : "01 반응형0-제목같은", image : 'images/dummy.jpg'}
-  // ]
-
+  const onChanged = (swiper) =>{
+    console.log("onChange");
+    const swiper_type02 = document.querySelector('.swiper-container.type2');
+    const active_slide = swiper_type02.querySelector('.swiper-slide.swiper-slide-next');
+    const tar01 = active_slide.querySelector('.prg-title');
+    const tar02 = active_slide.querySelector('.tag-wrap');
+    const tar03 = active_slide.querySelector('.prj-img');
+    const tar04 = active_slide.querySelector('.desc-wrap');
+    allToClipGsap(tar01,tar02,tar03,tar04);
+  }
   return (
     <>
       <Swiper
@@ -30,6 +35,8 @@ export default function PracComp({data}) {
             return `<p class="${className}"><span>${list[index]}</span></p>`
           }
       }} 
+      onSlideChange = {onChanged}
+      onInit={(swiper) => onChanged}
         className="type2">
       {
         data.map((data)=>

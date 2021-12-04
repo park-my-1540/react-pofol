@@ -44,16 +44,36 @@
             transform:translateX(-50%) rotate(180deg);
         }
         .main-pagination{
-           @include posCenter2;
+           position: absolute;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+            width: 50%;
+            .test{
+                position: relative;
+                width: 100%;
+                .tit{
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                }
+            }
             .swiper-pagination-bullet{
                 position: relative;
                 display: block;
                 width: 12px;
                 height: 12px;
-                margin-bottom: 17px;
+                margin-bottom: 21px;
+                // &:only-child{
+                //     display: block !important;
+                // }
+                &:hover{
+                    background: $main_5;
+                }
                 & > span{
                     display: block;
-                    width: 150px;
+                    min-width: 120px;
+                    padding: 10px 0;
                     line-height: 12px;
                     margin-left: 26px;
                     text-align: end;
@@ -75,13 +95,14 @@
     }
     .aside{
         display: block;
-        position: absolute;
+        position: fixed;
         left: -999px;
         width: 20%;
+        min-width: 300px;
         height: 100%;
         float: left;
         border-right: 1px solid $main_4;
-        z-index: 1;
+        z-index: 999;
         background: $main_1;
         .footer {
             position: absolute;
@@ -91,6 +112,11 @@
                 font-size: 2em;
             }
         }
+    }
+    .tag-wrap{
+        position: absolute;
+        top: 40%;
+        left: 5.5%;
     }
 
 }
@@ -103,7 +129,7 @@
     height: 50px;
     position: absolute;
     top: 80%;
-    right: 32%;
+    right: 38%;
     border-radius: 50%;
     background: $main_2;
     .mouse{

@@ -2,7 +2,7 @@
 import React ,{useEffect} from "react";
 import {useLocation,Link } from "react-router-dom";
 import '../scss/import.scss'
-import '../scss/detail.scss'
+import '../scss/Detail.scss'
 import { Scrollbar } from "smooth-scrollbar-react";
 import { transGsap } from "../lib/gsapFuncs";
 
@@ -48,7 +48,7 @@ function DetailPage(){
         <>
             <div class="sub-wrap">
                 <div className="fixed-wrap">
-                    <div className="fixed-bg" style={{backgroundImage : `url(${process.env.PUBLIC_URL}/${project.image})`}}></div>
+                    <div className="fixed-bg" style={{backgroundImage : `url(${process.env.PUBLIC_URL}/${project.image[0]})`}}></div>
                     {/* <div className="fixed-bg" style={{backgroundImage : `url(${process.env.PUBLIC_URL.project.image})`}}></div> */}
                 </div>
                 <a href="#none" className="link_git"><span className="blind">깃으로 이동</span></a>
@@ -73,29 +73,33 @@ function DetailPage(){
                                 <p className="tit-scroll">SCROLL</p>
                             </div>
                         </div>
-                        {/* <div className="sub-content">
-                            <h1>{project.title}</h1>
-                            <div className="main-box">
-                                <div className="pc-box">
-                                    <img src="https://yuta-abe.com/assets/img/projects/gig/img_pc.png"/>
-                                </div>
-                                <div className="mo-box">
-                                    <img src="https://yuta-abe.com/assets/img/projects/gig/img_sp.png"/>
-                                </div>
-                                <div className="txt-horizon">
-                                    <span>lways enjoy</span>
-                                </div>
-                            </div>
-                        </div> */}
+                       
                         <div className="sub-content">
-                            <div className="empty">
-                                emptyclass
+                            <div className="inner">
+                                <div class="sub-top">
+                                    <p className="date">프로젝트 기간</p>
+                                    <h2 className="tit">타이틀</h2>
+                                    <button type="button">Visit site</button>
+                                </div>
+                                <div className="sub-cont">
+                                    <p class="desc">
+                                        좀 긴 설명들이 있으면 좋겠어
+                                    </p>
+                                    <div className="main-box">
+                                        <div className="pc-box">
+                                            <img src="https://yuta-abe.com/assets/img/projects/gig/img_pc.png"/>
+                                        </div>
+                                        <div className="mo-box">
+                                            <img src="https://yuta-abe.com/assets/img/projects/gig/img_sp.png"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="text-wrap" >
+                                    <span>Always enjoy the work</span>
+                                </div>
                             </div>
-                            <div className="text-wrap" >
-                                <span>Always enjoy the work</span>
-                            </div>
-                            <div className="empty">
-                                emptyclass
+                            <div className="sub-footer">
+                                <span>PROJECTS</span>
                             </div>
                         </div>
                     </div>
