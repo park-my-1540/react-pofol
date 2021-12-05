@@ -2,14 +2,13 @@
 import React ,{useEffect} from "react";
 import {useLocation,Link } from "react-router-dom";
 import '../scss/import.scss'
-import '../scss/Detail.scss'
+import '../scss/detail.scss'
 import { Scrollbar } from "smooth-scrollbar-react";
 import { transGsap } from "../lib/gsapFuncs";
 
 function DetailPage(){
     let params = useLocation ();
     let project = params.state.state; 
-
     useEffect(() => {
         /**
          * 메인 배너 ,
@@ -28,7 +27,25 @@ function DetailPage(){
 
         const _target04 = document.querySelector('.tit-scroll-wrap');
         _target04.classList.add('on');
-        
+
+        /**
+         * hover 효과
+         */
+        const hoverTarget = document.querySelectorAll('[data-ui="hover"]');
+        hoverTarget.forEach(button => {
+          ["mouseenter", "mouseout"].forEach(evt => {
+            button.addEventListener(evt, e => {
+                let _target = e.target.closest('[data-ui="hover"]');
+              let parentOffset = _target.getBoundingClientRect(),
+                  relX = e.pageX - parentOffset.left,
+                  relY = e.pageY - parentOffset.top;
+              const span = _target.getElementsByClassName("hover");
+      
+              span[0].style.top = relY + "px";
+              span[0].style.left = relX + "px";
+            });
+          });
+        });
     }, [])
 
     /**
@@ -40,7 +57,7 @@ function DetailPage(){
                 winH = window.innerHeight, /* 윈도우의 높이 */
                 posFromTop = _text.getBoundingClientRect().top; /* _text top 값 */
 
-        0 > posFromTop-winH &&  posFromTop-winH > -900 ?   //텍스트영역에서 스크롤 할 경우
+        0 > posFromTop-winH &&  posFromTop-winH > -_text.offsetHeight ?   //텍스트영역에서 스크롤 할 경우
             _text_span.style.top=posFromTop + "px" : 
                 _text_span.style.top=-posFromTop + "px";
     }
@@ -49,7 +66,6 @@ function DetailPage(){
             <div class="sub-wrap">
                 <div className="fixed-wrap">
                     <div className="fixed-bg" style={{backgroundImage : `url(${process.env.PUBLIC_URL}/${project.image[0]})`}}></div>
-                    {/* <div className="fixed-bg" style={{backgroundImage : `url(${process.env.PUBLIC_URL.project.image})`}}></div> */}
                 </div>
                 <a href="#none" className="link_git"><span className="blind">깃으로 이동</span></a>
                 <Scrollbar 
@@ -77,30 +93,53 @@ function DetailPage(){
                         <div className="sub-content">
                             <div className="inner">
                                 <div class="sub-top">
-                                    <p className="date">프로젝트 기간</p>
-                                    <h2 className="tit">타이틀</h2>
-                                    <button type="button">Visit site</button>
+                                    <div class="sub-left">
+                                        <div className="sub-title-wrap">
+                                        <div className="tag-wrap">
+                                            {project.hashtag.map((hs)=><span>{hs}</span>)}
+                                        </div>
+                                            <p className="date">{project.date}</p>
+                                            <h2 className="project">{project.project}</h2>
+                                            <h3>{project.title}</h3>
+                                        </div>
+                                        <div className="etc-box">
+                                            <div className="etc-item" data-ui="hover">
+                                                <span className="txt">참여인원</span><span className="txt off">{project.members}</span><span class="hover"></span>
+                                            </div>
+                                            <div className="etc-item" data-ui="hover">
+                                            <span className="txt">참여정도</span><span className="txt off">{project.participation}</span><span class="hover"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="sub-desc-wrap">
+                                        <p className="desc-tit">{project.desc}</p>
+                                        <ul>
+                                            {
+                                                project.sub_desc.split("\n").map((i,key) =><li key={key}>{i}</li>)
+                                            }
+                                        </ul>
+                                    </div>
                                 </div>
+                               
                                 <div className="sub-cont">
-                                    <p class="desc">
-                                        좀 긴 설명들이 있으면 좋겠어
-                                    </p>
                                     <div className="main-box">
                                         <div className="pc-box">
                                             <img src="https://yuta-abe.com/assets/img/projects/gig/img_pc.png"/>
+                                            <a href="" className="btn-site pc" data-ui="hover"><span className="txt">View PC Site</span><span class="hover"></span></a>
                                         </div>
                                         <div className="mo-box">
                                             <img src="https://yuta-abe.com/assets/img/projects/gig/img_sp.png"/>
+                                            <a href="" className="btn-site mo" data-ui="hover"><span className="txt">View MO Site</span><span class="hover"></span></a>
                                         </div>
                                     </div>
                                 </div>
-                                <div className="text-wrap" >
-                                    <span>Always enjoy the work</span>
-                                </div>
                             </div>
-                            <div className="sub-footer">
-                                <span>PROJECTS</span>
+                            <div className="text-wrap">
+                                <span>Always enjoy the work</span>
                             </div>
+                        </div>
+                        <div className="sub-footer">
+                            <span>PROJECTS</span>
                         </div>
                     </div>
                 </Scrollbar>

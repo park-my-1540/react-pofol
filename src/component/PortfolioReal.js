@@ -1,32 +1,31 @@
-import React,{useEffect} from "react";
+import React from "react";
 
 import CustomLink from "./CustomLink";
 
 
   export default function PortfolioReal({pofoldata}) {
-  const navStyle = {
-  }
-
   return (  
       <>
         <div className="inner" id={pofoldata.id}>
-            <div className="tag-wrap">
-              {pofoldata.hashtag.map((hs)=><span>{hs}</span>)}
+            <div class="prg-top">
+              <div className="tag-wrap">
+                {pofoldata.hashtag.map((hs)=><span>{hs}</span>)}
+              </div>
+              <h2 className="prg-title">{pofoldata.project}</h2>
             </div>
-            <h2 className="prg-title">{pofoldata.title}</h2>
+
             <div className="prj-img">
                 <img src="https://yuta-abe.com/assets/img/projects/gig/img_sp.png" class="mo"/>    
                 <img src="https://yuta-abe.com/assets/img/projects/gig/img_pc.png" class="pc"/>
             </div>
             <div className="desc-wrap">
-                <p className="prj-name">{pofoldata.project}</p>
+                <p className="prj-name">{pofoldata.title}</p>
                 <p className="prj-desc">{pofoldata.desc}</p>
             </div>
             <CustomLink 
                 to={`/project/${pofoldata.id}`}
                 state ={pofoldata}
-                style = {navStyle}
-            >view<br/>Project
+            >view<br/>Detail
           </CustomLink>
         </div>
         </>

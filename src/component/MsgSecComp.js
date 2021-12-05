@@ -65,7 +65,7 @@ export default function Main({msgList,onLoading,onAddAsync,onUpdated}){
          <section className="main">
             <div className="inner">
                 <div className="chat-box">
-                    <div className="header">
+                    <div className="chat-header">
                         <p className="profile-img"></p>
                         <div class="cont">
                             <p className="txt">PARKMEEYOUNG</p>

@@ -36,14 +36,14 @@ import CustomLink from "./CustomLink";
               <h2>{pofoldata.desc}</h2>
             </div>
             <div class="imageHolder wolf bg5">
-              <img src={pofoldata.image}/>
+              <img src={pofoldata.image} alt={pofoldata.project}/>
             </div>
           </div>
           <CustomLink to={`/project/${pofoldata.id}`}
                 state ={pofoldata}
                 style = {navStyle}
                 >
-            view Project
+            view Detail
           </CustomLink>
         </div>
         </>

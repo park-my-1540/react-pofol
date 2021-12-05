@@ -94,3 +94,11 @@ html,body,#root,section{
       font-family: 'IBMPlexSansKR-Regular';
     }
   }
+  .btn-site{
+    display: inline-block;
+    text-decoration: none;
+    @include hoverItem(#1a1b1c,#fff,150,0.8s);
+    &:hover .txt{
+        z-index: 9;
+    }
+  }

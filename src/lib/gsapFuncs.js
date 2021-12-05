@@ -57,6 +57,5 @@ export function allToClipGsap(target01,target02,target03,target04){
       tl.to(target01, {'-webkit-clip-path': 'inset(0 0% 0 0)','clip-path': 'inset(0 0% 0 0)',duration:0.5})
         .to(target02, {'-webkit-clip-path': 'inset(0 0% 0 0)','clip-path': 'inset(0 0% 0 0)',duration:0.5})
         .to(target03, {'-webkit-clip-path': 'inset(0 0% 0 0)','clip-path': 'inset(0 0% 0 0)',duration:0.5})
-        .to(target04, {'-webkit-clip-path': 'inset(0 0% 0 0)','clip-path': 'inset(0 0% 0 0)',duration:0.5});
-    
+        .to(target04, {'-webkit-clip-path': 'inset(0 0% 0 0)','clip-path': 'inset(0 0% 0 0)',duration:0.5})
 }

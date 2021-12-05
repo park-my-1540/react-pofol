@@ -11,55 +11,32 @@ import SwiperCore, { Mousewheel, Pagination, Navigation } from "swiper";
 SwiperCore.use([Mousewheel, Pagination, Navigation]);
 
 export default function SwiperComp({data}) {
-  // const data = [
-  //   {id:'01',title : "제목",project : "프로젝트명",desc : "01 반응형0-제목같은", image : '/images/dummy.jpg'},
-  //   {id:'02',title : "제목",project : "프로젝트2",desc : "01 반응형0-제목같은", image : '/images/dummy.jpg'},
-  //   {id:'03',title : "제목",project : "프로젝트3",desc : "01 반응형0-제목같은", image : '/images/dummy.jpg'},
-  //   {id:'04',title : "제목",project : "프로젝트명44",desc : "01 반응형0-제목같은", image : '/images/dummy.jpg'},
-  //   {id:'05',title : "제목",project : "프로젝트명44",desc : "01 반응형0-제목같은", image : '/images/dummy.jpg'},
-  //   {id:'06',title : "제목",project : "프로젝트명44",desc : "01 반응형0-제목같은", image : '/images/dummy.jpg'},
-  //   {id:'07',title : "제목",project : "프로젝트명44",desc : "01 반응형0-제목같은", image : '/images/dummy.jpg'}
-  // ]
-   
   useEffect(()=>{
-    elementAlign();
     preloadImages([
       'images/dummy.jpg'
     ], function(){
       console.log('All images were loaded');
     });
   },[])
-  function elementAlign() {
-    const boxs=[...document.getElementsByClassName("imageHolder")];
-    const parent = document.querySelector('.portfolio');
-    const parentWid = parent.getElementsByClassName("swiper-slide")[0].offsetWidth; //배열이라 ? 
-    boxs.forEach(element => {
-        element.style.width = parentWid + "px";
-        element.style.height = parentWid + "px";
-    });
-  }
-  window.addEventListener("resize",function () {
-    elementAlign();
-  })
 
-  function handleMouseMove(e) {
-    const window_height = e.currentTarget.offsetHeight,
-        window_width = e.currentTarget.offsetWidth,
-        mouseXpos = e.nativeEvent.offsetX,
-        mouseYpos = e.nativeEvent.offsetY,
-        YrotateDeg = (window_width / 2 - mouseXpos) * 0.05,
-        XrotateDeg = (window_height / 2 - mouseYpos) * -0.05;
+  // function handleMouseMove(e) {
+  //   const window_height = e.currentTarget.offsetHeight,
+  //       window_width = e.currentTarget.offsetWidth,
+  //       mouseXpos = e.nativeEvent.offsetX,
+  //       mouseYpos = e.nativeEvent.offsetY,
+  //       YrotateDeg = (window_width / 2 - mouseXpos) * 0.05,
+  //       XrotateDeg = (window_height / 2 - mouseYpos) * -0.05;
           
-    e.currentTarget.firstChild.style.transform = `rotateX(${XrotateDeg}deg) rotateY(${YrotateDeg}deg)`;
-  };
-  function handleMouseLeave(e) {
-    e.currentTarget.firstChild.style.transform = `rotateX(${0}deg) rotateY(${0}deg)`;
-  };
+  //   e.currentTarget.firstChild.style.transform = `rotateX(${XrotateDeg}deg) rotateY(${YrotateDeg}deg)`;
+  // };
+  // function handleMouseLeave(e) {
+  //   e.currentTarget.firstChild.style.transform = `rotateX(${0}deg) rotateY(${0}deg)`;
+  // };
 
   return (
     <>
       <Swiper
-        slidesPerView={1.2}
+        slidesPerView={1.7}
         spaceBetween={30}
         mousewheel={true}
         speed={1500}
@@ -80,8 +57,6 @@ export default function SwiperComp({data}) {
         data.map((data)=>
           <SwiperSlide>
             <SwiperItem 
-              handleMouseMove={handleMouseMove} 
-              handleMouseLeave={handleMouseLeave}
               pofoldata = {data}
               />
           </SwiperSlide>

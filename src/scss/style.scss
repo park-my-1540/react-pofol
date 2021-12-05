@@ -43,3 +43,44 @@ $main_6 : #00000059;
 @mixin  showBox($color) {
     border: 1px solid $color;
 }
+@mixin  hoverItem($from,$to,$size,$dur) {
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+    width: $size+px;
+    height: $size+px;
+    background: $from;
+    color: $to;
+    .hover{
+        position: absolute;
+        display: block;
+        width: 0;
+        height: 0;
+        border-radius: 50%;
+        background-color: $to;
+        -webkit-transition: width $dur ease-in-out, height $dur ease-in-out;
+        transition: width $dur ease-in-out, height $dur ease-in-out;
+        -webkit-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);
+        z-index: 1;
+    }
+    .txt{
+        position: absolute;
+        top: 0;
+        left: 0;
+        text-align: center;
+        width: $size+px;
+        height: $size+px;
+        line-height: $size+px;
+        color:$to;
+        font-weight: bold;
+    }
+    &:hover .hover{
+        width: $size*3%;
+        height: $size*3%;
+    }
+    &:hover .txt{
+        color: $from;
+    }
+   
+}
