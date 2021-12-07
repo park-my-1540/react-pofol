@@ -23,7 +23,7 @@
         width: 100vw;
         height: 100vh;
         margin-top: 100vh;
-        background-color: $main_6;
+        background-color: $black_3;
         color: #fff;
         &::after{
             content: '';
@@ -192,7 +192,7 @@
                 position: relative;
                 overflow: hidden;
                 margin-right: 10px;
-                @include hoverItem(#fff,$main_2,80,0.4s);
+                @include hoverItem(#fff,$blue_1,80,0.4s);
                 .off{
                     color: #fff;
                     opacity: 0;
@@ -218,7 +218,7 @@
             top: 0;
             right: 0;
             color: transparent;
-            -webkit-text-stroke: 1px $main_2;
+            -webkit-text-stroke: 1px $blue_1;
             span{
                 position: absolute;
                 display: inline-block;

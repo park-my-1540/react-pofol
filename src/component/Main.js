@@ -8,9 +8,10 @@ import MessageContainer from "../container/MessageContainer";
 import Portfolio from "../component/Portfolio";
 import MainTypo from "../component/MainTypeComp";
 import Header from '../component/Header';
+import About from '../component/AboutComp';
 import '../scss/main.scss';
 import {transGsap} from '../lib/gsapFuncs';
-
+import AnimatedCursor from "../component/AnimatedCursor";
 SwiperCore.use([ Pagination,Navigation,Mousewheel]);
 
 export default function SwiperComp() {
@@ -44,8 +45,10 @@ export default function SwiperComp() {
   return (
     <>
     <div className="main-wrapper">
+        <AnimatedCursor/>
         <Header actSec={list[actIdx]}/>
         <MainTypo isFstIdx={isFstIdx} />
+        
         <Swiper direction={'vertical'}  
           navigation={{
             nextEl: '.main-next',
@@ -80,9 +83,7 @@ export default function SwiperComp() {
               </div>
             </div>
             <SwiperSlide><MessageContainer isFstIdx={isFstIdx}/></SwiperSlide>
-            <SwiperSlide><div className="test-container">
-            {/* <img src={process.env.PUBLIC_URL + '/images/dummy.jpg'}/>  */}
-              </div></SwiperSlide>
+            <SwiperSlide><About/></SwiperSlide>
             <SwiperSlide><Portfolio cont={'project'}/></SwiperSlide>
             <SwiperSlide><Portfolio actIdx={actIdx} cont={'prac'}/></SwiperSlide>
         </Swiper>

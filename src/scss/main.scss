@@ -25,7 +25,7 @@
         height: 50px;
         width: 100%;
         background: $main_1;
-        border-bottom: 1px solid $main_4;
+        border-bottom: 1px solid $black_1;
     }
     .main-ctrl{
         position: relative;
@@ -46,14 +46,9 @@
         }
         .main-pagination{
            @include posCenter2;
-            .test{
-                position: relative;
-                width: 100%;
-                .tit{
-                    position: absolute;
-                    top: 0;
-                    right: 0;
-                }
+            span:hover{
+                color:#fff;
+                z-index: 999;
             }
             .swiper-pagination-bullet{
                 position: relative;
@@ -69,7 +64,7 @@
             .swiper-pagination-bullet-active{
                 &::after{
                     content: "";
-                    background-color:$main_2 ;
+                    background-color:$blue_1 ;
                     width: 10px;
                     height: 10px;
                     position: absolute;
@@ -88,7 +83,7 @@
         min-width: 300px;
         height: 100%;
         float: left;
-        border-right: 1px solid $main_4;
+        border-right: 1px solid $black_1;
         z-index: 999;
         background: $main_1;
         .aside-top {
@@ -116,6 +111,31 @@
     height: 100%;
    
 }
+.circle{
+    display: inline-block;
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    top: 30%;
+    left: 5%;
+    border-radius: 50%;
+    -webkit-animation: ball 2s linear infinite;
+    animation: ball 2s linear infinite;
+    z-index: 999;
+    @include circleBox($blue_2,30);
+    &.two{
+        top: 23%;
+        left: 44%;
+        animation-delay: 0.33s;
+        @include circleBox($black_3,30);
+    }
+    &.three{
+        top: 57%;
+        left: 57%;
+        animation-delay: 0.66s;
+        @include circleBox($blue_1,30);
+    }
+}
 .mouse-wrap{
     width: 50px;
     height: 50px;
@@ -123,7 +143,7 @@
     top: 80%;
     right: 38%;
     border-radius: 50%;
-    background: $main_2;
+    background: $blue_1;
     .mouse{
         position: relative;
         border: 2px solid #fff;
@@ -153,25 +173,27 @@
         left: 15px;
         writing-mode: vertical-rl;
         transform: rotate(180deg);
-        color: $main_2;
+        color: $blue_1;
         font-size: 1em;
     }
 }
 
-@keyframes scroll {
+  
+@keyframes ball {
     0% {
-      -webkit-transform: translateY(-80%);
-              transform: translateY(-80%);
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
     }
     50% {
-      -webkit-transform: translateY(80%);
-              transform: translateY(80%);
+      -webkit-transform: translateY(50%);
+              transform: translateY(50%);
     }
     100% {
-      -webkit-transform: translateY(-80%);
-              transform: translateY(-80%);
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
     }
   }
+  
   
 //   html, body {
 // 	position: relative;

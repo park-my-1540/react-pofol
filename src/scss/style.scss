@@ -1,12 +1,12 @@
 /*variable*/
 //color
 $main_1 : #f2f2f2;
-$main_2 : #3a5dae;
-$main_7 : #515ada;
-$main_3 : #ffffff80;
-$main_4 : #1a1b1c33;
-$main_5 : #1a1b1c;
-$main_6 : #00000059;
+$main_2 : #ffffff80;
+$blue_1 : #3a5dae;
+$blue_2 : #515ada;
+$black_1 : #1a1b1c33;
+$black_2 : #1a1b1c;
+$black_3 : #00000059;
 
 //fontSize
 
@@ -43,6 +43,44 @@ $main_6 : #00000059;
 @mixin  showBox($color) {
     border: 1px solid $color;
 }
+
+@mixin  circleBox($color,$size) {
+   background: $color;
+   & > span{
+    @include posCenter2;
+    display: inline-block;
+    width: ($size+30)+px;
+    height: ($size+30)+px;
+    background: $color;
+    opacity: 0.2;
+    border-radius:50% ;
+    z-index: 1;
+    transition: all 0.5s ease-in-out;
+        &::after{
+            content: '';
+            top: 100%;
+            left: 100%;
+            display: inline-block;
+            width: ($size*5)+px;
+            height: ($size*5)+px;
+            border:1px solid $black_3;
+            border-radius: 50%;
+            opacity: 0.8;
+            @include posCenter2;
+            transition: all 0.5s ease-in-out;
+        }
+    }
+    &:hover span{
+        width: ($size+60)+px;
+        height: ($size+60)+px;
+       &::after{
+            width: ($size*3)+px;    
+            height: ($size*3)+px;
+       }
+   }
+}
+
+
 @mixin  hoverItem($from,$to,$size,$dur) {
     position: relative;
     overflow: hidden;

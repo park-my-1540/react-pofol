@@ -1,30 +1,17 @@
 import Main from "./component/Main";
 import './scss/import.scss'
-import {Route,Routes,Link} from 'react-router-dom';
+import {Route,Routes} from 'react-router-dom';
 import DetailPage from "./component/DetailPage"
-import { Scrollbar } from "smooth-scrollbar-react";
+import AnimatedCursor from "./component/AnimatedCursor";
 function App() {
   return (
     <>
-     {/* <Scrollbar 
-        className="sub-container"
-        alwaysShowTracks
-        plugins={{
-            overscroll: {
-                effect: "glow"
-            } 
-            }}
-        > */}
-        <Routes>
-          <Route path="/" element={<Main/>} />
-          <Route path="/project/:id" element={<DetailPage/>} />
-        </Routes>
-
-      {/* </Scrollbar> */}
-      {/* <Link to="/">home</Link> */}
-      {/* <Link to="/project">ss</Link> */}
+      {/* <AnimatedCursor/> */}
+      <Routes>
+        <Route path="/" element={<Main/>} />
+        <Route path="/project/:id" element={<DetailPage/>} />
+      </Routes>
    </>
-  //  <MessageContainer/>
   );
 }
 

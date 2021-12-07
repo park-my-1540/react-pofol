@@ -22,7 +22,7 @@
       width: 35%;
       height: 100%;
       padding: 0px 20px 10px 50px;
-      border-left: 1px solid $main_4;
+      border-left: 1px solid $black_1;
     }
     .chat-box{
       position: relative;
@@ -30,7 +30,7 @@
       overflow: hidden;
       width: 100%;
       height: 100%;
-      background: $main_4;
+      background: $black_1;
       color:#fff;
       box-shadow: 0 5px 30px rgb(0 0 0 / 20%);
       @include border(20px);
@@ -42,7 +42,7 @@
             width: 100%;
             height: 80px;
             padding: 10px 0 10px 20px;
-            background: $main_5;
+            background: $black_2;
             .cont{
               float: left;
               height: 100%;
@@ -63,7 +63,7 @@
           /* 스크롤바 막대 설정*/
           &::-webkit-scrollbar-thumb{
               height: 17%;
-              background-color: $main_6;
+              background-color: $black_3;
               border-radius: 10px;  
           }
           
@@ -73,7 +73,7 @@
           }
         }
         .send-box{
-            background: $main_5;
+            background: $black_2;
             height: 80px;
             input{
                 padding:0 15px;
@@ -87,7 +87,7 @@
             button{
                 @include border(10px);
                 color: #fff;
-                background : $main_6;
+                background : $black_3;
                 font-size: 1em;
                 font-family: 'OTWelcomeBA';
             }
@@ -95,7 +95,7 @@
     }
     .time{
         margin-top: 9px;
-        color: $main_3;
+        color: $main_2;
         font-size: 1em;
     }
     .msg-box{
@@ -159,7 +159,7 @@
         .txt{
             @include border(10px,10px,10px,0);
             padding:15px;
-            background:$main_4;
+            background:$black_1;
             position: relative;
             color: #f7f7f7;
             &::after{
@@ -168,7 +168,7 @@
               position: absolute;
               bottom: -7px;
               left: 0;
-              border-top: 7px solid $main_4;
+              border-top: 7px solid $black_1;
               border-right: 6px solid #0000;
             }
         }
@@ -176,7 +176,7 @@
             float: right;
             .txt{
                 @include border(10px,10px,0,10px);
-                background:linear-gradient(143deg,$main_2 0%, $main_6 100%);
+                background:linear-gradient(143deg,$blue_1 0%, $black_3 100%);
                 color: #fff;
                 &::after{
                     content: '';  
@@ -185,7 +185,7 @@
                     bottom: -7px;
                     left: auto;
                     right: 0;
-                    border-top: 7px solid $main_6;
+                    border-top: 7px solid $black_3;
                     border-left: 6px solid #0000;
                     border-right: 0;
                   }

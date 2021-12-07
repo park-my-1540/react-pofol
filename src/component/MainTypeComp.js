@@ -40,6 +40,16 @@ export default function MainTypeComp({isFstIdx}){
 
     return (
         <>
+        {
+            isFstIdx && (
+                <>
+                <div className="circle one"><span></span></div>
+                <div className="circle two"><span></span></div>
+                <div className="circle three"><span></span></div>
+                </>
+            )
+        }
+        
         <div className="wrapper">
             <div className="tag-wrap">
                 <span>퍼블리싱</span>
