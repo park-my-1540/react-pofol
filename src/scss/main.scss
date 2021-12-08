@@ -1,10 +1,17 @@
 @import 'style';
-.main-wrapper{
+.wrapper{
     width: 100%;
     height: 100%;
     @include clear;
+    .tag-box{
+        position: relative;
+        
+    }
     .mainSwipper{
-        height: 100%;
+        float: right;
+        width: 80%;
+        height: calc(100% - 100px);
+        margin-top: 100px;
         .swiper-wrapper{
             width: 100%;
             height: 100%;
@@ -13,19 +20,11 @@
                 width: 100%;
             }
             .swiper-slide{
-                width: 80%;
+                width: 100%;
                 height: 100%;
                 margin-left: auto;
             }
         }
-    }
-    .main-header{
-        position: absolute;
-        top: 0;
-        height: 50px;
-        width: 100%;
-        background: $main_1;
-        border-bottom: 1px solid $black_1;
     }
     .main-ctrl{
         position: relative;
@@ -48,7 +47,7 @@
            @include posCenter2;
             span:hover{
                 color:#fff;
-                z-index: 999;
+                opacity: 1;
             }
             .swiper-pagination-bullet{
                 position: relative;
@@ -60,6 +59,7 @@
                 border-radius: 0;
                 background: none;
                 font-size: 1.2em;
+                z-index: 9999;
             }
             .swiper-pagination-bullet-active{
                 &::after{
@@ -80,12 +80,10 @@
         position: fixed;
         left: -999px;
         width: 20%;
-        min-width: 300px;
         height: 100%;
         float: left;
         border-right: 1px solid $black_1;
         z-index: 999;
-        background: $main_1;
         .aside-top {
             padding: 30px;
             font-size: 1.5em;
@@ -102,7 +100,7 @@
     }
     .tag-wrap{
         position: absolute;
-        top: 40%;
+        top: 36%;
         left: 5.5%;
     }
 

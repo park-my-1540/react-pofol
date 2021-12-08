@@ -8,6 +8,12 @@ $black_1 : #1a1b1c33;
 $black_2 : #1a1b1c;
 $black_3 : #00000059;
 
+$point_f1 : #3a5dae;
+$point_f2 : #6ab6df;
+$point_t1 : #eb808e;
+$point_t2 : #fffeac;
+
+
 //fontSize
 
 /*mixin*/
@@ -80,6 +86,41 @@ $black_3 : #00000059;
    }
 }
 
+@mixin  slideItem($color) {
+    overflow :hidden;
+    position: relative;
+    span{
+        animation: show-text 0.7s both;
+        -webkit-animation: show-text 0.7s both;
+        position: relative;
+        background: none;
+    }
+    &::after{
+        content: '';
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: $color;
+        animation :block-reveal 0.5s both;
+        -webkit-animation :block-reveal 0.5s both;
+    }
+    &::before{
+        content: '';
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: $color;
+        animation :block-reveal2 0.5s both;
+        -webkit-animation :block-reveal2 0.5s both;
+        animation-delay: 0.5s;
+      }
+}
 
 @mixin  hoverItem($from,$to,$size,$dur) {
     position: relative;
@@ -121,4 +162,61 @@ $black_3 : #00000059;
         color: $from;
     }
    
+}  
+@keyframes text-shadow {
+    0% {  
+        transform: translateY(0);
+        text-shadow: 
+            0 0 0 #3a5dae, 
+            0 0 0 #6ab6df, 
+            0 0 0 #eb808e, 
+            0 0 0 #fffeac;
+    }
+  
+   50% {
+        transform: translateY(-0.05em);
+        text-shadow: 
+            0 0.03125em 0 #3a5dae, 
+            0 0.0625em 0 #6ab6df,  
+            0 -0.03125em 0 #eb808e, 
+            0 -0.0625em 0 #fffeac;
+    }
+
+  100% {  
+        transform: translateY(0);
+        text-shadow: 
+            0 0 0 #3a5dae, 
+            0 0 0 #6ab6df, 
+            0 0 0 #eb808e, 
+            0 0 0 #fffeac;
+    }
+}
+@keyframes block-reveal{  
+
+
+    // 0%{transform: translate(-110%, 0)}
+    // 20%{transform: translate(0, 0)}
+    // 40%{transform: translate(110%, 0)}
+    // 80%{transform: translate(0, 0)}
+
+
+    0%{transform: translate(-100%, 0)}
+    45%{transform: translate(0, 0)}
+    100%{ transform: translate(100%, 0)}
+}
+@keyframes block-reveal2{  
+
+
+    // 0%{transform: translate(-110%, 0)}
+    // 20%{transform: translate(0, 0)}
+    // 40%{transform: translate(110%, 0)}
+    // 80%{transform: translate(0, 0)}
+
+
+    0%{transform: translate(100%, 0)}
+    100%{transform: translate(0, 0)}
+}
+@keyframes show-text{
+    0%{color: transparent}
+    100%{ color: #fff}
 }

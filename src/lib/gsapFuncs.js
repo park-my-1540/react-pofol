@@ -13,28 +13,28 @@ export function transGsap(target,attr,val,dur=2){
 // hoverGsap 
 export function hoverGsap(target){
     let tl = gsap.timeline();
-    tl.to(target, {transform: 'matrix(0.8, 0, 0, 1.5, 0, 0)', duration: 0.1});
-    tl.to(target, {transform: 'matrix(1, 0, 0, 1, 0, 0)', duration: 0.1});
-    tl.pause();
+    tl.to(target, 0.5, 
+        {
+           '-webkit-animation' :'text-shadow 0.5s ease',
+           'animation' :'text-shadow 0.5s ease'
+        }
+    );
     tl.play();
-    tl.seek(0.2);
-    tl.reverse();
 }
 
 // typoGsap  
 export function typoGsap(target){
     let tl = gsap.timeline();
     tl.to(target, {left: '0%',bottom:'0',transform: 'translate(-20%,20%) scale(0.4,0.3)', duration: 1,ease:'elastic.out(1,1.3)'});
-    // tl.to(target, {transform: 'translate(-18%, 400%) scale(0.4)', duration: 1,ease:'elastic.out(1,1.3)'});
     tl.pause();
     tl.play();
+    target.removeAttribute('style');
 }
 
 // typoGsap-reverse  
 export function reverseTypoGsap(target){
     let tl = gsap.timeline();
     tl.to(target, {left: '5%',bottom:'80px',transform: 'translate(0,0) scale(1)', duration: 1,ease:'elastic.out(1,1.3)'});
-    // tl.to(target, {transform: 'translate(20%, 230%) scale(1)', duration: 1,ease:'elastic.out(1,1.3)'});
     tl.pause();
     tl.play();
 }
@@ -49,7 +49,6 @@ export function clipGsap(target){
     tl.play();
 }
 
-
 export function allToClipGsap(target01,target02,target03,target04){
         
     var tl = gsap.timeline();
@@ -58,4 +57,15 @@ export function allToClipGsap(target01,target02,target03,target04){
         .to(target02, {'-webkit-clip-path': 'inset(0 0% 0 0)','clip-path': 'inset(0 0% 0 0)',duration:0.5})
         .to(target03, {'-webkit-clip-path': 'inset(0 0% 0 0)','clip-path': 'inset(0 0% 0 0)',duration:0.5})
         .to(target04, {'-webkit-clip-path': 'inset(0 0% 0 0)','clip-path': 'inset(0 0% 0 0)',duration:0.5})
+}
+
+export function mainTypoGsap(target){
+    var tl = gsap.timeline();
+    tl.to(target, 1, 
+        {
+           '-webkit-animation' :'text-shadow 1s ease',
+           'animation' :'text-shadow 1s ease',
+            stagger:0.1
+        }
+    );
 }

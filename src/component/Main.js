@@ -44,11 +44,21 @@ export default function SwiperComp() {
   }
   return (
     <>
-    <div className="main-wrapper">
+    <div className="wrapper">
         <AnimatedCursor/>
         <Header actSec={list[actIdx]}/>
+        <div className="aside">
+            <div className="aside-top">
+              <h1>PARK MY's Portfolio</h1>
+            </div>
+            <div className="main-ctrl">
+              <button className="main-prev"><span className="blind">이전으로</span><svg width="15" height="12" viewBox="0 0 19 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1L9.21373 11L18 1" stroke="#1A1B1C" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+              <div class="main-pagination"></div>
+              <button className="main-next"><span className="blind">다음으로</span><svg width="15" height="12" viewBox="0 0 19 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1L9.21373 11L18 1" stroke="#1A1B1C" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+            </div>
+          </div>
         <MainTypo isFstIdx={isFstIdx} />
-        
+
         <Swiper direction={'vertical'}  
           navigation={{
             nextEl: '.main-next',
@@ -62,27 +72,17 @@ export default function SwiperComp() {
           pagination={{
               el: '.main-pagination',
               clickable:true,
-              // renderBullet:function(index,className){
-              //   return `<p class="test"><span class="${className}"></span><span class="tit">${list[index]}</span></p>`
-              //   // return `<p class="${className}"><span>${list[index]}</span></p>`
-              // }
               renderBullet: function (index, className) {
                 return `<span class="${className}">  ${(list[index])}</span>`;
-                // return '<span class="' + className + '">' + (list[index]) + '</span>';
               },
           }} 
           className="mainSwipper">
-            <div className="aside">
-              <div className="aside-top">
-                <h1>PARK MY's Portfolio</h1>
-              </div>
-              <div className="main-ctrl">
-                <button className="main-prev"><span className="blind">이전으로</span><svg width="15" height="12" viewBox="0 0 19 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1L9.21373 11L18 1" stroke="#1A1B1C" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
-                <div class="main-pagination"></div>
-                <button className="main-next"><span className="blind">다음으로</span><svg width="15" height="12" viewBox="0 0 19 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1L9.21373 11L18 1" stroke="#1A1B1C" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
-              </div>
-            </div>
-            <SwiperSlide><MessageContainer isFstIdx={isFstIdx}/></SwiperSlide>
+            <SwiperSlide>
+                <div className="circle one"><span></span></div>
+                <div className="circle two"><span></span></div>
+                <div className="circle three"><span></span></div>
+              <MessageContainer isFstIdx={isFstIdx}/>
+            </SwiperSlide>
             <SwiperSlide><About/></SwiperSlide>
             <SwiperSlide><Portfolio cont={'project'}/></SwiperSlide>
             <SwiperSlide><Portfolio actIdx={actIdx} cont={'prac'}/></SwiperSlide>

@@ -1,6 +1,6 @@
 import React,{useEffect,useCallback} from "react"
 import '../scss/chat.scss'
-import { hoverGsap,typoGsap ,reverseTypoGsap,transGsap} from "../lib/gsapFuncs";
+import { hoverGsap,typoGsap ,reverseTypoGsap,transGsap,mainTypoGsap} from "../lib/gsapFuncs";
 export default function MainTypeComp({isFstIdx}){
     /**
      * 첫번째 인덱스면
@@ -14,12 +14,27 @@ export default function MainTypeComp({isFstIdx}){
      */
 
      const typoEventListner = useCallback((e) => {  // state가 바뀔 때마다 close 함수가 재생성되어, 컴포넌트 업데이터 전과 동일하지 않은 함수로 인식되는 것 같다.
+        const typograpy=[...document.querySelectorAll('.type01 span')];
+        typograpy.forEach((text)=>{
+           text.removeAttribute('style');
+       })
         hoverGsap(e.currentTarget) 
     },[]);
 
+    useEffect(() => {
+        /*
+         * 처음에 JUNIUR PORINT ENE가 쪼르르 떨어지듯이
+         */        
+        setTimeout(()=>{
+            mainTypoGsap(document.querySelectorAll('.type01>span'));
+        },1000);
+
+
+    }, [])
+
     useEffect(()=>{
-        const typograpy=[...document.querySelectorAll('.typograpy-wrap>span')],
-                typograpyWrap=document.querySelector('.typograpy-wrap'),
+        const typograpy=[...document.querySelectorAll('.type01 span')],
+                typograpyWrap=document.querySelector('.type01'),
                 tagWrap=document.querySelector('.tag-wrap');
         
         if(isFstIdx){
@@ -40,24 +55,14 @@ export default function MainTypeComp({isFstIdx}){
 
     return (
         <>
-        {
-            isFstIdx && (
-                <>
-                <div className="circle one"><span></span></div>
-                <div className="circle two"><span></span></div>
-                <div className="circle three"><span></span></div>
-                </>
-            )
-        }
-        
-        <div className="wrapper">
+        <div className="main-wrapper">
             <div className="tag-wrap">
-                <span>퍼블리싱</span>
-                <span>4년차</span>
-                <span>신입</span>
-                <span>프론트엔드</span>
+                <p className="tag"><span>퍼블리싱</span></p>
+                <p className="tag"><span>4년차</span></p>
+                <p className="tag"><span>신입</span></p>
+                <p className="tag"><span>프론트엔드</span></p>
             </div>
-            <div className="typograpy-wrap">
+            <div className="typograpy-wrap type01">
                 <span>J</span>
                 <span>U</span>
                 <span>N</span>

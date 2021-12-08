@@ -1,15 +1,30 @@
 @import 'style';
 
-.wrapper{
+.main-wrapper{
+  .tag-wrap{
+    width: 500px;
+    height: 300px;
+  }
+  .tag-wrap .tag{
+    display: inline-block;
+    position: relative;
+    border-radius: 0%;
+    &:nth-child(1){@include slideItem($point_t1)}
+    &:nth-child(2){@include slideItem($point_f1)}
+    &:nth-child(3){@include slideItem($point_t2)}
+    &:nth-child(4){@include slideItem($point_f2)}
+  }
+
   .typograpy-wrap{
     position: fixed;
     // transform: translate(20%, 230%);
     left:5%;
     bottom: 80px;
     z-index: 999;
-    span{
+    .tag{
       display: inline-block;
       font-size: 7em;
+      transition: all 1.5s ease-in-out;
     }
   }
 }
@@ -324,5 +339,32 @@ Bounce
               transform: translateY(-150%);
     }
   }
+  @keyframes text-shadow {
+    0% {  
+        transform: translateY(0);
+        text-shadow: 
+            0 0 0 #3a5dae, 
+            0 0 0 #6ab6df, 
+            0 0 0 #eb808e, 
+            0 0 0 #fffeac;
+    }
   
-  
+   50% {
+        transform: translateY(-0.05em);
+        text-shadow: 
+            0 0.03125em 0 #3a5dae, 
+            0 0.0625em 0 #6ab6df,  
+            0 -0.03125em 0 #eb808e, 
+            0 -0.0625em 0 #fffeac;
+    }
+
+  100% {  
+        transform: translateY(0);
+        text-shadow: 
+            0 0 0 #3a5dae, 
+            0 0 0 #6ab6df, 
+            0 0 0 #eb808e, 
+            0 0 0 #fffeac;
+    }
+}
+
