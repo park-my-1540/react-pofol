@@ -35,6 +35,24 @@ html,body,#root,section{
        opacity:0;
         transition: opacity 0.15s ease-in-out, transform 0.25s ease-in-out;
     }
+    &.cursor-link {
+        background: #000;
+        border-radius: 50%;
+        position: absolute;
+        transform: scale(7);
+        &::after{
+            content: 'view site';
+            display: block;
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            top: 31%;
+            left: 30%;
+            transform: scale(0.2,0.2) translate(-200%,-200%);
+            color: #fff;
+            text-align: center;
+        }
+    }
 }
 /*반응형으로 mixin 해봅시다*/
 .header{

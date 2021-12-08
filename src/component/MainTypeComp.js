@@ -29,7 +29,6 @@ export default function MainTypeComp({isFstIdx}){
             mainTypoGsap(document.querySelectorAll('.type01>span'));
         },1000);
 
-
     }, [])
 
     useEffect(()=>{
@@ -68,7 +67,7 @@ export default function MainTypeComp({isFstIdx}){
                 <span>N</span>
                 <span>I</span>
                 <span>O</span>
-                <span>R</span><br/><br/><br/>
+                <span>R</span><br/>
                 <span>F</span>
                 <span>O</span>
                 <span>N</span>

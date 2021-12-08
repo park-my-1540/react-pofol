@@ -13,20 +13,39 @@ import CustomLink from "./CustomLink";
               </div>
               <h2 className="prg-title">{pofoldata.project}</h2>
             </div>
-
+            <div className="etc-box">
+                <div className="etc-item" data-ui="hover">
+                    <span className="txt">참여인원</span><span className="txt off">{pofoldata.members}</span><span class="hover"></span>
+                </div>
+                <div className="etc-item" data-ui="hover">
+                <span className="txt">참여정도</span><span className="txt off">{pofoldata.participation}</span><span class="hover"></span>
+                </div>
+            </div>
             <div className="prj-img">
-                <img src="https://yuta-abe.com/assets/img/projects/gig/img_sp.png" class="mo"/>    
-                <img src="https://yuta-abe.com/assets/img/projects/gig/img_pc.png" class="pc"/>
+              <a href={pofoldata.url[0]} alt="pc" class="prj-link" target="_blank">
+                <img src="https://yuta-abe.com/assets/img/projects/gig/img_sp.png" class="mo" alt="a"/>    
+              </a>
+              <a href={pofoldata.url[1]} alt="mo" class="prj-link" target="_blank">
+                <img src="https://yuta-abe.com/assets/img/projects/gig/img_pc.png" class="pc" alt="a"/>
+              </a>
             </div>
             <div className="desc-wrap">
                 <p className="prj-name">{pofoldata.title}</p>
                 <p className="prj-desc">{pofoldata.desc}</p>
+                <div class="sub-desc-wrap">
+                    <p className="desc-tit">{pofoldata.desc}</p>
+                    <ul>
+                        {
+                            pofoldata.sub_desc.split("\n").map((i,key) =><li key={key}>{i}</li>)
+                        }
+                    </ul>
+                </div>
             </div>
-            <CustomLink 
+            {/* <CustomLink 
                 to={`/project/${pofoldata.id}`}
                 state ={pofoldata}
             >view<br/>Detail
-          </CustomLink>
+          </CustomLink> */}
         </div>
         </>
   );

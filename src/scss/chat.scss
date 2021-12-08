@@ -1,12 +1,10 @@
 @import 'style';
 
 .main-wrapper{
-  .tag-wrap{
-    width: 500px;
-    height: 300px;
-  }
   .tag-wrap .tag{
     display: inline-block;
+    padding: 5px 2px 5px 6px;
+    margin-right: 10px;
     position: relative;
     border-radius: 0%;
     &:nth-child(1){@include slideItem($point_t1)}
@@ -17,7 +15,7 @@
 
   .typograpy-wrap{
     position: fixed;
-    // transform: translate(20%, 230%);
+    font-size: 7em;
     left:5%;
     bottom: 80px;
     z-index: 999;

@@ -7,6 +7,10 @@ export default function  AnimatedCursor(){
           menu.addEventListener("mouseover",menuHover);
           menu.addEventListener("mouseleave",menuLeave);
         })
+        document.querySelectorAll('.prj-link').forEach((link)=>{
+          link.addEventListener("mouseover",linkHover);
+          link.addEventListener("mouseleave",linkLeave);
+        })
         document.querySelectorAll('.circle').forEach((circle)=>{
           
           circle.addEventListener("mouseover",circleHover);
@@ -73,6 +77,14 @@ export default function  AnimatedCursor(){
   const menuLeave = () => {
     cursorOuterRef.current.classList.remove('cursor-grow');
     cursorInnerRef.current.classList.remove('cursor-grow');
+  };
+  const linkHover = () => {
+    cursorInnerRef.current.classList.add('cursor-hide');
+    cursorOuterRef.current.classList.add('cursor-link');
+  };
+  const linkLeave = () => {
+    cursorInnerRef.current.classList.remove('cursor-hide');
+    cursorOuterRef.current.classList.remove('cursor-link');
   };
 
   return (

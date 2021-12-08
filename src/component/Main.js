@@ -83,7 +83,9 @@ export default function SwiperComp() {
                 <div className="circle three"><span></span></div>
               <MessageContainer isFstIdx={isFstIdx}/>
             </SwiperSlide>
-            <SwiperSlide><About/></SwiperSlide>
+            <SwiperSlide>
+              <About/>
+              </SwiperSlide>
             <SwiperSlide><Portfolio cont={'project'}/></SwiperSlide>
             <SwiperSlide><Portfolio actIdx={actIdx} cont={'prac'}/></SwiperSlide>
         </Swiper>

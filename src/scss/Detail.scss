@@ -183,32 +183,32 @@
                 .btn-site{position: absolute}
             }
         }
-        .etc-box{
-            @include clear;
-            margin-top: 35px;
-            font-size: 0.8em;
-            .etc-item{
-                float: left;
-                position: relative;
-                overflow: hidden;
-                margin-right: 10px;
-                @include hoverItem(#fff,$blue_1,80,0.4s);
-                .off{
-                    color: #fff;
-                    opacity: 0;
-                }
-                &:hover {
-                    border: none;
-                    & .tit{
-                        opacity: 0;
-                    }
-                    & .off{
-                        opacity: 1;
-                        z-index: 999;
-                    }
-                }
-            }
-        }
+        // .etc-box{
+        //     @include clear;
+        //     margin-top: 35px;
+        //     font-size: 0.8em;
+        //     .etc-item{
+        //         float: left;
+        //         position: relative;
+        //         overflow: hidden;
+        //         margin-right: 10px;
+        //         @include hoverItem(#fff,$blue_1,80,0.4s);
+        //         .off{
+        //             color: #fff;
+        //             opacity: 0;
+        //         }
+        //         &:hover {
+        //             border: none;
+        //             & .tit{
+        //                 opacity: 0;
+        //             }
+        //             & .off{
+        //                 opacity: 1;
+        //                 z-index: 999;
+        //             }
+        //         }
+        //     }
+        // }
        
         .text-wrap{
             position: absolute;
