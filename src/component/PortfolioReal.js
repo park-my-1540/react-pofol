@@ -1,9 +1,13 @@
-import React from "react";
-
+import React,{ useEffect } from "react";
+import { hoverFunc } from "../lib/common"
 import CustomLink from "./CustomLink";
 
 
   export default function PortfolioReal({pofoldata}) {
+    useEffect(() => {
+      const hoverTarget = document.querySelectorAll('[data-ui="hover"]');
+      hoverFunc(hoverTarget);
+    }, [])
   return (  
       <>
         <div className="inner" id={pofoldata.id}>
@@ -12,6 +16,7 @@ import CustomLink from "./CustomLink";
                 {pofoldata.hashtag.map((hs)=><span>{hs}</span>)}
               </div>
               <h2 className="prg-title">{pofoldata.project}</h2>
+              <p className="prj-name">{pofoldata.title}</p>
             </div>
             <div className="etc-box">
                 <div className="etc-item" data-ui="hover">
@@ -22,18 +27,17 @@ import CustomLink from "./CustomLink";
                 </div>
             </div>
             <div className="prj-img">
-              <a href={pofoldata.url[0]} alt="pc" class="prj-link" target="_blank">
+              <a href={pofoldata.url[0]} alt="mo" class="prj-link" target="_blank">
                 <img src="https://yuta-abe.com/assets/img/projects/gig/img_sp.png" class="mo" alt="a"/>    
               </a>
-              <a href={pofoldata.url[1]} alt="mo" class="prj-link" target="_blank">
+              <a href={pofoldata.url[1]} alt="pc" class="prj-link" target="_blank">
                 <img src="https://yuta-abe.com/assets/img/projects/gig/img_pc.png" class="pc" alt="a"/>
               </a>
             </div>
             <div className="desc-wrap">
-                <p className="prj-name">{pofoldata.title}</p>
+                <p className="prj-date">{pofoldata.date}</p>
                 <p className="prj-desc">{pofoldata.desc}</p>
                 <div class="sub-desc-wrap">
-                    <p className="desc-tit">{pofoldata.desc}</p>
                     <ul>
                         {
                             pofoldata.sub_desc.split("\n").map((i,key) =><li key={key}>{i}</li>)

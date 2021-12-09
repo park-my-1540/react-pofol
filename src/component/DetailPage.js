@@ -5,7 +5,7 @@ import '../scss/import.scss'
 import '../scss/detail.scss'
 import { Scrollbar } from "smooth-scrollbar-react";
 import { transGsap } from "../lib/gsapFuncs";
-
+import { hoverFunc } from "../lib/common"
 function DetailPage(){
     let params = useLocation ();
     let project = params.state.state; 
@@ -32,20 +32,21 @@ function DetailPage(){
          * hover 효과
          */
         const hoverTarget = document.querySelectorAll('[data-ui="hover"]');
-        hoverTarget.forEach(button => {
-          ["mouseenter", "mouseout"].forEach(evt => {
-            button.addEventListener(evt, e => {
-                let _target = e.target.closest('[data-ui="hover"]');
-              let parentOffset = _target.getBoundingClientRect(),
-                  relX = e.pageX - parentOffset.left,
-                  relY = e.pageY - parentOffset.top;
-              const span = _target.getElementsByClassName("hover");
+        hoverFunc(hoverTarget);
+        // hoverTarget.forEach(button => {
+        //   ["mouseenter", "mouseout"].forEach(evt => {
+        //     button.addEventListener(evt, e => {
+        //         let _target = e.target.closest('[data-ui="hover"]');
+        //       let parentOffset = _target.getBoundingClientRect(),
+        //           relX = e.pageX - parentOffset.left,
+        //           relY = e.pageY - parentOffset.top;
+        //       const span = _target.getElementsByClassName("hover");
       
-              span[0].style.top = relY + "px";
-              span[0].style.left = relX + "px";
-            });
-          });
-        });
+        //       span[0].style.top = relY + "px";
+        //       span[0].style.left = relX + "px";
+        //     });
+        //   });
+        // });
     }, [])
 
     /**

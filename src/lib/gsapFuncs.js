@@ -69,3 +69,25 @@ export function mainTypoGsap(target){
         }
     );
 }
+/* 어떤 효과 넣을지 생각좀 해보자 */
+export function slideGsap(target01,target02_pc,target02_mo,target03,target04){
+    var tl = gsap.timeline();
+
+    tl.to(target01, {'-webkit-clip-path': 'inset(0 0% 0 0)','clip-path': 'inset(0 0% 0 0)',duration:0.5})
+      .to(target02_pc, {top: 0,duration:0.5})
+      .to(target02_mo, {left: 0,duration:0.5})
+      .to(target03, {'-webkit-clip-path': 'inset(0 0% 0 0)','clip-path': 'inset(0 0% 0 0)',duration:0.5})
+      .to(target04, {'-webkit-clip-path': 'inset(0 0% 0 0)','clip-path': 'inset(0 0% 0 0)',duration:0.5})
+}
+/* 슬라이드 옆으로 가듯이 */
+export function slideGsap2(target){
+    var tl = gsap.timeline();
+    tl.to(target, 1, 
+        {
+            transform :'translateX(0)',
+            stagger:0.2
+            ,duration:0.5
+        }
+    );
+    tl.play();
+}

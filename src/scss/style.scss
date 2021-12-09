@@ -49,6 +49,10 @@ $point_t2 : #fffeac;
 @mixin  showBox($color) {
     border: 1px solid $color;
 }
+@mixin  clipEffect() {
+    -webkit-clip-path:inset(0 100% 0 0);
+    clip-path:inset(0 100% 0 0);
+}
 
 @mixin  circleBox($color,$size) {
    background: $color;

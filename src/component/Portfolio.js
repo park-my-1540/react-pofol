@@ -7,7 +7,7 @@ import '../scss/portfolio.scss'
 
 
 export default function Portfolio({cont,actIdx}){
-    const project =  <SwiperComp data={data.project}/>;
+    const project =  <SwiperComp data={data.project} />;
     const practice =  <PracComp data={data.practice} actIdx={actIdx}/>;
     return (
         <>

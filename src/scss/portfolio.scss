@@ -1,20 +1,23 @@
 @import 'style';
 .portfolio{
-    // height: calc(100% - 100px);
-    // margin-top: 100px;
-    border: 10px solid red;
     .swiper-container {
         overflow: visible;
-        height: calc(100% - 80px);
+        height: calc(100% - 60px);
         &.type2{
           overflow: hidden;
           .prg-top,.prj-img,.desc-wrap{
-            -webkit-clip-path:inset(0 100% 0 0);
-            clip-path:inset(0 100% 0 0);
+            @include clipEffect;
           }
         }
+        &.type01{ 
+          //translateX(0) 효과를 위해 지정
+          .swiper-slide:first-child{
+            .prg-top,.pc, .mo, .desc-wrap, .etc-box{transform: translateX(0);}
+          }
+            .prg-top,.pc, .mo, .desc-wrap, .etc-box{transform: translateX(200px);}
+        }
         .inner{
-          padding: 30px 50px;
+          padding: 4% 5%;
           .tag-wrap{
             position: relative;
             margin-bottom: 30px;
@@ -74,12 +77,31 @@
     .prg-title{
       font-size: 3em;
     }
+    .prj-desc{
+      padding-bottom: 20px;
+    }
+    .prj-date{
+      padding-bottom: 20px;
+      text-decoration: underline;
+      font-size: 0.95em;
+    }
+    .prj-name{
+      padding-top: 30px;
+      font-family: 'IBMPlexSansKR-Regular';
+      font-size: 1.2em;
+    }
+    .sub-desc-wrap{
+      word-break: break-all;
+    }
     .desc-wrap{
-      float: right;
-      width: 23%;
+      position: absolute;
+      width: 25%;
       font-size: 1.2em;
       line-height: 1.2;
-      font-family: 'IBMPlexSansKR-Regular';
+      font-family: "IBMPlexSansKR-Regular";
+      right: 5%;
+      top: 10%;
+      height: auto;
       &+a{
         text-decoration: none;
         color: #000;
@@ -109,12 +131,11 @@
       }
     }
     .prj-img{
-      float: left;
-      width: 65%;
-      height: 85%;
       position: absolute;
       bottom: 0;
-      left: 10%;
+      right: 28%;
+      width: 52%;
+      height: 77%;
       .mo{
         position: absolute;
         bottom: 0;
@@ -212,13 +233,13 @@
     height: calc(100% - 60px);
     .desc-wrap{
       &+a{
-        -webkit-clip-path:inset(0 100% 0 0);
-        clip-path:inset(0 100% 0 0);
+        @include clipEffect;
     }
   }
   }
   .etc-box{
     @include clear;
+    position: absolute;
     margin-top: 35px;
     font-size: 0.8em;
     .etc-item{
@@ -226,7 +247,7 @@
         position: relative;
         overflow: hidden;
         margin-right: 10px;
-        @include hoverItem(#fff,$blue_1,80,0.4s);
+        @include hoverItem(#fff,$blue_1,70,0.4s);
         .off{
             color: #fff;
             opacity: 0;
