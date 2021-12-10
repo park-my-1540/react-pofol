@@ -3,7 +3,7 @@ import { hoverFunc } from "../lib/common"
 import CustomLink from "./CustomLink";
 
 
-  export default function PortfolioReal({pofoldata}) {
+  export default function ItemComp({pofoldata,cont}) {
     useEffect(() => {
       const hoverTarget = document.querySelectorAll('[data-ui="hover"]');
       hoverFunc(hoverTarget);
@@ -45,11 +45,15 @@ import CustomLink from "./CustomLink";
                     </ul>
                 </div>
             </div>
-            {/* <CustomLink 
-                to={`/project/${pofoldata.id}`}
-                state ={pofoldata}
-            >view<br/>Detail
-          </CustomLink> */}
+            {
+              cont && (
+                <CustomLink 
+                      to={`/${pofoldata.id}`}
+                      state ={pofoldata}
+                  >view<br/>Detail
+                </CustomLink>
+              )
+            }
         </div>
         </>
   );

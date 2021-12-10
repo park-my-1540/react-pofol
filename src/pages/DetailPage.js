@@ -8,7 +8,11 @@ import { transGsap } from "../lib/gsapFuncs";
 import { hoverFunc } from "../lib/common"
 function DetailPage(){
     let params = useLocation ();
-    let project = params.state.state; 
+    let project;
+    console.log(params.state);
+    if(params.state != null){
+        project = params.state.state; 
+    }
     useEffect(() => {
         /**
          * 메인 배너 ,
@@ -16,17 +20,17 @@ function DetailPage(){
          * 스크롤 텍스트 애니메이션 효과
          */
   
-        const _target = document.querySelector('.sub-main');
-        transGsap(_target,'marginTop',0);
+        // const _target = document.querySelector('.sub-main');
+        // transGsap(_target,'marginTop',0);
      
-        const _target02 = document.querySelector('.fixed-bg');
-        transGsap(_target02,'top',0);
+        // const _target02 = document.querySelector('.fixed-bg');
+        // transGsap(_target02,'top',0);
 
-        const _target03 = document.querySelector('.sub-tit');
-        _target03.classList.add('on');
+        // const _target03 = document.querySelector('.sub-tit');
+        // _target03.classList.add('on');
 
-        const _target04 = document.querySelector('.tit-scroll-wrap');
-        _target04.classList.add('on');
+        // const _target04 = document.querySelector('.tit-scroll-wrap');
+        // _target04.classList.add('on');
 
         /**
          * hover 효과
@@ -64,7 +68,9 @@ function DetailPage(){
     }
     return (
         <>
-            <div class="sub-wrap">
+        {
+            project && (
+                <div class="sub-wrap">
                 <div className="fixed-wrap">
                     <div className="fixed-bg" style={{backgroundImage : `url(${process.env.PUBLIC_URL}/${project.image[0]})`}}></div>
                 </div>
@@ -145,6 +151,9 @@ function DetailPage(){
                     </div>
                 </Scrollbar>
             </div>
+            )
+        }
+           
         </>
     )
 }    

@@ -36,13 +36,13 @@ export default function MainTypeComp({isFstIdx}){
                 typograpyWrap=document.querySelector('.type01'),
                 tagWrap=document.querySelector('.tag-wrap');
         
-        if(isFstIdx){
+        if(isFstIdx){ //메인 화면이면
             typograpy.forEach((text)=>{
                 text.addEventListener('mouseover',typoEventListner);
             })
             reverseTypoGsap(typograpyWrap);
             transGsap(tagWrap,'left','5.5%',0.5);
-        }else{
+        }else{ //메인 화면이면이 아니면
             typograpy.forEach((text)=>{
                 text.removeEventListener('mouseover',typoEventListner);
             })

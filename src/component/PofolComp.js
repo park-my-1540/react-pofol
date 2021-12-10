@@ -1,16 +1,15 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import 'swiper/swiper.scss';
 import "swiper/components/navigation/navigation.scss";
 import "swiper/components/pagination/pagination.scss";
-import SwiperItem from "./PortfolioReal";
-// import SwiperItem from "./SwiperItem";
+import SwiperItem from "./ItemComp";
 import{slideGsap2} from "../lib/gsapFuncs";
 import SwiperCore, { Mousewheel, Pagination, Navigation } from "swiper";
 
 SwiperCore.use([Mousewheel, Pagination, Navigation]);
 
-export default function SwiperComp({data,actIdx}) {
+export default function PofolComp({data,actIdx}) {
   const onChanged = () =>{
     const swiper_type01 = document.querySelector('.swiper-container.type01'),
       active_slide = swiper_type01.querySelector('.swiper-slide.swiper-slide-active'),

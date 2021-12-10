@@ -3,13 +3,13 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import 'swiper/swiper.scss';
 import "swiper/components/navigation/navigation.scss";
 import "swiper/components/pagination/pagination.scss";
-import SwiperItem from "./PortfolioReal";
+import SwiperItem from "./ItemComp";
 import{allToClipGsap} from "../lib/gsapFuncs";
 import SwiperCore, { Mousewheel, Pagination, Navigation } from "swiper";
 
 SwiperCore.use([Mousewheel, Pagination, Navigation]);
 
-export default function PracComp({data,actIdx}) {
+export default function PracComp({data,actIdx,cont}) {
   useEffect(()=>{
     if(actIdx===3){
       onChanged();
@@ -43,7 +43,7 @@ export default function PracComp({data,actIdx}) {
       {
         data.map((data)=>
           <SwiperSlide>
-            <SwiperItem pofoldata = {data} />
+            <SwiperItem pofoldata = {data} cont={cont} />
           </SwiperSlide>
       )}
       </Swiper>

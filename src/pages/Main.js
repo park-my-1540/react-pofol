@@ -4,23 +4,30 @@ import 'swiper/swiper.scss';
 import "swiper/components/navigation/navigation.scss";
 import "swiper/components/pagination/pagination.scss";
 import SwiperCore, { Mousewheel, Pagination, Navigation } from "swiper";
+
 import MessageContainer from "../container/MessageContainer";
-import Portfolio from "../component/Portfolio";
-import MainTypo from "../component/MainTypeComp";
+import SlideComp from "../component/SlideComp";
+import MainTypeComp from "../component/MainTypeComp";
 import Header from '../component/Header';
+import Aside from '../component/Aside';
 import About from '../component/AboutComp';
 import '../scss/main.scss';
 import {transGsap} from '../lib/gsapFuncs';
-import AnimatedCursor from "../component/AnimatedCursor";
+
 SwiperCore.use([ Pagination,Navigation,Mousewheel]);
 
-export default function SwiperComp() {
+export default function PofolComp() {
 
-  useEffect(()=>{
-  },[])
+  const CircleComp =  (
+    <>
+      <div className="circle one"><span></span></div>
+      <div className="circle two"><span></span></div>
+      <div className="circle three"><span></span></div>
+    </>);
+
   const [isFstIdx,setIsFstIdx] = useState(true);
   const [actIdx,setActIdx] = useState(0);
-  const list = ['Home','About','Project','Practice'];
+  const list = ['Home','About','Project','Practice']; //메뉴
 
   const onChanged = (swiper) =>{
 
@@ -45,20 +52,9 @@ export default function SwiperComp() {
   return (
     <>
     <div className="wrapper">
-        <AnimatedCursor/>
         <Header actSec={list[actIdx]}/>
-        <div className="aside">
-            <div className="aside-top">
-              <h1>PARK MY's Portfolio</h1>
-            </div>
-            <div className="main-ctrl">
-              <button className="main-prev"><span className="blind">이전으로</span><svg width="15" height="12" viewBox="0 0 19 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1L9.21373 11L18 1" stroke="#1A1B1C" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
-              <div class="main-pagination"></div>
-              <button className="main-next"><span className="blind">다음으로</span><svg width="15" height="12" viewBox="0 0 19 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1L9.21373 11L18 1" stroke="#1A1B1C" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
-            </div>
-          </div>
-        <MainTypo isFstIdx={isFstIdx} />
-
+        <Aside/>
+        <MainTypeComp isFstIdx={isFstIdx} />
         <Swiper direction={'vertical'}  
           navigation={{
             nextEl: '.main-next',
@@ -69,6 +65,7 @@ export default function SwiperComp() {
           spaceBetween={5}
           onSlideChange = {onChanged}
           mousewheel={true}
+          initialSlide={2}
           pagination={{
               el: '.main-pagination',
               clickable:true,
@@ -78,16 +75,12 @@ export default function SwiperComp() {
           }} 
           className="mainSwipper">
             <SwiperSlide>
-                <div className="circle one"><span></span></div>
-                <div className="circle two"><span></span></div>
-                <div className="circle three"><span></span></div>
+               {CircleComp}
               <MessageContainer isFstIdx={isFstIdx}/>
             </SwiperSlide>
-            <SwiperSlide>
-              <About/>
-              </SwiperSlide>
-            <SwiperSlide><Portfolio cont={'project'}/></SwiperSlide>
-            <SwiperSlide><Portfolio actIdx={actIdx} cont={'prac'}/></SwiperSlide>
+            <SwiperSlide><About/></SwiperSlide>
+            <SwiperSlide><SlideComp cont={'project'}/></SwiperSlide>
+            <SwiperSlide><SlideComp actIdx={actIdx} cont={'prac'}/></SwiperSlide>
         </Swiper>
     </div>
     </>

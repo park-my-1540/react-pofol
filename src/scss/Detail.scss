@@ -1,14 +1,16 @@
 @import 'style';
 .sub-wrap{
     background: #000;
+    // border: 1px solid red;
     font-family: 'IBMPlexSansKR-Regular';
 }
+
 .fixed-wrap{
     position: absolute;
-    padding-top: 100vh;
+    padding-top: 0;
     .fixed-bg{
         position: fixed;
-        top:100vh;
+        top:0;
         left:0;
         width: 100%;
         height: 100vh;
@@ -22,7 +24,6 @@
         position: relative;
         width: 100vw;
         height: 100vh;
-        margin-top: 100vh;
         background-color: $black_3;
         color: #fff;
         &::after{

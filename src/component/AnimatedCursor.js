@@ -33,10 +33,13 @@ export default function  AnimatedCursor(){
 
   const onMouseMove = useCallback(({ clientX, clientY }) => {
     setCoords({ x: clientX, y: clientY });
-    cursorInnerRef.current.style.top = clientY + 'px';
-    cursorInnerRef.current.style.left = clientX + 'px';
-    endX = clientX;
-    endY = clientY;
+    if(cursorInnerRef.current !== undefined){
+      console.log(cursorInnerRef.current);
+      cursorInnerRef.current.style.top = clientY + 'px';
+      cursorInnerRef.current.style.left = clientX + 'px';
+      endX = clientX;
+      endY = clientY;
+    }
   }, [])
   /**
    * requestAnimationFrame : requestAnimationFrame(반복할 함수) , 스스로를 호출하지 않음.
