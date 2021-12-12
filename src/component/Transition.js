@@ -5,16 +5,17 @@ import "../scss/transition.scss";
 import DetailPage from "../pages/DetailPage"
 import Main from "../pages/Main"
 
-const Transition = () => {
+const Transition = ({deviceChk}) => {
 
   const location = useLocation();
-    const currentKey = location.pathname.split("/")[1] || "/";
+  const currentKey = location.pathname.split("/")[1] || "/";
+  
   return (
     <TransitionGroup  component='div' className="transition-group">
         <CSSTransition key={currentKey} timeout={{ enter: 1000, exit: 1000 }}  classNames="my-node"
           appear>
         <Routes location={location}>
-            <Route path="/" element={<Main/>} />
+            <Route path="/" element={<Main deviceChk={deviceChk}/>} />
             <Route path="/:id" element={<DetailPage/>} />
         </Routes>
         </CSSTransition>

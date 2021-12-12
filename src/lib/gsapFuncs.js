@@ -25,7 +25,7 @@ export function hoverGsap(target){
 // typoGsap  
 export function typoGsap(target){
     let tl = gsap.timeline();
-    tl.to(target, {left: '0%',bottom:'0',transform: 'translate(-20%,20%) scale(0.4,0.3)', duration: 1,ease:'elastic.out(1,1.3)'});
+    tl.to(target, {left: '0%',bottom:'0',transform: 'translate(-20%,20%) scale(0.4,0.3)', duration: 2,ease:'elastic.out(1,1.3)'});
     tl.pause();
     tl.play();
     target.removeAttribute('style');
@@ -34,7 +34,7 @@ export function typoGsap(target){
 // typoGsap-reverse  
 export function reverseTypoGsap(target){
     let tl = gsap.timeline();
-    tl.to(target, {left: '5%',bottom:'80px',transform: 'translate(0,0) scale(1)', duration: 1,ease:'elastic.out(1,1.3)'});
+    tl.to(target, {left: '5%',bottom:'100px',transform: 'translate(0,0) scale(1)', duration: 2,ease:'elastic.out(1,1.3)'});
     tl.pause();
     tl.play();
 }
@@ -86,7 +86,23 @@ export function slideGsap2(target){
         {
             transform :'translateX(0)',
             stagger:0.2
-            ,duration:0.5
+            ,duration:0.2
+        }
+    );
+    tl.play();
+}
+export function slideGsap3(target){
+    var tl = gsap.timeline();
+    tl.fromTo(target, 1, 
+        {
+            transform :'translateX(0px)',
+            stagger:0.2
+            ,duration:0.2
+        },
+        {
+            transform :'translateX(-200px)',
+            stagger:0.2
+            ,duration:0.2
         }
     );
     tl.play();

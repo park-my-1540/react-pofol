@@ -9,7 +9,7 @@
     border-radius: 0%;
     &:nth-child(1){@include slideItem($point_t1)}
     &:nth-child(2){@include slideItem($point_f1)}
-    &:nth-child(3){@include slideItem($point_t2)}
+    &:nth-child(3){@include slideItem($black_1)}
     &:nth-child(4){@include slideItem($point_f2)}
   }
 
@@ -366,3 +366,14 @@ Bounce
     }
 }
 
+@media (max-width:768px) {
+  .main-wrapper .typograpy-wrap {
+    top: 20px;
+    height: 50px;
+    font-size: 1.35em;
+    line-height: 1.2;
+    &>span{
+      font-size: 1.3em;
+    }
+  }
+}

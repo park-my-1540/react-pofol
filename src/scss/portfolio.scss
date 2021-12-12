@@ -2,9 +2,8 @@
 .portfolio{
     .swiper-container {
         overflow: visible;
-        height: calc(100% - 60px);
+        height: calc(100% - 100px);
         &.type2{
-          overflow: hidden;
           .prg-top,.prj-img,.desc-wrap{
             @include clipEffect;
           }
@@ -51,7 +50,6 @@
         }
     }
     .move-image{
-        border: 10px solid #000;
         transform: translateZ(-400px) scale(0.95) translateX(8px) translateY(8px);
     }
     .img-wrap{
@@ -99,7 +97,7 @@
       font-size: 1.2em;
       line-height: 1.2;
       font-family: "IBMPlexSansKR-Regular";
-      right: 5%;
+      right: 10%;
       top: 10%;
       height: auto;
       &+a{
@@ -133,7 +131,7 @@
     .prj-img{
       position: absolute;
       bottom: 0;
-      right: 28%;
+      right: 40%;
       width: 52%;
       height: 77%;
       .mo{
@@ -263,4 +261,25 @@
             }
         }
     }
+}
+
+@media (max-width:768px) {
+  .portfolio{
+    .swiper-container {
+      .prg-title{
+        font-size: 1.5em;
+      }
+      .prj-img{
+        width: 100%;
+        height: 50%;
+        .mo{
+          width: 165px;
+        }
+        .pc{
+          width: 165px;
+        }
+      }
+    }
+
+}
 }

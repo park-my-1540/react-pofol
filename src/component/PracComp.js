@@ -6,10 +6,12 @@ import "swiper/components/pagination/pagination.scss";
 import SwiperItem from "./ItemComp";
 import{allToClipGsap} from "../lib/gsapFuncs";
 import SwiperCore, { Mousewheel, Pagination, Navigation } from "swiper";
-
+import {useSelector} from "react-redux";
 SwiperCore.use([Mousewheel, Pagination, Navigation]);
 
-export default function PracComp({data,actIdx,cont}) {
+export default function PracComp({data,cont}) {
+  const actIdx = useSelector(state=>state.ui.mainActIdx);
+  const pofolIdx = useSelector(state=>state.ui.pofolActIdx);
   useEffect(()=>{
     if(actIdx===3){
       onChanged();
@@ -30,11 +32,12 @@ export default function PracComp({data,actIdx,cont}) {
         slidesPerView={1}
         spaceBetween={30}
         speed={1000}
+        initialSlide = {parseInt(pofolIdx)}
         pagination={{
           el: '.pofol-pagination',
           clickable:true,
           renderBullet:function(index,className){
-            const list = ['Home','About','Portfolio'];
+            const list = ["PARK'S MY Portfolio",'About','Portfolio'];
             return `<p class="${className}"><span>${list[index]}</span></p>`
           }
       }} 

@@ -1,0 +1,45 @@
+
+@import 'style';
+
+/****************************/
+/* media                    */
+/****************************/
+
+@media (max-width:1699px) {
+    html{
+        font-size:15px;
+    }
+}
+@media (max-width:1300px) {
+    html{
+        font-size:15px;
+    }
+}
+@media (max-width:1200px) {
+    html{
+        font-size:15px;
+    }
+}
+@media (max-width:1000px) {
+    html{
+        font-size:13px;
+    }
+}
+@media (max-width:768px) {
+    html{
+        font-size:13px;
+    }
+}
+
+@media (min-width:481px) and (max-width:767px) {
+    html{
+        font-size:13px;
+    }
+}
+
+@media (max-width: 480px) {
+    html{
+        font-size:13px;
+    }
+}
+

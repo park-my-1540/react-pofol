@@ -45,7 +45,6 @@ export const set_timeAsync = (id) => dispatch => {
 }
 /* //비동기 액션생성 함수 */
 
-
 const initalState = [];
 
 export default function message(state= initalState,action){
