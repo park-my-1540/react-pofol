@@ -30,9 +30,7 @@ function MainContainer(){
     }
     return (
         <>
-        {
-            deviceChk==='pc' &&<AnimatedCursor deviceChk={deviceChk}/>
-        }
+            <AnimatedCursor deviceChk={deviceChk}/>
             <Transition onUpdateDevice={onUpdateDevice} deviceChk={deviceChk}/>
         </>
         );

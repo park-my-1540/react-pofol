@@ -12,7 +12,7 @@ import Header from '../component/Header';
 import Aside from '../component/Aside';
 import About from '../component/AboutComp';
 import '../scss/main.scss';
-import {transGsap} from '../lib/gsapFuncs';
+import {transGsap ,reverseTypoGsap ,typoGsap} from '../lib/gsapFuncs';
 import {useDispatch,useSelector} from 'react-redux';
 import {mainUpdate} from "../module/ui";
 
@@ -58,6 +58,33 @@ export default function Main({deviceChk}) {
     }
 
   }
+  const resizeFunc = () =>{
+
+    const aside = document.querySelector('.aside'),
+          msgBox = document.querySelector('.chat-box'),
+          typograpyWrap=document.querySelector('.mainTypo'),
+          tagWrap=document.querySelector('.tag-wrap');
+
+    if(mainActIdx !== 0){ //메인만 아니면
+      transGsap(msgBox,'right',-msgBox.offsetWidth,1); //msg 날라감
+      typoGsap(typograpyWrap);
+      transGsap(tagWrap,'left','-999px',0.5);
+      if(deviceChk === 'pc'){ //pc 일때만
+        transGsap(aside,'left',0,1); //aside 옆으로 오고
+      }
+
+    }else{
+      transGsap(msgBox,'right',0,1); 
+      
+      reverseTypoGsap(typograpyWrap);
+      transGsap(tagWrap,'left','5.5%',0.5);
+      if(deviceChk === 'pc'){ //pc 일때만
+        transGsap(aside,'left',-aside.offsetWidth,1);
+      }
+    }
+
+  }
+  window.addEventListener('resize', resizeFunc);
   return (
     <>
     <div className="wrapper">

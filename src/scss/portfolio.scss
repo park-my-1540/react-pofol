@@ -22,6 +22,7 @@
             margin-bottom: 30px;
             top: auto;
             left: auto;
+            
           }
         }
     }
@@ -267,19 +268,95 @@
   .portfolio{
     .swiper-container {
       .prg-title{
-        font-size: 1.5em;
       }
       .prj-img{
-        width: 100%;
-        height: 50%;
+        width: 75%;
+        left: 11%;
+        height: 42%;
         .mo{
           width: 165px;
         }
         .pc{
-          width: 165px;
+          width: 265px;
         }
+      }
+      .desc-wrap{
+        top: 25%;
+        width: 52%;
+        right: 0;
+      }
+      .swiper-pagination{
+        bottom: -80px;
+      }
+    }
+    .inner .desc-wrap + a{
+      left: 83%;
+      &::after{
+        width: 15px;
+        height: 15px;
+        transform: rotate(90deg);
       }
     }
 
+  }
+@media (max-width:481px) {
+  .portfolio{
+    .swiper-container {
+      height:calc(100% - 30px);
+      .prg-title{
+        font-size: 1.5em;
+      }
+      .prj-img{
+        width: 90%;
+        left: 5%;
+        height: 44%;
+        bottom: 0;
+      }
+      .desc-wrap{
+        top: 30%;
+        width: 52%;
+        right: 0;
+      }
+      .sub-desc-wrap {
+        font-size: 0.8em;
+      }
+      .tag-wrap span{
+        padding: 5px 10px;
+        font-size: 1em;
+        border-radius: 42%;
+      }
+      .swiper-pagination{
+        bottom: -20px;
+        right: 10%;
+      }
+    }
+   
+    .inner .desc-wrap + a{
+      width: 100px;
+      height: 100px;
+      top: 80%;
+      left: 83%;
+      &::after{
+        width: 15px;
+        height: 15px;
+        transform: rotate(90deg);
+      }
+    }
+    .pofol-pagi-wrap{
+      height: 30px;
+      bottom: -60px;
+      .pofol-pagination {
+    
+        .swiper-pagination-bullet{
+          line-height: 30px;
+          font-size: 0.8em;
+          &:first-child::after{
+            display: none;
+          }
+        }
+      }
+    }
+  }
 }
+
 }

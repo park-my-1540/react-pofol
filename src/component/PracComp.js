@@ -37,7 +37,7 @@ export default function PracComp({data,cont}) {
           el: '.pofol-pagination',
           clickable:true,
           renderBullet:function(index,className){
-            const list = ["PARK'S MY Portfolio",'About','Portfolio'];
+            const list = ["Home",'About','Portfolio'];
             return `<p class="${className}"><span>${list[index]}</span></p>`
           }
       }} 

@@ -144,3 +144,8 @@ html,body,#root,section{
       z-index: 1 !important;
   }
 
+@media  (max-width : 750px) {
+    .cursor{
+        display: none;
+    }
+}

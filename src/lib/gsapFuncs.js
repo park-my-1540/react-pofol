@@ -28,7 +28,7 @@ export function typoGsap(target){
     tl.to(target, {left: '0%',bottom:'0',transform: 'translate(-20%,20%) scale(0.4,0.3)', duration: 2,ease:'elastic.out(1,1.3)'});
     tl.pause();
     tl.play();
-    target.removeAttribute('style');
+    // target.removeAttribute('style');
 }
 
 // typoGsap-reverse  

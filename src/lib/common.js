@@ -4,7 +4,7 @@ export function hoverFunc(_this){
         ["mouseenter", "mouseout"].forEach(evt => {
           button.addEventListener(evt, e => {
             let _target = e.target.closest('[data-ui="hover"]'),
-                span = _target.getElementsByClassName("hover");
+              span = _target.getElementsByClassName("hover");
             let parentOffset = _target.getBoundingClientRect(),
                 relX = e.pageX - parentOffset.left,
                 relY = e.pageY - parentOffset.top;
