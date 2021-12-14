@@ -2,6 +2,7 @@ import {gsap} from 'gsap'
 
 //transGsap : 받아온 attr 속성을 0로
 export function transGsap(target,attr,val,dur=2){
+    console.log(target);
     let topTo = gsap.to(target, {
         [attr]:val,
         duration: dur, 
@@ -91,7 +92,7 @@ export function slideGsap2(target){
     );
     tl.play();
 }
-export function slideGsap3(target){
+export function slideGsap3(target,_var,flag=true){
     var tl = gsap.timeline();
     tl.fromTo(target, 1, 
         {
@@ -100,10 +101,35 @@ export function slideGsap3(target){
             ,duration:0.2
         },
         {
-            transform :'translateX(-200px)',
+            transform : `translateX(${_var}px)`,
             stagger:0.2
             ,duration:0.2
         }
     );
-    tl.play();
+    if(flag){
+        tl.play();
+    }else{
+        tl.reverse(1);
+    }
+}
+// 챗봇 커지고 작아지게
+export function chatBotGsap(target,flag){
+    console.log(target);
+    var tl = gsap.timeline();
+    tl.fromTo(target, 1, 
+        {
+            width :'55px',
+            height : '55px',
+            duration:0.2
+        }  , {
+            width :'100%',
+            height : '100%',
+            duration:0.2
+        }
+    );
+    if(flag){
+        tl.play();
+    }else{
+        tl.reverse(1);
+    }
 }

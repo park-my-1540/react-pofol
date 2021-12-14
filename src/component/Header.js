@@ -12,12 +12,11 @@ export default function Header({actSec,deviceChk}){
         },1000);
     }, [actSec])
     return(
-        <div className={(actSec === "PARK'S MY Portfolio" ? "header isMain" : "header")}>
+        <div className={(actSec === "Home" ? "header isMain" : "header")}>
             <div className="inner">
                 {
-                    deviceChk === 'mo'&& actSec === "PARK'S MY Portfolio" ? <span>JUINOR FRONT-END DEVELOPER</span> : <span>{tit}</span>
+                    deviceChk === 'mo'   ? actSec === 'Home'? <span>PARK MY's Portfolio</span> : <span></span> : <span>{tit}</span>
                 }
-                
                 </div>
             <a href="#none" className="link_git"><span className="blind">깃으로 이동</span></a>
         </div>

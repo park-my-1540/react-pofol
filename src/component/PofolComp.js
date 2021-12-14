@@ -25,8 +25,8 @@ export default function PofolComp({data}) {
       prev_desc = prev_slide.querySelector('.desc-wrap'),
       prev_etc = prev_slide.querySelector('.etc-box');
 
-    slideGsap2([title,etc,mo,pc,desc]);
-    slideGsap3([prev_desc,prev_pc,prev_mo,prev_etc,prev_title]);
+    slideGsap2([title,etc,mo,pc,desc],0);
+    slideGsap3([prev_desc,prev_pc,prev_mo,prev_etc,prev_title],-200);
   }
 
   return (

@@ -30,7 +30,7 @@ export default function MainTypeComp({deviceChk}){
 
     function init(){
         setTimeout(()=>{
-            mainTypoGsap(document.querySelectorAll('.mainTypo>span'));
+            mainTypoGsap(document.querySelectorAll('.mainTypo span'));
         },1000);
     }
     useEffect(()=>{
@@ -59,42 +59,44 @@ export default function MainTypeComp({deviceChk}){
 
     return (
         <>
-        {
-            deviceChk === 'pc' &&
-            (
-                <div className="main-wrapper">
-                <div className="tag-wrap">
+            <div className="main-wrapper">
+                <div className={`tag-wrap ${(deviceChk === 'pc' ? "main-tag" : "momain-tag")}`}>
                     <p className="tag"><span>퍼블리싱</span></p>
                     <p className="tag"><span>4년차</span></p>
                     <p className="tag"><span>신입</span></p>
                     <p className="tag"><span>프론트엔드</span></p>
                 </div>
-                <div className="typograpy-wrap mainTypo">
-                    <span>J</span>
-                    <span>U</span>
-                    <span>N</span>
-                    <span>I</span>
-                    <span>O</span>
-                    <span>R</span><br/>
-                    <span>F</span>
-                    <span>O</span>
-                    <span>N</span>
-                    <span>T</span>
-                    <span>E</span>
-                    <span>N</span>
-                    <span>D</span><br/>
-                    <span>D</span>
-                    <span>E</span>
-                    <span>V</span>
-                    <span>L</span>
-                    <span>O</span>
-                    <span>P</span>
-                    <span>E</span>
-                    <span>R</span>
+                <div className={`typograpy-wrap ${(deviceChk === 'pc' ? "mainTypo" : "momainTypo")}`}>
+                    <p>
+                        <span>J</span>
+                        <span>U</span>
+                        <span>N</span>
+                        <span>I</span>
+                        <span>O</span>
+                        <span>R</span>
+                    </p>
+                    <p>
+                        <span>F</span>
+                        <span>R</span>
+                        <span>O</span>
+                        <span>N</span>
+                        <span>T</span>
+                        <span>E</span>
+                        <span>N</span>
+                        <span>D</span>
+                    </p>
+                    <p>
+                        <span>D</span>
+                        <span>E</span>
+                        <span>V</span>
+                        <span>L</span>
+                        <span>O</span>
+                        <span>P</span>
+                        <span>E</span>
+                        <span>R</span>
+                    </p>
                 </div>
             </div>
-            ) 
-        }
         </>
     )
 }
