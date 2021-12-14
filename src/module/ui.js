@@ -5,7 +5,7 @@ const DEVICE_UPDATE= 'ui/deviceupdate';
 const initialState = {
     mainActIdx : 0,
     pofolActIdx : 0,
-    device:null,
+    device:'',
 }
 export const mainUpdate = (idx) => ({type:MAIN_IDX_UPDATE,idx})
 export const pofolUpdate = (idx) => ({type:POFOL_IDX_UPDATE,idx})

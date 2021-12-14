@@ -12,7 +12,7 @@ export default function Momain({deviceChk}){
         const   circles = document.querySelectorAll('.circle-box'),
                 motagWrap = document.querySelector('.tag-wrap.momain-tag'),
                 modalBox = document.querySelectorAll('.modal-box'),
-                motypograpyWrap = document.querySelector('.momainTypo');
+                typoBox = document.querySelector('.typograpy-wrap');
                 document.querySelector('.btn-chat').addEventListener('click',function(e){
 
                 const chat_btn = document.querySelector('.btn-chat');
@@ -21,10 +21,10 @@ export default function Momain({deviceChk}){
                 chat_btn.classList.remove('active');
                 // chatBotGsap(e.currentTarget.closest('.modal-box'),false);
                 transGsap(modalBox,'left','999px',1);
-                slideGsap3([circles,motagWrap,motypograpyWrap],-999,false);
+                slideGsap3([circles,motagWrap,typoBox],-999,false);
             }else{
                 chat_btn.classList.add('active');
-                slideGsap3([circles,motagWrap,motypograpyWrap],-999);
+                slideGsap3([circles,motagWrap,typoBox],-999);
                 transGsap(modalBox,'left','0',1);
                 // chatBotGsap(e.currentTarget.closest('.modal-box'),true);
             }

@@ -1,8 +1,8 @@
 import React,{useEffect,useCallback,useRef,useState} from "react";
 
-export default function  AnimatedCursor({deviceChk}){
+export default function  AnimatedCursor({}){
     useEffect(() => {
-      if(deviceChk === 'pc'){
+     
         window.addEventListener("mousemove", onMouseMove);
         document.querySelectorAll('.main-pagination span').forEach((menu)=>{
           menu.addEventListener("mouseover",menuHover);
@@ -17,8 +17,8 @@ export default function  AnimatedCursor({deviceChk}){
           circle.addEventListener("mouseover",circleHover);
           circle.addEventListener("mouseleave",circleLeave);
         })
-      }
-    }, [deviceChk])
+      
+    }, [])
    /*
     cursorOuterRef : 마우스 포인터
     cursorInnerRef : 따라가는 포인터
@@ -35,20 +35,20 @@ export default function  AnimatedCursor({deviceChk}){
 
   const onMouseMove = useCallback(({ clientX, clientY }) => {
     setCoords({ x: clientX, y: clientY });
-    if(cursorInnerRef.current !== undefined && deviceChk === 'pc'){
+    if(cursorInnerRef.current !== undefined){
       cursorInnerRef.current.style.top = clientY + 'px';
       cursorInnerRef.current.style.left = clientX + 'px';
       endX = clientX;
       endY = clientY;
     }
-  }, [deviceChk])
-  /**
+  }, [])
+  /*
    * requestAnimationFrame : requestAnimationFrame(반복할 함수) , 스스로를 호출하지 않음.
    */
   let previousTime;
   const animateOuterCursor = useCallback(
     (timestamp) => {
-      if (previousTime !== undefined&& deviceChk === 'pc') {
+      if (previousTime !== undefined) {
         coords.x += (endX - coords.x) / 8;
         coords.y += (endY - coords.y) / 8;
         cursorOuterRef.current.style.top = coords.y + 'px';
@@ -57,11 +57,11 @@ export default function  AnimatedCursor({deviceChk}){
       previousTime = timestamp;
       requestRef.current = requestAnimationFrame(animateOuterCursor); //다시 호출
     },
-    [requestRef,deviceChk]
+    [requestRef]
   )
   React.useEffect(() => {
       requestRef.current = requestAnimationFrame(animateOuterCursor); //호출 반복
-    }, [animateOuterCursor,deviceChk])
+    }, [animateOuterCursor])
 
   /**
    * 마우스 호버시 함수

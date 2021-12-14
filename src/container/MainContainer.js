@@ -17,11 +17,11 @@ function MainContainer(){
         init();
         window.addEventListener('resize', init);
     },[]);
-
+  
     const init = () =>{
-        let winWid = window.innerWidth;
-
-        if(winWid > 780){ //pc
+        let winWid = window.outerWidth;
+        console.log(winWid);
+        if(winWid > 768){ //pc
             onUpdateDevice('pc');
         }
         else{ //mo

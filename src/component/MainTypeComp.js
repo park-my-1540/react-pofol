@@ -15,13 +15,13 @@ export default function MainTypeComp({deviceChk}){
      */
 
     window.onload = function(){
-        if(document.querySelectorAll('.mainTypo').length > 0){ init();}
+        if(document.querySelectorAll('.typograpy-wrap').length > 0){ init();}
     }
 
     const mainActIdx = useSelector(state=>state.ui.mainActIdx);
 
     const typoEventListner = useCallback((e) => {  // state가 바뀔 때마다 close 함수가 재생성되어, 컴포넌트 업데이터 전과 동일하지 않은 함수로 인식되는 것 같다.
-        const typograpy=[...document.querySelectorAll('.mainTypo span')];
+        const typograpy=[...document.querySelectorAll('.typograpy-wrap span')];
         typograpy.forEach((text)=>{
            text.removeAttribute('style');
        })
@@ -30,7 +30,7 @@ export default function MainTypeComp({deviceChk}){
 
     function init(){
         setTimeout(()=>{
-            mainTypoGsap(document.querySelectorAll('.mainTypo span'));
+            mainTypoGsap(document.querySelectorAll('.typograpy-wrap span'));
         },1000);
     }
     useEffect(()=>{
@@ -38,8 +38,8 @@ export default function MainTypeComp({deviceChk}){
     },[mainActIdx])
   
   function changeMainSlideFunc(){
-            const typograpy=[...document.querySelectorAll('.mainTypo span')],
-            typograpyWrap=document.querySelector('.mainTypo'),
+            const typograpy=[...document.querySelectorAll('.typograpy-wrap span')],
+            typograpyWrap=document.querySelector('.typograpy-wrap'),
             tagWrap=document.querySelector('.tag-wrap');
 
         if(mainActIdx === 0){ //메인 화면이면

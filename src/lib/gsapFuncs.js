@@ -2,9 +2,9 @@ import {gsap} from 'gsap'
 
 //transGsap : 받아온 attr 속성을 0로
 export function transGsap(target,attr,val,dur=2){
-    console.log(target);
     let topTo = gsap.to(target, {
         [attr]:val,
+        bottom:'auto',
         duration: dur, 
         ease: "easeing"
      });
@@ -114,7 +114,6 @@ export function slideGsap3(target,_var,flag=true){
 }
 // 챗봇 커지고 작아지게
 export function chatBotGsap(target,flag){
-    console.log(target);
     var tl = gsap.timeline();
     tl.fromTo(target, 1, 
         {

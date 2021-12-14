@@ -1,4 +1,4 @@
-import React, {useState ,useRef, useCallback} from "react";
+import React, {useState ,useRef, useCallback, useEffect} from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import 'swiper/swiper.scss';
 import "swiper/components/navigation/navigation.scss";
@@ -19,14 +19,14 @@ import {mainUpdate} from "../module/ui";
 
 SwiperCore.use([ Pagination,Navigation,Mousewheel]);
 
-export default function Main({deviceChk}) {
+export default function Main({deviceChk,onUpdateDevice}) {
   const dispatch = useDispatch();
   const mainActIdx = useSelector(state=>state.ui.mainActIdx);
-
   const swiperRef = useRef();
-  const [actIdx,setActIdx] = useState(0);
+  const [actIdx,setActIdx] = useState();
   const list = ["Home",'About','Project','Practice']; //메뉴
 
+  
   /**
    * init : 
    * 무슨일이 일어나야 하는가?
@@ -41,53 +41,59 @@ export default function Main({deviceChk}) {
    */
  
    const onChanged = (swiper) =>{
-    console.log("onc");
-    dispatch(mainUpdate(swiper.activeIndex));
-    setActIdx(swiper.activeIndex);
-    swiperRef.current = swiper;
-    setPositionFunc(swiper.activeIndex);
-    console.log("onChanged   " + swiperRef.current);
+      dispatch(mainUpdate(swiper.activeIndex));
+      setActIdx(swiper.activeIndex);
+      setPositionFunc(swiper,swiper.activeIndex);
   };
 
-  const setPositionFunc = useCallback((actIdx)=>{
-    console.log("SetPo   " + actIdx)
+  const setPositionFunc = useCallback((swiper,activeIndx)=>{
+    
     const aside = document.querySelector('.aside'),
           msgBox = document.querySelector('.chat-box'),
-          typograpyWrap = document.querySelector('.mainTypo'),
-          motypograpyWrap = document.querySelector('.momainTypo'),
+          typoBox = document.querySelector('.typograpy-wrap'),
           tagWrap = document.querySelector('.tag-wrap.main-tag'),
+          chatBtn = document.querySelector('.btn-chat'),
           motagWrap = document.querySelector('.tag-wrap.momain-tag');
 
-    if(actIdx !== 0){ //메인만 아니면
-      swiperRef.current.mousewheel.disable();
+    if(activeIndx === undefined){activeIndx = actIdx}
+    console.log(deviceChk);
+    if(activeIndx > 0){ //메인만 아니면
+      
       transGsap(msgBox,'right',-msgBox.offsetWidth,1); //msg 날라감
-      typoGsap(typograpyWrap);
-
+      
       transGsap(tagWrap,'left','-999px',0.5);
       transGsap(motagWrap,'left','-999px',0.5);
-      
-      motypograpyWrap.classList.add('top');
-      transGsap(motypograpyWrap,'top','0',1);
-      
-      if(deviceChk === 'pc'){ //pc 일때만
-        transGsap(aside,'left',0,1); //aside 옆으로 오고
+      transGsap(chatBtn,'left','-999px',0.5);
+
+      if(deviceChk === 'pc'){ //pc 일때만 
+        typoGsap(typoBox);
+        typoBox.classList.remove('top');
+        transGsap(aside,'left','0',1); //aside 옆으로 오고
+        // swiper.mousewheel.disable();
+      }
+      else if(deviceChk === "mo"){
+        typoBox.removeAttribute('style');
+        typoBox.classList.add('top');
+        transGsap(typoBox,'top','0',1);
       }
       
     }else{ //메인이면
-      swiperRef.current.mousewheel.enable(); 
-      transGsap(msgBox,'right',0,1); 
-      reverseTypoGsap(typograpyWrap);
+      transGsap(msgBox,'right','0',1); 
       transGsap(motagWrap,'left','5.5%',0.5);
       transGsap(tagWrap,'left','5.5%',0.5);
+      transGsap(chatBtn,'left','80%',0.5);
       
-      motypograpyWrap.classList.remove('top');
-      transGsap(motypograpyWrap,'top','70%',1);
-
       if(deviceChk === 'pc'){ //pc 일때만
+        reverseTypoGsap(typoBox);
         transGsap(aside,'left',-aside.offsetWidth,1);
+        // swiper.mousewheel.enable(); 
+      } else if(deviceChk === "mo"){
+        typoBox.removeAttribute('style');
+        typoBox.classList.remove('top');
+        transGsap(typoBox,'top','70%',1);
       }
     }
-  },[actIdx]);
+  },[deviceChk,actIdx]); //매개변수.....놓치지마..useCallback은
 
 
 
@@ -116,10 +122,11 @@ export default function Main({deviceChk}) {
             nextEl: '.main-next',
             prevEl: '.main-prev'
         }} 
+          ref={swiperRef}
           speed = {1000}
           slidesPerView={1}
           spaceBetween={5}
-          onSlideChangeTransitionStart = {onChanged}
+          onSlideChange = {onChanged}
           mousewheel={true}
           initialSlide={parseInt(mainActIdx)}
           pagination={{

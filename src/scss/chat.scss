@@ -15,7 +15,7 @@
 
   .typograpy-wrap{
     position: fixed;
-    font-size: 7em;
+    font-size: calc(4em + 2vh);
     z-index: 999;
     &.mainTypo{
       left:5%;
@@ -221,7 +221,7 @@
 }
 .modal-box{
   width: 100%;
-  height: 100%;
+  height: calc(100% - 60px);
   position: fixed;
   bottom: 0;
   right: -999px;
@@ -258,7 +258,7 @@
 .btn-chat{
   width: 55px;
   height: 55px;
-  right: 6%;
+  left: 80%;
   bottom: 4%;
   position: absolute;
   display: inline-block;
@@ -270,7 +270,7 @@
   &.active{
     width: 45px;
     height: 45px;
-    top: 10px;
+    top:68px;
     right: 8px;
     left: auto;
     background:#fff url('../images/icon_close.png') no-repeat center;
