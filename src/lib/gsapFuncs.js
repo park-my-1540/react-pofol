@@ -4,7 +4,6 @@ import {gsap} from 'gsap'
 export function transGsap(target,attr,val,dur=2){
     let topTo = gsap.to(target, {
         [attr]:val,
-        bottom:'auto',
         duration: dur, 
         ease: "easeing"
      });
