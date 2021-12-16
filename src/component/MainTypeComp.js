@@ -33,29 +33,29 @@ export default function MainTypeComp({deviceChk}){
             mainTypoGsap(document.querySelectorAll('.typograpy-wrap span'));
         },1000);
     }
-    useEffect(()=>{
-        if(deviceChk==='pc') changeMainSlideFunc()
-    },[mainActIdx])
+//     useEffect(()=>{
+//         if(deviceChk==='pc') changeMainSlideFunc()
+//     },[mainActIdx])
   
-  function changeMainSlideFunc(){
-            const typograpy=[...document.querySelectorAll('.typograpy-wrap span')],
-            typograpyWrap=document.querySelector('.typograpy-wrap'),
-            tagWrap=document.querySelector('.tag-wrap');
+//   function changeMainSlideFunc(){
+//             const typograpy=[...document.querySelectorAll('.typograpy-wrap span')],
+//             typograpyWrap=document.querySelector('.typograpy-wrap'),
+//             tagWrap=document.querySelector('.tag-wrap');
 
-        if(mainActIdx === 0){ //메인 화면이면
-        typograpy.forEach((text)=>{
-            text.addEventListener('mouseover',typoEventListner);
-        })
-            reverseTypoGsap(typograpyWrap);
-            transGsap(tagWrap,'left','5.5%',0.5);
-        }else{ //메인 화면이면이 아니면
-        typograpy.forEach((text)=>{
-            text.removeEventListener('mouseover',typoEventListner);
-        })
-            typoGsap(typograpyWrap);
-            transGsap(tagWrap,'left','-999px',0.5);
-        }
-  }
+//         if(mainActIdx === 0){ //메인 화면이면
+//         typograpy.forEach((text)=>{
+//             text.addEventListener('mouseover',typoEventListner);
+//         })
+//             reverseTypoGsap(typograpyWrap);
+//             transGsap(tagWrap,'left','5.5%',0.5);
+//         }else{ //메인 화면이면이 아니면
+//         typograpy.forEach((text)=>{
+//             text.removeEventListener('mouseover',typoEventListner);
+//         })
+//             typoGsap(typograpyWrap);
+//             transGsap(tagWrap,'left','-999px',0.5);
+//         }
+//   }
 
     return (
         <>

@@ -19,7 +19,7 @@ function MainContainer(){
     },[]);
   
     const init = () =>{
-        let winWid = window.outerWidth;
+        let winWid = window.innerWidth;
         console.log(winWid);
         if(winWid > 768){ //pc
             onUpdateDevice('pc');

@@ -11,7 +11,7 @@ import rootReducer from './module';
 import logger from 'redux-logger';
 import ReduxThunk from 'redux-thunk';
 
-const store = createStore(rootReducer,applyMiddleware(ReduxThunk,logger));
+const store = createStore(rootReducer,applyMiddleware(ReduxThunk));
 ReactDOM.render(
   <Provider store= {store}>
     <BrowserRouter>

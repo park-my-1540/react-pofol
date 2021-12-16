@@ -121,7 +121,7 @@ export default function Main({deviceChk,onUpdateDevice}) {
         subTypeGsap(typoBox);
       }else{
         transGsap(aside,'left',-aside.offsetWidth,1);
-        mainResTypoGsap(typoBox,false);
+        mainTypoGsap(typoBox,false);
       }
     }
     else{ //mo
@@ -131,7 +131,7 @@ export default function Main({deviceChk,onUpdateDevice}) {
         typoBox.classList.add('top');
       }else{
         typoBox.classList.remove('top');
-        mainResTypoGsap(typoBox);
+        mainTypoGsap(typoBox);
       }
     }
   };

@@ -154,35 +154,35 @@
         .sub-cont{
             position: relative;
             width: 100%;
-            .main-box{
-                position: relative;
-                width: 100%;
-                .pc-box{
-                    width: 70%;
-                    height: auto;
-                    img{
-                        width: 100%;
-                    }
-                    .pc{
-                        left: 0;
-                        bottom: 50px;
-                    }
+        }
+        .main-box{
+            position: relative;
+            width: 100%;
+            .pc-box{
+                width: 70%;
+                height: auto;
+                img{
+                    width: 100%;
                 }
-                .mo-box{
-                    position: absolute;
-                    right: 0;
-                    bottom: 0;
-                    width: 40%;
-                    img{
-                        width: 100%;
-                    }
-                    .mo{
-                        right: 10px;
-                        bottom: 270px;
-                    }
+                .pc{
+                    left: 0;
+                    bottom: 50px;
                 }
-                .btn-site{position: absolute}
             }
+            .mo-box{
+                position: absolute;
+                right: 0;
+                bottom: 0;
+                width: 40%;
+                img{
+                    width: 100%;
+                }
+                .mo{
+                    right: 10px;
+                    bottom: 270px;
+                }
+            }
+            .btn-site{position: absolute}
         }
         // .etc-box{
         //     @include clear;
@@ -260,4 +260,71 @@
     }
 }
 
+@media (max-width:1200px) {
+    .sub-container{
+        .sub-content{
+            .inner{
+                width: 90%;
+                margin-left: 0;
+            }
+            .text-wrap{
+                width: 10%;
+                right: 0;
+                span{
+                    margin-top: -10vh;
+                    font-size: 10vh;
+                    line-height: 1.4;
+                }
+            }
+        }
+        .etc-box {
+            margin-top: 0;
+            right: 0;
+        }
+    }
+    .main-box{
+        .btn-site{
+            @include hoverItem(#1a1b1c,#fff,100,0.8s);
+        }
+    }
+  }
+  
+@media (max-width:758px) {
+    .sub-container{
+        .sub-main{
+            height: 90vh;
+        }
+        .sub-content{
+            .inner{
+                width: 100%;
+                margin-left: 0;
+                padding:30px 10px 20px;
+                font-size: 10px;
+            }
+            .text-wrap{
+               display: none;
+            }
+            .sub-top .sub-desc-wrap{
+                width: 100%;
+                padding: 30px 0;
+            }
+            .main-box{
+                .mo-box .mo{bottom: 66%;}
+                .btn-site{
+                    @include hoverItem(#1a1b1c,#fff,60,0.8s);
+                }
+            }
+        }
+        .etc-box {
+            top: 70px;
+        }
+        .sub-footer{
+            height: 200px;
+            span{
+               font-size: 2em;
+               line-height: 200px;
+           }
+        }
+    }
+  }
   

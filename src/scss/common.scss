@@ -133,6 +133,7 @@ html,body,#root,section{
   .btn-site{
     display: inline-block;
     text-decoration: none;
+    position: relative;
     @include hoverItem(#1a1b1c,#fff,150,0.8s);
     &:hover .txt{
         z-index: 9;
