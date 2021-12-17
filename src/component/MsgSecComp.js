@@ -57,7 +57,7 @@ export default function Main({msgList,onLoading,onAddAsync,onUpdated}){
      */
     function sendMsg(){
         onUpdated(nextId.current++,"msgYou", inputs,timeFuction());
-        // setInputs('');
+        setInputs('');
     }
 
     return (

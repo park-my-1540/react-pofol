@@ -28,10 +28,10 @@ import CustomLink from "./CustomLink";
             </div>
             <div className="prj-img">
               <a href={pofoldata.url[0]} alt="mo" class="prj-link" target="_blank">
-                <img src="https://yuta-abe.com/assets/img/projects/gig/img_sp.png" class="mo" alt="a"/>    
+                <img src={`${process.env.PUBLIC_URL}${pofoldata.image[0]}`} class="mo" alt="a"/>    
               </a>
               <a href={pofoldata.url[1]} alt="pc" class="prj-link" target="_blank">
-                <img src="https://yuta-abe.com/assets/img/projects/gig/img_pc.png" class="pc" alt="a"/>
+                <img src={`${process.env.PUBLIC_URL}${pofoldata.image[1]}`} class="pc" alt="a"/>
               </a>
             </div>
             <div className="desc-wrap">

@@ -11,7 +11,7 @@
             "members":"2명",
             "participation" :"70%",
             "url":["https://www.lotteshopping.com/main/main","https://m.lotteshopping.com/main?cstr=0001"],
-            "image" : ["/images/dummy.jpg","/images/img_pc.jpg","/images/img_mo.jpg"]
+            "image" : ["/images/img_test_02.png","/images/img_pc.jpg","/images/img_mo.jpg"]
         },
         {
             "id":2,
@@ -24,7 +24,7 @@
             "members":"1명",
             "participation" :"100%",
             "url":["https://www.starbucks.co.kr/index.do","https://www.starbucks.co.kr/index.do"],
-            "image" : ["/images/dummy.jpg","/images/img_pc.jpg","/images/img_mo.jpg"]
+            "image" : ["/images/img_mo_only.png","/images/img_pc.jpg","/images/img_mo.jpg"]
         },
         {
             "id":3,
@@ -117,7 +117,7 @@
             "members":"2명",
             "participation" :"80%",
             "url":["",""],
-            "image" : ["/images/dummy.jpg","/images/img_pc.jpg","/images/img_mo.jpg"]
+            "image" : ["/images/img_sp.png","/images/img_pc.png","/images/img_mo.jpg"]
         },
         {
             "id":12,
@@ -130,7 +130,7 @@
             "members":"2명",
             "participation" :"80%",
             "url":["",""],
-            "image" : ["/images/dummy.jpg","/images/img_pc.jpg","/images/img_mo.jpg"]
+            "image" : ["/images/img_sp_02.png","/images/img_pc.jpg","/images/img_mo.jpg"]
         },
         {
             "id":13,
@@ -143,7 +143,7 @@
             "members":"2명",
             "participation" :"80%",
             "url":["",""],
-            "image" : ["/images/dummy.jpg","/images/img_pc.jpg","/images/img_mo.jpg"]
+            "image" : ["/images/img_test_01.png","/images/img_pc.jpg","/images/img_mo.jpg"]
         }
     ]
     

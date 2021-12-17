@@ -19,7 +19,6 @@ export default function Momain({deviceChk}){
 
             if(chat_btn.classList.contains('active')){
                 chat_btn.classList.remove('active');
-                // chatBotGsap(e.currentTarget.closest('.modal-box'),false);
                 modalBox[0].classList.remove('on');
                 transGsap(modalBox,'left','999px',1);
                 slideGsap3([circles,motagWrap,typoBox],-999,false);
@@ -27,15 +26,16 @@ export default function Momain({deviceChk}){
                 chat_btn.classList.add('active');
                 slideGsap3([circles,motagWrap,typoBox],-999);
                 transGsap(modalBox,'left','0',1);
-                modalBox[0].classList.add('on');
-                // chatBotGsap(e.currentTarget.closest('.modal-box'),true);
+                setTimeout(()=>{
+                    modalBox[0].classList.add('on');
+                },1500);
             }
         })
       }
     return(
         <>
             <a href="#none" className="btn-chat"></a>
-            <div className="modal-box on">
+            <div className="modal-box">
                 <MessageContainer/>
             </div>
         </>

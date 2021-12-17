@@ -15,22 +15,25 @@
 
   .typograpy-wrap{
     position: fixed;
-    font-size: calc(4em + 2vh);
+    font-size: calc(4em + 3vh);
     z-index: 999;
     &.mainTypo{
       left:5%;
-      bottom: 30%;
+      bottom: 35vh;
       height: 50px;
     }
     &.momainTypo{
       left: 5%;
-      top: 70%;
+      bottom: 20%;
       font-size: 3em;
       height: 50px;
-      &.top p{
+    }
+    &.top {
+      p{
         display: inline;
         padding-right: 10px;
         font-size: 0.4em;
+        transition: all 0.1s ;
       }
     }
     .tag{
@@ -102,6 +105,7 @@
         .send-box{
             background: $black_2;
             height: 80px;
+            position: relative;
             input{
                 padding:0 15px;
                 height: 80px;
@@ -109,7 +113,7 @@
                 border: none;
                 width: calc(100% - 115px);
                 color: #fff;
-                font-size: 1em;
+                font-size: 1.1em;
             }
             button{
                 @include border(10px);
@@ -224,13 +228,12 @@
 
 .modal-box{
   width: 100%;
-  height: calc(100% - 180px);
+  height: calc(100% - 60px);
   position: fixed;
   top: 60px;
   right: -999px;
   z-index: 9999;
   overflow: hidden;
-
   .main{
     padding: 0;
     font-size: 1em;
@@ -258,6 +261,16 @@
           height: 60px;
         }
       }
+    }
+  }
+  &.on{
+    position: absolute;
+    bottom: 0;
+    .send-box{
+      position: absolute;
+      width: 100%;
+      bottom: 0;
+      left: 0;
     }
   }
 }

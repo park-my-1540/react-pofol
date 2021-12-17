@@ -1,10 +1,9 @@
-import React, {useState ,useRef, useCallback, useEffect} from "react";
+import React, {useState ,useRef} from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import 'swiper/swiper.scss';
 import "swiper/components/navigation/navigation.scss";
 import "swiper/components/pagination/pagination.scss";
 import SwiperCore, { Mousewheel, Pagination, Navigation } from "swiper";
-
 import MessageContainer from "../container/MessageContainer";
 import SlideComp from "../component/SlideComp";
 import MainTypeComp from "../component/MainTypeComp";
@@ -13,21 +12,18 @@ import Aside from '../component/Aside';
 import About from '../component/AboutComp';
 import MoMain from '../component/MoMain';
 import '../scss/main.scss';
-import {transGsap ,subTypeGsap ,mainResTypoGsap, clipGsap2} from '../lib/gsapFuncs';
+import {transGsap ,mainResTypoGsap,ToPcSub,ToPcMain} from '../lib/gsapFuncs';
 import {useDispatch,useSelector} from 'react-redux';
 import {mainUpdate} from "../module/ui";
 
 SwiperCore.use([ Pagination,Navigation,Mousewheel]);
 
-export default function Main({deviceChk,onUpdateDevice}) {
+export default function Main({deviceChk}) {
   const dispatch = useDispatch();
   const mainActIdx = useSelector(state=>state.ui.mainActIdx);
-
   const swiperRef = useRef();
   const [actIdx,setActIdx] = useState();
   const list = ["Home",'About','Project','Practice']; //메뉴
-
-  
   /**
    * init : 
    * 무슨일이 일어나야 하는가?
@@ -40,102 +36,103 @@ export default function Main({deviceChk,onUpdateDevice}) {
    * 
    * 둘의 차이는 swiper.acitiveIdx 받아 쓰는거
    */
- 
-   const onChanged = (swiper) =>{
-      dispatch(mainUpdate(swiper.activeIndex));
-      setActIdx(swiper.activeIndex);
-      setPositionFunc(swiper,swiper.activeIndex);
-  };
 
-  
-  const setPositionFunc = useCallback((swiper,activeIndx)=>{
+  const init = (swiper,activeIndx) =>{
+    setActIdx(activeIndx);
+    /**
+     * 변수 설정
+     */
     const aside = document.querySelector('.aside'),
           msgBox = document.querySelector('.chat-box'),
           typoBox = document.querySelector('.typograpy-wrap'),
           tagWrap = document.querySelector('.tag-wrap.main-tag'),
           chatBtn = document.querySelector('.btn-chat'),
           motagWrap = document.querySelector('.tag-wrap.momain-tag');
+
+    const _activeIdx= activeIndx;
+        
+    const isPc_isMain= ()=>{
+      typoBox.classList.remove('pc');
+      ToPcMain(typoBox);
+      swiper.mousewheel.enable();
+      transGsap(aside,'left','-9999px',1);
+    }
+    const isPc_isSub= ()=>{
+      transGsap(aside,'left','0',1);
+      ToPcSub(typoBox);
+      typoBox.classList.add('pc');
+      typoBox.classList.remove('top');
+      swiper.mousewheel.disable();
+    }
+    const isMo_isMain= ()=>{
+      mainResTypoGsap(typoBox);
+      typoBox.classList.remove('top');
+      swiper.mousewheel.disable();
+    }
+    const isMo_isSub= ()=>{
+      typoBox.classList.add('top');
+      mainResTypoGsap(typoBox,false);
+      swiper.mousewheel.disable();
+    }
     
+    /**
+     * @param {*} activeIndx : 스와이퍼 변경될때 마다 activeIndex로 메인/ 서브 일때 gsap 함수 실행.
+     */
+    const setPositionFunc = (activeIndx=actIdx)=>{
 
-    if(activeIndx === undefined){activeIndx = actIdx}
+      if(activeIndx > 0){ //메인만 아니면
+          transGsap(msgBox,'right',-msgBox.offsetWidth,1); //msg 날라감
+          transGsap(tagWrap,'left','-999px',0.5);
+          transGsap(motagWrap,'left','-999px',0.5);
+          transGsap(chatBtn,'left','-999px',0.5);
+  
+          if(deviceChk === 'pc' && !typoBox.classList.contains('pc')){ isPc_isSub();}
+          else if(deviceChk === "mo" && !typoBox.classList.contains('top')){ isMo_isSub();}
 
-    if(activeIndx > 0){ //메인만 아니면
-      
-      transGsap(msgBox,'right',-msgBox.offsetWidth,1); //msg 날라감
-      transGsap(tagWrap,'left','-999px',0.5);
-      transGsap(motagWrap,'left','-999px',0.5);
-      transGsap(chatBtn,'left','-999px',0.5);
-
-      if(deviceChk === 'pc'){ //pc 일때만 
-        if(!typoBox.classList.contains('pc')){
-          subTypeGsap(typoBox);
-          typoBox.classList.add('pc');
-          typoBox.classList.remove('top');
-        }
-        transGsap(aside,'left','0',1); //aside 옆으로 오고
-        // swiper.mousewheel.disable();
+      }else{ //메인이면
+          transGsap(msgBox,'right','0',1); 
+          transGsap(motagWrap,'left','5.5%',0.5);
+          transGsap(tagWrap,'left','5.5%',0.5);
+          transGsap(chatBtn,'left','80%',0.5);
+          
+          if(deviceChk === 'pc' && !typoBox.classList.contains('top')){ isPc_isMain();} 
+          else if(deviceChk === "mo" && typoBox.classList.contains('top')){ isMo_isMain();}
       }
-      else if(deviceChk === "mo"){
-        if(!typoBox.classList.contains('top')){
-          typoBox.classList.add('top');
-          subTypeGsap(typoBox,false);
+    };
+    setPositionFunc(activeIndx);
+    /**
+     * resize 될때마다 호출
+     */
+    const resize = () =>{
+      let winWid = window.innerWidth;
+
+      if(winWid > 768){ //pc
+        if(_activeIdx > 0){ //sub
+          isPc_isSub();
+        }else{
+          isPc_isMain(); //main
         }
       }
-      
-    }else{ //메인이면
-      transGsap(msgBox,'right','0',1); 
-      transGsap(motagWrap,'left','5.5%',0.5);
-      transGsap(tagWrap,'left','5.5%',0.5);
-      transGsap(chatBtn,'left','80%',0.5);
-      
-      if(deviceChk === 'pc'){ //pc 일때만
-        if(!typoBox.classList.contains('top')){
-          typoBox.classList.add('top');
-          mainResTypoGsap(typoBox,false);
-        }
-        typoBox.classList.remove('pc');
-        transGsap(aside,'left',-aside.offsetWidth,1);
-      } else if(deviceChk === "mo"){
-        if(typoBox.classList.contains('top')){
-          mainResTypoGsap(typoBox);
-          typoBox.classList.remove('top');
+      else{ //mo
+        if(_activeIdx > 0){ 
+          isMo_isSub();
+        }else{
+          isMo_isMain(false);
         }
       }
     }
-  },[deviceChk,actIdx]); //매개변수.....놓치지마..useCallback은
-
+    window.addEventListener('resize',resize);
+  }
   /*
     resize 될때마다 바로 즉시 반응하게 
-    스토어에 저장한 값이 아닌
-    windeow.innerWidth로 바로 잡아버림
+    스토어에 저장한 값이 아닌 windeow.innerWidth로 바로 잡음.
    */
-  const resizeFunc = ()=>{
-  const typoBox = document.querySelector('.typograpy-wrap'),
-        aside = document.querySelector('.aside');
-
-    let winWid = window.innerWidth;
-    if(winWid > 768){ //pc
-      onUpdateDevice('pc');
-      if(actIdx > 0){ 
-        transGsap(aside,'left','0',1); //aside 옆으로 오고
-        subTypeGsap(typoBox);
-      }else{
-        transGsap(aside,'left',-aside.offsetWidth,1);
-        mainResTypoGsap(typoBox,false);
-      }
-    }
-    else{ //mo
-      onUpdateDevice('mo');
-      if(actIdx > 0){ 
-        subTypeGsap(typoBox,false);
-        typoBox.classList.add('top');
-      }else{
-        typoBox.classList.remove('top');
-        mainResTypoGsap(typoBox);
-      }
-    }
+  const onChanged = (swiper) =>{
+      dispatch(mainUpdate(swiper.activeIndex));
+      setActIdx(swiper.activeIndex);
+      init(swiper,swiper.activeIndex);
   };
-
+  
   const CircleComp =  (
     <>
     <div className="circle-box">
@@ -145,7 +142,7 @@ export default function Main({deviceChk,onUpdateDevice}) {
     </div>
     </>
   );
-  window.addEventListener('resize',resizeFunc);
+ 
   return (
     <>
     <div className="wrapper">
@@ -153,8 +150,8 @@ export default function Main({deviceChk,onUpdateDevice}) {
           deviceChk === "mo" && <MoMain/>
         }
         
-        <Header deviceChk={deviceChk} actSec={list[actIdx]}/>
-        <Aside  deviceChk={deviceChk} actSec={list[actIdx]}/>
+        <Header deviceChk={deviceChk} actSec={list[mainActIdx]}/>
+        <Aside  deviceChk={deviceChk} actSec={list[mainActIdx]}/>
         <MainTypeComp deviceChk={deviceChk}/>
         <Swiper direction={'vertical'}  
           navigation={{

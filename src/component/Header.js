@@ -6,6 +6,7 @@ export default function Header({actSec,deviceChk}){
     const sub_tit = document.querySelector('.inner span');
     const [tit,setTit] = useState('');
     useEffect(() => {
+        console.log(deviceChk,actSec);
         clipGsap(sub_tit);
         setTimeout(()=>{
             setTit(actSec);

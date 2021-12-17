@@ -112,24 +112,20 @@ export function slideGsap3(target,_var,flag=true){
         tl.reverse(1);
     }
 }
-// 챗봇 커지고 작아지게
-export function subTypeGsap(target,flag=true){
+export function mainResTypoGsap(target,flag=true){
     var tl = gsap.timeline();
     tl.fromTo(target, 1, 
         {
-            top :'0',
+            top:'0',
             left : '5%',
-            bottom:'0',
-            transform : 'translate(0,0) scale(1)',
-            duration:2,
-            ease:'elastic.out(1,1.3)'
-        },{
-            top :'auto',
-            left : '0',
-            bottom:'0',
-            transform : 'translate(-20%,-200%) scale(0.4,0.3)',
-            duration:2,
-            ease:'elastic.out(1,1.3)'
+            ease:'elastic.out(1,1.3)',
+            transform:'none',
+        }  , {
+            top:'70%',
+            left: '5%',
+            rotation: 360,
+            transform:'none',
+            ease:'elastic.out(1,1.3)',
         }
     );
     if(flag){
@@ -138,26 +134,31 @@ export function subTypeGsap(target,flag=true){
         tl.reverse(1);
     }
 }
-export function mainResTypoGsap(target,flag=true){
+
+export function ToPcSub(target,flag=true){
+    console.log("isPc_isSub");
     var tl = gsap.timeline();
-    tl.fromTo(target, 1, 
+    tl.to(target, 1, 
         {
+            top :'auto', //pc
             left: '5%',
-            top: '70%',
-            transform : 'scale(1)',//mo로 회귀
-            duration:2,
-            ease:'elastic.out(1,1.3)'
-        }  , {
-            top:'auto',
-            left: '5%',
-            bottom: '80px', //pc로 회귀
-            duration:2,
-            ease:'elastic.out(1,1.3)'
+            transform : 'translate(-20vh,20vh) scale(0.4,0.3)',
+            ease:'elastic.out(1,1.3)',
         }
     );
-    if(flag){
-        tl.play();
-    }else{
-        tl.reverse(1);
-    }
+    tl.pause();
+    tl.play();
+}
+export function ToPcMain(target,flag=true){
+    console.log("isPc_isMain");
+    var tl = gsap.timeline();
+    tl.to(target, 1, 
+        {
+            bottom: '35vh', //pc로 회귀
+            transform : 'translate(0,0) scale(1,1)',
+            ease:'elastic.out(1,1.3)',
+        }
+    );
+    tl.pause();
+    tl.play();
 }

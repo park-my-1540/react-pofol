@@ -15,11 +15,13 @@ export default function MainTypeComp({deviceChk}){
      */
 
     window.onload = function(){
-        if(document.querySelectorAll('.typograpy-wrap').length > 0){ init();}
+        if(document.querySelectorAll('.typograpy-wrap').length > 0){  
+            setTimeout(()=>{
+            mainTypoGsap(document.querySelectorAll('.typograpy-wrap span'));
+        },1000);}
     }
-
+    
     const mainActIdx = useSelector(state=>state.ui.mainActIdx);
-
     const typoEventListner = useCallback((e) => {  // state가 바뀔 때마다 close 함수가 재생성되어, 컴포넌트 업데이터 전과 동일하지 않은 함수로 인식되는 것 같다.
         const typograpy=[...document.querySelectorAll('.typograpy-wrap span')];
         typograpy.forEach((text)=>{
@@ -28,34 +30,23 @@ export default function MainTypeComp({deviceChk}){
         hoverGsap(e.currentTarget) 
     },[]);
 
-    function init(){
-        setTimeout(()=>{
-            mainTypoGsap(document.querySelectorAll('.typograpy-wrap span'));
-        },1000);
-    }
-//     useEffect(()=>{
-//         if(deviceChk==='pc') changeMainSlideFunc()
-//     },[mainActIdx])
+    useEffect(()=>{
+      changeMainSlideFunc()
+    },[mainActIdx])
   
-//   function changeMainSlideFunc(){
-//             const typograpy=[...document.querySelectorAll('.typograpy-wrap span')],
-//             typograpyWrap=document.querySelector('.typograpy-wrap'),
-//             tagWrap=document.querySelector('.tag-wrap');
+  function changeMainSlideFunc(){
+         const typograpy=[...document.querySelectorAll('.typograpy-wrap span')];
 
-//         if(mainActIdx === 0){ //메인 화면이면
-//         typograpy.forEach((text)=>{
-//             text.addEventListener('mouseover',typoEventListner);
-//         })
-//             reverseTypoGsap(typograpyWrap);
-//             transGsap(tagWrap,'left','5.5%',0.5);
-//         }else{ //메인 화면이면이 아니면
-//         typograpy.forEach((text)=>{
-//             text.removeEventListener('mouseover',typoEventListner);
-//         })
-//             typoGsap(typograpyWrap);
-//             transGsap(tagWrap,'left','-999px',0.5);
-//         }
-//   }
+        if(mainActIdx === 0){ //메인 화면이면
+            typograpy.forEach((text)=>{
+                text.addEventListener('mouseover',typoEventListner);
+            })
+        }else{ //메인 화면이면이 아니면
+            typograpy.forEach((text)=>{
+                text.removeEventListener('mouseover',typoEventListner);
+            })
+        }
+  }
 
     return (
         <>
