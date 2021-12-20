@@ -1,4 +1,4 @@
-import React, {useState ,useRef} from "react";
+import React, {useState ,useRef, useEffect,useCallback} from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import 'swiper/swiper.scss';
 import "swiper/components/navigation/navigation.scss";
@@ -18,10 +18,9 @@ import {mainUpdate} from "../module/ui";
 
 SwiperCore.use([ Pagination,Navigation,Mousewheel]);
 
-export default function Main({deviceChk}) {
+export default function Main({deviceChk,cursorOuterRef,cursorInnerRef}) {
   const dispatch = useDispatch();
   const mainActIdx = useSelector(state=>state.ui.mainActIdx);
-  const swiperRef = useRef();
   const [actIdx,setActIdx] = useState();
   const list = ["Home",'About','Project','Practice']; //메뉴
   /**
@@ -36,6 +35,34 @@ export default function Main({deviceChk}) {
    * 
    * 둘의 차이는 swiper.acitiveIdx 받아 쓰는거
    */
+  useEffect(()=>{
+    
+      document.querySelectorAll('.main-pagination span').forEach((menu)=>{
+        menu.addEventListener("mouseover",function(){elementHover('cursor-grow')});
+        menu.addEventListener("mouseleave",function(){elementLeave('cursor-grow')});
+      });
+        document.querySelectorAll('.prj-link').forEach((link)=>{
+        link.addEventListener("mouseover",function(){elementHover('cursor-hide','cursor-link')});
+        link.addEventListener("mouseleave",function(){elementLeave('cursor-hide','cursor-link')});
+      })
+       document.querySelectorAll('.circle').forEach((circle)=>{
+        circle.addEventListener("mouseover",function(){elementHover('cursor-hide')});
+        circle.addEventListener("mouseleave",function(){elementLeave('cursor-hide')});
+      })
+       document.querySelectorAll('.point').forEach((point)=>{
+        point.addEventListener("mouseover",function(){elementHover('cursor-grow3','cursor-grow2')});
+        point.addEventListener("mouseleave",function(){elementLeave('cursor-grow3','cursor-grow2')});
+      })
+  },[]);
+ 
+  const elementHover =useCallback((inner,outer=inner) => {
+    cursorOuterRef.current.classList.add(inner);
+    cursorInnerRef.current.classList.add(outer);
+  },[]);
+  const elementLeave =useCallback((inner,outer=inner) => {
+    cursorOuterRef.current.classList.remove(inner);
+    cursorInnerRef.current.classList.remove(outer);
+  },[]);
 
   const init = (swiper,activeIndx) =>{
     setActIdx(activeIndx);
@@ -54,7 +81,7 @@ export default function Main({deviceChk}) {
     const isPc_isMain= ()=>{
       typoBox.classList.remove('pc');
       ToPcMain(typoBox);
-      swiper.mousewheel.enable();
+      // swiper.mousewheel.enable();
       transGsap(aside,'left','-9999px',1);
     }
     const isPc_isSub= ()=>{
@@ -62,17 +89,17 @@ export default function Main({deviceChk}) {
       ToPcSub(typoBox);
       typoBox.classList.add('pc');
       typoBox.classList.remove('top');
-      swiper.mousewheel.disable();
+      // swiper.mousewheel.disable();
     }
     const isMo_isMain= ()=>{
       mainResTypoGsap(typoBox);
       typoBox.classList.remove('top');
-      swiper.mousewheel.disable();
+      // swiper.mousewheel.disable();
     }
     const isMo_isSub= ()=>{
       typoBox.classList.add('top');
       mainResTypoGsap(typoBox,false);
-      swiper.mousewheel.disable();
+      // swiper.mousewheel.disable();
     }
     
     /**
@@ -106,20 +133,9 @@ export default function Main({deviceChk}) {
     const resize = () =>{
       let winWid = window.innerWidth;
 
-      if(winWid > 768){ //pc
-        if(_activeIdx > 0){ //sub
-          isPc_isSub();
-        }else{
-          isPc_isMain(); //main
-        }
-      }
-      else{ //mo
-        if(_activeIdx > 0){ 
-          isMo_isSub();
-        }else{
-          isMo_isMain(false);
-        }
-      }
+      if(winWid > 768){ _activeIdx > 0 ?  isPc_isSub() : isPc_isMain()} //pc -> main or sub
+      else{
+        _activeIdx > 0 ? isMo_isSub() : isMo_isMain(false);}  //mo -> main or sub
     }
     window.addEventListener('resize',resize);
   }
@@ -158,7 +174,6 @@ export default function Main({deviceChk}) {
             nextEl: '.main-next',
             prevEl: '.main-prev'
         }} 
-          ref={swiperRef}
           speed = {1000}
           slidesPerView={1}
           spaceBetween={5}
@@ -179,7 +194,7 @@ export default function Main({deviceChk}) {
                 deviceChk === "pc" && <MessageContainer/>
               }
             </SwiperSlide>
-            <SwiperSlide><About/></SwiperSlide>
+            <SwiperSlide><About mainActIdx={mainActIdx}/></SwiperSlide>
             <SwiperSlide><SlideComp cont={'project'}/></SwiperSlide>
             <SwiperSlide><SlideComp cont={'prac'}/></SwiperSlide>
         </Swiper>

@@ -1,7 +1,6 @@
 @import 'style';
 .sub-wrap{
     background: #000;
-    // border: 1px solid red;
     font-family: 'IBMPlexSansKR-Regular';
 }
 
@@ -38,17 +37,26 @@
             background:linear-gradient(to bottom, #000000bd 0%, #0000);
         }
         .sub-header{
+            font-family: 'Cardo';
+            position: absolute;
+            top: 0;
             display: flex;
             justify-content: space-between;
             width: 100%;
-            padding: 0 20px;
-            position: absolute;
-            top: 0;
+            padding: 50px;
+            font-size: 1.7em;
             z-index: 9;
-            font-size: 1.5em;
             a{
                 text-decoration: none;
                 color: #fff;
+            }
+            .link-git{
+                display: inline-block;
+                width: 35px;
+                height: 35px;
+                background: $black_3 url('../images/icon-github.svg') center no-repeat;
+                background-size: 35px;
+                text-indent: -9999px;
             }
         }
         .sub-tit{
@@ -78,12 +86,14 @@
             left: 48%;
             height: 100px;
             z-index: 9;
+            font-family: 'Cardo';
             -webkit-clip-path: inset(100% 0 0 0);
             clip-path: inset(100% 0 0 0);
             transition: opacity .6s cubic-bezier(.58,.45,.27,.98) 1.5s;
             transition-property: opacity,transform,-webkit-clip-path;
             transition-property: opacity,transform,clip-path;
             transition-property: opacity,transform,clip-path,-webkit-clip-path;
+            transform: translateX(-50%);
             &.on{
                 opacity: 1;
                 -webkit-clip-path: inset(0); 
@@ -123,23 +133,21 @@
             .sub-left{
                 float: left;
                 .date{
-                    margin-top: 10px;
+                    margin-top: 20px;
                 }
                 .project{
-                    margin: 20px 0 20px;
+                    margin: 25px 0 30px;
                     font-size: 2em;
                     &+h3,&+h3+p{
                         padding-bottom: 2px;
                     }
                 }
-                .tag-wrap{font-size: 0.6em;}
+                .tag-wrap{font-size: 0.7em;}
             }
             .sub-desc-wrap{
                 float: right;
                 padding: 70px 0;
                 font-family: 'IBMPlexSansKR-Regular';
-                white-space: pre-line;
-                line-height: 1.5;
                 font-size: 1.2em;
                 .desc-tit{
                     display: inline-block;
@@ -148,6 +156,36 @@
                     border-radius: 20px;
                     font-size: 0.8em;
                     text-decoration: underline;
+                }
+                .sub-desc{
+                    margin-top: 20px;
+                    padding-top: 20px;
+                    border-top: 1px solid $black_1;
+                    h3{
+                        font-size: 1.2em;
+                        padding-bottom: 5px;
+                    }
+                    h4{
+                        display: inline-block;
+                        padding:3px 10px;
+                        margin: 15px 0 10px;
+                        background: $black_1;
+                        border-radius: 28px;
+                        font-size: 0.8em;
+                    }
+                    h5 {
+                        font-size: 0.8em;
+                        text-decoration: underline;
+                        padding: 0 5px 10px;
+                    }
+                    strong{
+                        display: block;
+                        padding: 12px 0;
+                        font-weight: bold;
+                    }
+                    a{
+                        color:$blue_1;
+                    }
                 }
             }
         }
@@ -159,7 +197,7 @@
             position: relative;
             width: 100%;
             .pc-box{
-                width: 70%;
+                width: 100%;
                 height: auto;
                 img{
                     width: 100%;
@@ -169,47 +207,8 @@
                     bottom: 50px;
                 }
             }
-            .mo-box{
-                position: absolute;
-                right: 0;
-                bottom: 0;
-                width: 40%;
-                img{
-                    width: 100%;
-                }
-                .mo{
-                    right: 10px;
-                    bottom: 270px;
-                }
-            }
             .btn-site{position: absolute}
         }
-        // .etc-box{
-        //     @include clear;
-        //     margin-top: 35px;
-        //     font-size: 0.8em;
-        //     .etc-item{
-        //         float: left;
-        //         position: relative;
-        //         overflow: hidden;
-        //         margin-right: 10px;
-        //         @include hoverItem(#fff,$blue_1,80,0.4s);
-        //         .off{
-        //             color: #fff;
-        //             opacity: 0;
-        //         }
-        //         &:hover {
-        //             border: none;
-        //             & .tit{
-        //                 opacity: 0;
-        //             }
-        //             & .off{
-        //                 opacity: 1;
-        //                 z-index: 999;
-        //             }
-        //         }
-        //     }
-        // }
        
         .text-wrap{
             position: absolute;
@@ -293,12 +292,17 @@
     .sub-container{
         .sub-main{
             height: 90vh;
+            .sub-tit{
+                width: 80%;
+                font-size: 1.4em;
+                line-height: 1.2;
+            }
         }
         .sub-content{
             .inner{
                 width: 100%;
                 margin-left: 0;
-                padding:30px 10px 20px;
+                padding:30px 15px 20px 10px;
                 font-size: 10px;
             }
             .text-wrap{
@@ -306,7 +310,7 @@
             }
             .sub-top .sub-desc-wrap{
                 width: 100%;
-                padding: 30px 0;
+                padding: 10px 0;
             }
             .main-box{
                 .mo-box .mo{bottom: 66%;}
@@ -316,7 +320,7 @@
             }
         }
         .etc-box {
-            top: 70px;
+            top: 0;
         }
         .sub-footer{
             height: 200px;

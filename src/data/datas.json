@@ -4,146 +4,192 @@
             "id":1,
             "title": "롯데백화점",
             "project" : "롯데백화점 운영",
-            "hashtag":["PC","MO","APP","ADMIN","Vue"],
+            "hashtag":["pc","mo","APP","ADMIN","Vue"],
+            "device":["pc","mo"],
             "desc" : "운영 및 고도화",
-            "sub_desc":"pcWeb, moWeb, App, admin 운영 및 고도화\n동탄점 운영 (Vue.js) : 간단한 수정 작업 및 빌드\n롯데갤러리 고도화 작업 \nPC: https://www.lotteshopping.com/gallery/galleryMain \n MO : https://m.lotteshopping.com/gallery/galleryMain",
+            "sub_desc":"pcWeb, moWeb, App, admin 운영 및 고도화 작업\n롯데갤러리 고도화 작업 \n동탄점 운영 (Vue.js) : 간단한 수정 작업 및 빌드\n",
             "date":"2021.01 ~ 2021.12",
             "members":"2명",
             "participation" :"70%",
-            "url":["https://www.lotteshopping.com/main/main","https://m.lotteshopping.com/main?cstr=0001"],
-            "image" : ["/images/img_test_02.png","/images/img_pc.jpg","/images/img_mo.jpg"]
+            "url":{
+                "mo" : "https://www.lotteshopping.com/main/main",
+                "pc" : "https://m.lotteshopping.com/main?cstr=0001"
+            },
+            "image" : {
+                "mo" : "/images/img_sp.png",
+                "pc" : "/images/img_pc.png"
+            }
         },
         {
             "id":2,
             "title": "스타벅스",
             "project" : "Starbucks 2020 Winter Prequency",
             "hashtag":["PC","APP","MO" ,"비경상 구축"],
+            "device":["pc","mo"],
             "desc" : "APP 겨울 프리퀀시 구축",
-            "sub_desc":"APP 프리퀀시 구축, PCW,MOW 프리퀀시 컨텐츠 추가/수정",
+            "sub_desc":"APP 프리퀀시 구축\n PCW,MOW 프리퀀시 컨텐츠 수정 및 추가",
             "date":"2020.10 ~ 2020.11",
             "members":"1명",
             "participation" :"100%",
-            "url":["https://www.starbucks.co.kr/index.do","https://www.starbucks.co.kr/index.do"],
-            "image" : ["/images/img_mo_only.png","/images/img_pc.jpg","/images/img_mo.jpg"]
+            "url":{
+                "mo" : "https://www.starbucks.co.kr/index.do",
+                "pc" : "https://www.starbucks.co.kr/index.do"}
+            ,
+            "image" : {
+                "mo" : "/images/img_sp.png",
+                "pc" : "/images/img_pc.png"
+            }
         },
         {
             "id":3,
             "title": "LOTTE RESORT",
             "project" : "LOTTE RESORT 차세대 고도화",
             "hashtag":["반응형","고도화"],
-            "desc" : "고도화 작업",
-            "sub_desc":"롯데리조트 예약 페이지 수정/추가",
+            "device":["pc","mo"],
+            "desc" : "롯데리조트 고도화",
+            "sub_desc":"고도화 예약 페이지 수정 및 추가\n시나리오 테스트 서포트",
             "date":"2020.06 ~ 2020.09",
             "members":"2명",
             "participation" :"70%",
-            "url":["https://www.lotteresort.com/main/ko/index"],
-            "image" : ["/images/dummy.jpg","/images/img_pc.jpg","/images/img_mo.jpg"]
+            "url":{"pc" : "https://www.lotteresort.com/main/ko/index"},
+            "image" : {
+                "mo" : "/images/img_sp.png",
+                "pc" : "/images/img_pc.png"
+            }
         },
         {
             "id":4,
             "title": "SAGEWOOD",
             "project" : "SAGEWOOD RESORT",
-            "hashtag":["PC","MO","구축"],
+            "hashtag":["PC","MO","구축","크로스브라우징"],
+            "device":["pc","mo"],
             "desc" : "SAGEWOOD RESORT PC,MO 구축",
-            "sub_desc":"모바일 컨텐츠 가이드 작업 \n PC 서포트 \n bable, scss 사용",
+            "sub_desc":"모바일 컨텐츠 가이드 작업\n PC 컨텐츠 서포트 \n bable, scss 사용",
             "date":"2020.02 ~ 2020.04",
             "members":"2명",
             "participation" :"40%",
-            "url":["https://www.sagewood.co.kr/global/main","https://www.sagewood.co.kr/global/main"],
-            "image" : ["/images/dummy.jpg","/images/img_pc.jpg","/images/img_mo.jpg"]
+            "url":{
+                "mo" : "https://www.sagewood.co.kr/global/main",
+                "pc" : "https://www.sagewood.co.kr/global/main"}
+            ,
+            "image" : {
+                "mo" : "/images/img_sp.png",
+                "pc" : "/images/img_pc.png"
+            }
         },
         {
             "id":5,
             "title": "현대카드 이마트",
             "project" : "현대카드 이마트 PLCC",
             "hashtag":["MO","TABLET","구축","고도화"],
-            "desc" : "1) 현대카드 이마트 PLCC 제작 및 운영 수정, 2) 실적확인 대쉬보드 고도화",
-            "sub_desc":"1) 카드 등록 페이지 추가 수정 작업 \n 2) d3.js를 이용한 실적확인 대쉬보드 작업",
+            "device":["pc","mo"],
+            "desc" : "1) 현대카드 이마트 PLCC 추가 2) 실적확인 대쉬보드 고도화",
+            "sub_desc":"1) 카드 등록 페이지 추가 및 수정 작업 \n 2) d3.js를 이용한 실적확인 대쉬보드 추가 및 수정 작업",
             "date":"2020.01 ~ 2020.12",
-            "members":"2명",
-            "participation" :"80%",
-            "url":["",""],
-            "image" : ["/images/dummy.jpg","/images/img_pc.jpg","/images/img_mo.jpg"]
+            "members":"1명",
+            "participation" :"100%",
+            "url":{"pc" : null},
+            "image" : {
+                "mo" : "",
+                "pc" : ""
+            }
         },
         {
             "id":6,
             "title": "LOTTE RESORT",
             "project" : "LOTTE RESORTE 구축",
             "hashtag":["반응형","구축"],
+            "device":["pc","mo"],
             "desc" : "롯데리조트 반응형 구축",
-            "sub_desc":"컨텐츠 가이드 작업, 컨텐츠 추가 스크립트 작업, \n다국어 작업, 접근성 준수 작업",
+            "sub_desc":"컨텐츠 작업, 추가 스크립트 작업, \n다국어 작업, 접근성 준수 작업",
             "date":"2020.01 ~ 2020.12",
             "members":"2명",
-            "participation" :"80%",
-            "url":["https://www.lotteresort.com/main/ko/index"],
-            "image" : ["/images/dummy.jpg","/images/img_pc.jpg","/images/img_mo.jpg"]
+            "participation" :"60%",
+            "url":{"pc" : "https://www.lotteresort.com/main/ko/index"},
+            "image" : {
+                "mo" : "/images/img_sp.png",
+                "pc" : "/images/img_pc.png"
+            }
         },
         {
             "id":7,
             "title": "CHAR LOTTE",
-            "project" : "CAHR LOTTE구축",
+            "project" : "CAHR LOTTE 구축",
             "hashtag":["MOW"],
+            "device":["mo"],
             "desc" : "MOW 구축",
             "sub_desc":"샤롯데 모바일 가이드 및 전페이지 구축",
             "date":"2020.01 ~ 2020.12",
             "members":"1명",
             "participation" :"100%",
-            "url":["http://www.charlottetheater.co.kr/m/"],
-            "image" : ["/images/dummy.jpg","/images/img_pc.jpg","/images/img_mo.jpg"]
+            "url":{"mo":"http://www.charlottetheater.co.kr/m/"},
+            "image" : {
+                "mo" : "/images/img_sp_02.png"
+            }
         },
         {
             "id":8,
             "title": "아시아나항공",
             "project" : "아시아나 항공 구축",
             "hashtag":["PC","MO","APP","웹접근성 취득"],
-            "desc" : "아시아나 항공 PC, Mweb, APP 구축 (예약은 타회사)",
+            "device":["pc","mo"],
+            "desc" : "아시아나 항공 PC, Mweb, APP 구축",
             "sub_desc":"mWEb/WebView - 예약 조회,예약 변경,예약 취소,예약 수정 (가이드 토대로 작업)\nPC, Mweb - 다국어 작업, 접근성 작업 및 서포트\nPC - 컨텐츠 페이지 작업 ( 가이드 토대로 작업)",
             "date":"2020.01 ~ 2020.12",
             "members":"9명",
-            "participation" :"30%",
-            "url":["https://flyasiana.com/","https://m.flyasiana.com/"],
-            "image" : ["/images/dummy.jpg","/images/img_pc.jpg","/images/img_mo.jpg"]
+            "participation" :"40%",
+            "url":{
+                "pc" : "https://flyasiana.com/",
+                "mo" : "https://m.flyasiana.com/"
+            },
+            "image" : {
+                "mo" : "/images/img_sp.png",
+                "pc" : "/images/img_pc.png"
+            }
         }
     ],
     "practice":[
         {
             "id":11,
-            "title": "날씨",
-            "project" : "프로젝트명44",
-            "hashtag":["반응형","적응형","비경상"],
-            "desc" : "01 반응형0-제목같은",
-            "sub_desc":"pcWeb, moWeb, App, admin 운영 및 고도화\n데갤러리 고도화 작업\n동탄점 운영 (Vue.js) : 간단한 수정 작업 및 빌드\n최근에 작업 : 롯데갤러리",
+            "title": "Weather react App",
+            "project" : "날씨 조회, 검색이 가능한 mo App",
+            "hashtag":["MO","api"],
+            "device":["mo"],
+            "desc" : "날씨 api를 이용하여 검색, 조회가 가능한 모바일 app",
+            "sub_desc":"<h3>기능</h3><strong>메인</strong><p>선택한 도시 위치 값으로 날씨 노출됨 (초기값은 서울)</p><strong>위젯 (하단 화살표버튼)</strong><p>공기질, 일출/일몰, 풍향, 9일치 날씨 노출 (세팅메뉴에서 옵션 노출/미노출 선택 가능)</p><strong>세팅 메뉴 위젯(햄버거버튼)</strong><p>도시검색 : 최근검색/ 검색 도시 노출 , 조회하고싶은 도시는 UPDATE 버튼 으로 조회<br/>위젯노출 옵션 선택 : 선택 후 SAVE버튼으로 저장<br/>테마 선택 가능 : 선택 후 SAVE버튼으로 저장</p><h4>API</h4><p>    openweather 날씨 데이터 가져옴 <a href='https://home.openweathermap.org/api_keys' target='_blank'>openwheather</a><br/>    IPSTACK IP를 이용하여 위치 도시 값 가져옴 <a href='https://ipstack.com/quickstart' target='_blank'>ipstack</a></p><h4>폴더 관리</h4><p>    Component : 프레젠테이션 컴포넌트<br/>    Container : 리덕스 상태 조회/액션 디스패치<br/>    module : 액션 타입 선언/ 액션 생성함수</p><h4>state 관리 - Redux 이용</h4><pre>    <code>state =<br/>        &nbsp;menuOpen: false, //메뉴 토글<br/>        &nbsp;setmenuOpen: false, //세팅메뉴 토글,<br/>        &nbsp;modalOpen: false, //모달 토글<br/>        &nbsp;bg_color: 'bg-blue', //현재 bg Color,<br/>        &nbsp;city: 'Seoul', //도시<br/>        &nbsp;itemState: <br/>            &nbsp;&nbsp;&nbsp;unit: true, //단위<br/>            &nbsp;&nbsp;&nbsp;atmo: true, //공기질<br/>            &nbsp;&nbsp;&nbsp;sun: true, //일출 일몰<br/>            &nbsp;&nbsp;&nbsp;wind: true //바람세기<br/>    </code></pre><h4>사용한 라이브러리</h4><p>    axios<br/>    gsap<br/>    react-id-swiper<br/>    redux<br/>    react-redux<br/>    scss<br/>    swiper<br/>    fontawesome<br/></p>",
             "date":"2021.01 ~ 2021.12",
-            "members":"2명",
-            "participation" :"80%",
-            "url":["",""],
-            "image" : ["/images/img_sp.png","/images/img_pc.png","/images/img_mo.jpg"]
+            "members":"1명",
+            "participation" :"100%",
+            "url":["https://park-my-1540.github.io/weather-develop"],
+            "image" : ["/images/img_mo_only.png","/images/weaher2.png"]
         },
         {
             "id":12,
-            "title": "날씨 디벨롭",
-            "project" : "프로젝트명44",
-            "hashtag":["반응형","적응형","비경상"],
-            "desc" : "01 반응형0-제목같은",
-            "sub_desc":"pcWeb, moWeb, App, admin 운영 및 고도화\n데갤러리 고도화 작업\n동탄점 운영 (Vue.js) : 간단한 수정 작업 및 빌드\n최근에 작업 : 롯데갤러리",
+            "title": "weaher react PC APP",
+            "project" : "날씨 조회, 검색이 가능한 PC App",
+            "hashtag":["PC","api"],
+            "device":["pc"],
+            "desc" : "날씨 api와 구글맵을 이용하여 검색, 조회가 가능한 PC app",
+            "sub_desc":"<h3>기능</h3><strong>메인</strong><p>현재 위치 값으로 조회 (현재 날씨 정보 , 5일 날씨)</p><strong>change Location 팝업</strong><p>구글 맵에서 선택한 위치로 날씨 재조회</p><strong>세팅 메뉴 위젯(햄버거버튼)</strong><p>도시검색 : 최근검색/ 검색 도시 노출 , 조회하고싶은 도시는 UPDATE 버튼 으로 조회<br/>위젯노출 옵션 선택 : 선택 후 SAVE버튼으로 저장<br/>테마 선택 가능 : 선택 후 SAVE버튼으로 저장</p><h4>API</h4><p>    openweather 날씨 데이터 가져옴 <a href='https://home.openweathermap.org/api_keys' target='_blank'>openwheather</a><br/>    IPSTACK IP를 이용하여 위치 도시 값 가져옴 <a href='https://ipstack.com/quickstart' target='_blank'>ipstack</a></p><br/>    googleMap 구글 지도 가져옴/ 공간 마커 <a href='https://developers.google.com/maps/documentation/javascript/geolocation?hl=ko' target='_blank'>ipstack</a></p><h4>폴더 관리</h4><p>    Component : 프레젠테이션 컴포넌트    <br/>    Container : 리덕스 상태 조회/액션 디스패치    <br/>    module : 액션 타입 선언/ 액션 생성함수</p><h4>state 관리 - Redux 이용</h4><pre>    <code>state =<br/>        &nbsp;mainArray: [], //현재 날씨 + 4일치 날씨<br/>        &nbsp;weekArray : [], //하루치 날씨 정보 * 4,<br/></code></pre><h4>state 관리 contextAPI이용</h4><h5>useLatLng - :  클릭한 위경도 가져오는 커스텀 훅</h5><pre>    <code>state =<br/>        &nbsp;lat: 37, //위도<br/>        &nbsp;lng : 127, //경도 - 서울,<br/>        &nbsp;city: where, //도시<br/></code></pre><h4>state 관리</h4><h5>useAsync   - :  로딩 값, 데이터 관리, 에러 관리하는 커스텀 훅</h5><pre>    <code>state =<br/>        &nbsp;loading: false, //로딩 상태<br/>        &nbsp;data : null, //api로 불러온 날씨 데이터,<br/>        &nbsp;error: null, //에러상태<br/></code></pre><h4>사용한 라이브러리</h4><p>    axios<br/>    google-maps-react<br/>    react-geocode<br/>    react-goolge-maps<br/>    react-icons<br/>    react-redux<br/>    scss<br/>    fontawesome<br/></p>",
             "date":"2021.01 ~ 2021.12",
             "members":"2명",
-            "participation" :"80%",
-            "url":["",""],
-            "image" : ["/images/img_sp_02.png","/images/img_pc.jpg","/images/img_mo.jpg"]
+            "participation" :"100%",
+            "url":["https://park-my-1540.github.io/weather-react/"],
+            "image" : ["/images/img_pc.png","/images/weather.png"]
         },
         {
             "id":13,
-            "title": "영화",
-            "project" : "프로젝트명44",
-            "hashtag":["반응형","적응형","비경상"],
-            "desc" : "01 반응형0-제목같은",
-            "sub_desc":"pcWeb, moWeb, App, admin 운영 및 고도화\n데갤러리 고도화 작업\n동탄점 운영 (Vue.js) : 간단한 수정 작업 및 빌드\n최근에 작업 : 롯데갤러리",
+            "title": "movie-react",
+            "project" : "영화 검색 및 영화 소개 페이지 PC App",
+            "hashtag":["PC","api"],
+            "device":["pc"],
+            "desc" : "영화 api를 불러와 영화리스트를 노출시키고 카테고리,검색 단어로 값을 재조회, 해당 상세페이지로 이동.",
+            "sub_desc":"<h3>기능</h3><strong>메인</strong><p>API로 불러온 영화데이터 노출, 검색창및 카테고리 탭에서 영화 검색 가능</p><strong>영화 소개</strong><p>영화 포스터 클릭하시 해당 상세 페이지로 이동</p><h4>API</h4><p>    영화 데이터<a href='https://yts-proxy.now.sh/list_movies.json' target='_blank'>movie api</a></p><h4>폴더 관리</h4><p>    comp : 프레젠테이션 컴포넌트<br/>    lib : useAsync, Provider state 관리<br/>    router : Router들 모음.</p><h4>state 관리 -contextAPI</h4><h5>useQueryContext- :  검색한 값 관리</h5><pre>    <code>state =<br/>        &nbsp;search //키워드 검색 단어<br/>        &nbsp;lng : 127, //경도 - 서울,<br/>        &nbsp;city: where, //도시<br/></code></pre><h4>state 관리</h4><h5>useAsync   - :  로딩 값, 데이터 관리, 에러 관리하는 커스텀 훅</h5><pre>    <code>state =<br/>        &nbsp;loading: false, //로딩 상태<br/>        &nbsp;data : null, //api로 불러온 영화 데이터,<br/>        &nbsp;error: null, //에러상태<br/></code></pre><h4>사용한 라이브러리</h4><p>    axios<br/>    react-router-dom<br/>    styled-components<br/></p>",
             "date":"2021.01 ~ 2021.12",
             "members":"2명",
-            "participation" :"80%",
-            "url":["",""],
-            "image" : ["/images/img_test_01.png","/images/img_pc.jpg","/images/img_mo.jpg"]
+            "participation" :"100%",
+            "url":["https://park-my-1540.github.io/movie-react"],
+            "image" : ["/images/img_pc.png","/images/movie.png"]
         }
     ]
     

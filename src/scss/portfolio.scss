@@ -7,6 +7,13 @@
           .prg-top,.prj-img,.desc-wrap{
             @include clipEffect;
           }
+          .prj-img{
+            width: 42%;
+            img{
+              width: 100%;
+              height: auto;
+            }
+          }
         }
         &.type01{ 
           //translateX(0) 효과를 위해 지정
@@ -24,6 +31,17 @@
             left: auto;
             
           }
+        }
+        .sub-desc-wrap{
+          word-break: break-all;
+          display: -webkit-box;
+          -webkit-line-clamp: 9;
+          line-clamp: 9;
+          -webkit-box-orient: vertical;
+          box-orient: vertical;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          line-height: 1.4;
         }
     }
     .swiper-pagination{
@@ -91,6 +109,7 @@
     }
     .sub-desc-wrap{
       word-break: break-all;
+      line-height: 1.4;
     }
     .desc-wrap{
       position: absolute;
@@ -133,22 +152,22 @@
       position: absolute;
       bottom: 0;
       right: 40%;
-      width: 52%;
+      width: 50%;
       height: 77%;
       .mo{
         position: absolute;
         bottom: 0;
         left: 0;
-        width: 375px;
-        height:auto;
+        width: auto;
+        height: 66%;
         z-index: 2;
       }
       .pc{
         position: absolute;
-        top: 0;
+        bottom: 0;
         right: 0;
         width: auto;
-        height: 100%;;
+        height: 85%;
         z-index: 1;
       }
     }
@@ -267,24 +286,26 @@
 @media (max-width:768px) {
   .portfolio{
     .swiper-container {
-      .prg-title{
-      }
+     
       .prj-img{
         width: 75%;
         left: 11%;
         height: 42%;
         .mo{
-          height: 165px;
-          width: auto;
+          width: 64px;
+          height: auto;
+          left: 10%;
         }
         .pc{
           width: 265px;
+          height: auto;
         }
       }
       .desc-wrap{
         top: 25%;
         width: 52%;
         right: 0;
+        padding-right: 5%;
       }
       .swiper-pagination{
         bottom: -80px;
@@ -303,7 +324,25 @@
 @media (max-width:481px) {
   .portfolio{
     .swiper-container {
-      height:calc(100% - 30px);
+      height:calc(100% - 47px);
+      &.type2{
+        .desc-wrap{
+          top:31%
+        }
+        .prj-img {
+          width: 100%;
+          .mo{
+            width: auto;
+            height: 100%;
+            left: auto;
+          }
+      }
+      }
+      .sub-desc-wrap {
+        font-size: 0.8em;
+        -webkit-line-clamp: 6;
+        line-clamp: 6;
+      }
       .prg-title{
         font-size: 1.5em;
       }
@@ -314,9 +353,7 @@
         bottom: 0;
       }
       .desc-wrap{
-        top: 30%;
-        width: 52%;
-        right: 0;
+        top: 22%;
       }
       .sub-desc-wrap {
         font-size: 0.8em;
@@ -324,7 +361,6 @@
       .tag-wrap span{
         padding: 5px 10px;
         font-size: 1em;
-        border-radius: 42%;
       }
       .swiper-pagination{
         bottom: -20px;
@@ -344,20 +380,27 @@
       }
     }
     .pofol-pagi-wrap{
-      height: 30px;
+      height: 40px;
       bottom: 0;
       .pofol-pagination {
     
         .swiper-pagination-bullet{
-          line-height: 30px;
+          line-height: 40px;
           font-size: 0.8em;
           &:first-child::after{
             display: none;
+          }
+        }
+        .swiper-pagination-bullet-active{
+          span{
+            opacity: 1;
+            &::before{
+              top: 12px;
+            }
           }
         }
       }
     }
   }
 }
-
 }

@@ -8,10 +8,27 @@ import CustomLink from "./CustomLink";
       const hoverTarget = document.querySelectorAll('[data-ui="hover"]');
       hoverFunc(hoverTarget);
     }, [])
+
+
+  const project= (
+      pofoldata.device.map(device=>{
+        return (
+          <a href={pofoldata.url[device]} alt={device} className="prj-link" target="_blank">
+            <img src={`${process.env.PUBLIC_URL}${pofoldata.image[device]}`} class={device} alt="a"/>    
+          </a>
+        )
+      })
+  )
+    
+
+    const pofol = (
+        <img src={`${process.env.PUBLIC_URL}${pofoldata.image[0]}`} className="mo" alt="a"/>
+    )
+
   return (  
       <>
         <div className="inner" id={pofoldata.id}>
-            <div class="prg-top">
+            <div className="prg-top">
               <div className="tag-wrap">
                 {pofoldata.hashtag.map((hs)=><span>{hs}</span>)}
               </div>
@@ -20,30 +37,30 @@ import CustomLink from "./CustomLink";
             </div>
             <div className="etc-box">
                 <div className="etc-item" data-ui="hover">
-                    <span className="txt">참여인원</span><span className="txt off">{pofoldata.members}</span><span class="hover"></span>
+                    <span className="txt">참여인원</span><span className="txt off">{pofoldata.members}</span><span className="hover"></span>
                 </div>
                 <div className="etc-item" data-ui="hover">
-                <span className="txt">참여정도</span><span className="txt off">{pofoldata.participation}</span><span class="hover"></span>
+                <span className="txt">참여정도</span><span className="txt off">{pofoldata.participation}</span><span className="hover"></span>
                 </div>
             </div>
             <div className="prj-img">
-              <a href={pofoldata.url[0]} alt="mo" class="prj-link" target="_blank">
-                <img src={`${process.env.PUBLIC_URL}${pofoldata.image[0]}`} class="mo" alt="a"/>    
-              </a>
-              <a href={pofoldata.url[1]} alt="pc" class="prj-link" target="_blank">
-                <img src={`${process.env.PUBLIC_URL}${pofoldata.image[1]}`} class="pc" alt="a"/>
-              </a>
+              {
+               cont === "prac" ?  pofol :project
+              }
             </div>
             <div className="desc-wrap">
                 <p className="prj-date">{pofoldata.date}</p>
                 <p className="prj-desc">{pofoldata.desc}</p>
-                <div class="sub-desc-wrap">
-                    <ul>
-                        {
-                            pofoldata.sub_desc.split("\n").map((i,key) =><li key={key}>{i}</li>)
-                        }
-                    </ul>
-                </div>
+                {
+                  !cont&&
+                    (<div className="sub-desc-wrap">
+                          <ul>
+                              {
+                                  pofoldata.sub_desc.split("\n").map((i,key) =><li key={key}>{i}</li>)
+                              }
+                          </ul>
+                    </div>)
+                }
             </div>
             {
               cont && (

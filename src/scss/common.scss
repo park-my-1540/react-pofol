@@ -31,6 +31,14 @@ html,body,#root,section{
         transform: scale(4);
         background-color: $blue_2;
     }
+    &.cursor-grow2 {
+        transform: scale(4);
+        background-color: $red_2;
+    }
+    &.cursor-grow3 {
+        transform: scale(0.8);
+        background-color: $red_1;
+    }
     &.cursor-hide {
        opacity:0;
         transition: opacity 0.15s ease-in-out, transform 0.25s ease-in-out;
@@ -57,12 +65,12 @@ html,body,#root,section{
 /*반응형으로 mixin 해봅시다*/
 .header{
     width:100%;
-    position: fixed;
+    position: absolute;
     top: 0;
     right: 0;
     width: 80%;
     height: 100px;
-    z-index: 99;
+    z-index: 9;
     background: $main_1;
     &::after{
         content: '';
@@ -126,7 +134,7 @@ html,body,#root,section{
         margin-right: 7px;
         background: #fff;
         color: #000;
-        border-radius: 38%;
+        border-radius: 20px;
         font-family: 'IBMPlexSansKR-Regular';
     }
   }

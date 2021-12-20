@@ -172,7 +172,7 @@ export default function Main({deviceChk,onUpdateDevice}) {
               el: '.main-pagination',
               clickable:true,
               renderBullet: function (index, className) {
-                return `<span class="${className}">  ${index ===0 ? 'Home' : (list[index])}</span>`;
+                return `<span className="${className}">  ${index ===0 ? 'Home' : (list[index])}</span>`;
               },
           }} 
           className="mainSwipper">

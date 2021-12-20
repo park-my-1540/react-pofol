@@ -7,6 +7,8 @@ $blue_2 : #515ada;
 $black_1 : #1a1b1c33;
 $black_2 : #1a1b1c;
 $black_3 : #00000059;
+$red_1 : #dc5a5a;
+$red_2 : #dc5a5a66;
 
 $point_f1 : #3a5dae;
 $point_f2 : #6ab6df;
@@ -196,27 +198,11 @@ $point_t2 : #fffeac;
     }
 }
 @keyframes block-reveal{  
-
-
-    // 0%{transform: translate(-110%, 0)}
-    // 20%{transform: translate(0, 0)}
-    // 40%{transform: translate(110%, 0)}
-    // 80%{transform: translate(0, 0)}
-
-
     0%{transform: translate(-100%, 0)}
     45%{transform: translate(0, 0)}
     100%{ transform: translate(100%, 0)}
 }
 @keyframes block-reveal2{  
-
-
-    // 0%{transform: translate(-110%, 0)}
-    // 20%{transform: translate(0, 0)}
-    // 40%{transform: translate(110%, 0)}
-    // 80%{transform: translate(0, 0)}
-
-
     0%{transform: translate(100%, 0)}
     100%{transform: translate(0, 0)}
 }

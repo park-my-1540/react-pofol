@@ -3,7 +3,7 @@ import MsgComp from "./MsgComp";
 
 export default function Main({msgList,onLoading,onAddAsync,onUpdated}){
     useEffect(()=>{
-    chatStart();
+        chatStart();
     },[]);
 
     const [inputs,setInputs] = useState();
@@ -67,7 +67,7 @@ export default function Main({msgList,onLoading,onAddAsync,onUpdated}){
                 <div className="chat-box">
                     <div className="chat-header">
                         <p className="profile-img"></p>
-                        <div class="cont">
+                        <div className="cont">
                             <p className="txt">PARKMEEYOUNG</p>
                             <p className="time">KOREA</p>
                         </div>
@@ -76,8 +76,8 @@ export default function Main({msgList,onLoading,onAddAsync,onUpdated}){
                         { msgList && msgList.map((msg)=><MsgComp msgState={msg.target} msg={msg.text} time={msg.time}/>)}
                     </div>
                     <div className="send-box">
-                        <input type="text" placeholder="Type message..." value={inputs} class="txt-input" onChange={(e)=>{setInputs(e.target.value)}} onKeyDown={(e)=>{if(e.keyCode === 13){sendMsg()}}}></input>
-                        <button type="button" class="btn-send" onClick={sendMsg}>SEND</button>
+                        <input type="text" placeholder="Type message..." value={inputs} className="txt-input" onChange={(e)=>{setInputs(e.target.value)}} onKeyDown={(e)=>{if(e.keyCode === 13){sendMsg()}}}></input>
+                        <button type="button" className="btn-send" onClick={sendMsg}>SEND</button>
                     </div>
                 </div>
             </div>

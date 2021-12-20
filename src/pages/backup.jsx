@@ -144,9 +144,7 @@ export default function Main({deviceChk}) {
   return (
     <>
     <div className="wrapper">
-        {
-          deviceChk === "mo" && <MoMain/>
-        }
+        {deviceChk === "mo" && <MoMain/>}
         
         <Header deviceChk={deviceChk} actSec={list[actIdx]}/>
         <Aside  deviceChk={deviceChk} actSec={list[actIdx]}/>
@@ -167,7 +165,7 @@ export default function Main({deviceChk}) {
               el: '.main-pagination',
               clickable:true,
               renderBullet: function (index, className) {
-                return `<span class="${className}">  ${index ===0 ? 'Home' : (list[index])}</span>`;
+                return `<span className="${className}">  ${index ===0 ? 'Home' : (list[index])}</span>`;
               },
           }} 
           className="mainSwipper">

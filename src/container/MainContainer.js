@@ -1,10 +1,9 @@
-import React,{useEffect} from "react";
+import React,{useEffect,useRef} from "react";
 import { useSelector,useDispatch } from "react-redux";
 import {deviceUpdate} from "../module/ui";
 
 import Transition from "../component/Transition"
 import AnimatedCursor from "../component/AnimatedCursor";
-
 
 function MainContainer(){
 
@@ -20,18 +19,19 @@ function MainContainer(){
   
     const init = () =>{
         let winWid = window.innerWidth;
-        console.log(winWid);
-        if(winWid > 768){ //pc
-            onUpdateDevice('pc');
-        }
-        else{ //mo
-            onUpdateDevice('mo');
-        }
+        winWid > 768 ? onUpdateDevice('pc') : onUpdateDevice('mo');
     }
+    /*
+        AnimatedCursor에서도 사용하고 Transition > Main 에서도 사용하기 위해
+        현재 위치에서 선언.
+    */
+    const cursorOuterRef = useRef();
+    const cursorInnerRef = useRef();
+
     return (
         <>
-            <AnimatedCursor deviceChk={deviceChk}/>
-            <Transition onUpdateDevice={onUpdateDevice} deviceChk={deviceChk}/>
+            <AnimatedCursor deviceChk={deviceChk} cursorOuterRef={cursorOuterRef} cursorInnerRef={cursorInnerRef} />
+            <Transition onUpdateDevice={onUpdateDevice} deviceChk={deviceChk} cursorOuterRef={cursorOuterRef} cursorInnerRef={cursorInnerRef}/>
         </>
         );
 }

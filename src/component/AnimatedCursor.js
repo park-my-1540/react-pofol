@@ -1,22 +1,14 @@
 import React,{useEffect,useCallback,useRef,useState} from "react";
 
-export default function  AnimatedCursor({}){
-    useEffect(() => {
-     
-        window.addEventListener("mousemove", onMouseMove);
-        document.querySelectorAll('.main-pagination span').forEach((menu)=>{
-          menu.addEventListener("mouseover",menuHover);
-          menu.addEventListener("mouseleave",menuLeave);
-        })
-        document.querySelectorAll('.prj-link').forEach((link)=>{
-          link.addEventListener("mouseover",linkHover);
-          link.addEventListener("mouseleave",linkLeave);
-        })
-        document.querySelectorAll('.circle').forEach((circle)=>{
-          
-          circle.addEventListener("mouseover",circleHover);
-          circle.addEventListener("mouseleave",circleLeave);
-        })
+export default function  AnimatedCursor({cursorOuterRef,cursorInnerRef}){
+
+  useEffect(() => {
+    window.addEventListener("mousemove", onMouseMove);
+    /*
+    window니까 안잃어버리는데  
+    menu 이런식으로 달아두면 사라져버리지. 않을까. 혹은 그래서 ref로 한건가
+    */
+
       
     }, [])
    /*
@@ -25,8 +17,6 @@ export default function  AnimatedCursor({}){
     requestRef : animateOuterCursor의 변화 감지
     endX, endY : 포인트 끝 도착한곳
   */
-  const cursorOuterRef = useRef();
-  const cursorInnerRef = useRef();
   const requestRef = useRef();
   const [coords, setCoords] = useState({ x: 0, y: 0 });
 
@@ -59,37 +49,9 @@ export default function  AnimatedCursor({}){
     },
     [requestRef]
   )
-  React.useEffect(() => {
+  useEffect(() => {
       requestRef.current = requestAnimationFrame(animateOuterCursor); //호출 반복
     }, [animateOuterCursor])
-
-  /**
-   * 마우스 호버시 함수
-   */
-  const circleHover = () => {
-    cursorOuterRef.current.classList.add('cursor-hide');
-    cursorInnerRef.current.classList.add('cursor-hide');
-  };
-  const circleLeave = () => {
-    cursorOuterRef.current.classList.remove('cursor-hide');
-    cursorInnerRef.current.classList.remove('cursor-hide');
-  };
-  const menuHover = () => {
-    cursorOuterRef.current.classList.add('cursor-grow');
-    cursorInnerRef.current.classList.add('cursor-grow');
-  };
-  const menuLeave = () => {
-    cursorOuterRef.current.classList.remove('cursor-grow');
-    cursorInnerRef.current.classList.remove('cursor-grow');
-  };
-  const linkHover = () => {
-    cursorInnerRef.current.classList.add('cursor-hide');
-    cursorOuterRef.current.classList.add('cursor-link');
-  };
-  const linkLeave = () => {
-    cursorInnerRef.current.classList.remove('cursor-hide');
-    cursorOuterRef.current.classList.remove('cursor-link');
-  };
 
   return (
     <>

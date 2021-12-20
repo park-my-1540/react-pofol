@@ -59,6 +59,15 @@ export function allToClipGsap(target01,target02,target03,target04){
         .to(target03, {'-webkit-clip-path': 'inset(0 0% 0 0)','clip-path': 'inset(0 0% 0 0)',duration:0.5})
         .to(target04, {'-webkit-clip-path': 'inset(0 0% 0 0)','clip-path': 'inset(0 0% 0 0)',duration:0.5})
 }
+export function reverseAllToClipGsap(target01,target02,target03,target04){
+        
+    var tl = gsap.timeline();
+
+      tl.to(target01, {'-webkit-clip-path': 'inset(0 100% 0 0)','clip-path': 'inset(0 100% 0 0)',duration:0.5})
+        .to(target02, {'-webkit-clip-path': 'inset(0 100% 0 0)','clip-path': 'inset(0 100% 0 0)',duration:0.5})
+        .to(target03, {'-webkit-clip-path': 'inset(0 100% 0 0)','clip-path': 'inset(0 100% 0 0)',duration:0.5})
+        .to(target04, {'-webkit-clip-path': 'inset(0 100% 0 0)','clip-path': 'inset(0 100% 0 0)',duration:0.5})
+}
 
 export function mainTypoGsap(target){
     var tl = gsap.timeline();
@@ -136,7 +145,6 @@ export function mainResTypoGsap(target,flag=true){
 }
 
 export function ToPcSub(target,flag=true){
-    console.log("isPc_isSub");
     var tl = gsap.timeline();
     tl.to(target, 1, 
         {
@@ -150,7 +158,6 @@ export function ToPcSub(target,flag=true){
     tl.play();
 }
 export function ToPcMain(target,flag=true){
-    console.log("isPc_isMain");
     var tl = gsap.timeline();
     tl.to(target, 1, 
         {

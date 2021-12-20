@@ -1,20 +1,16 @@
-.my-node-enter {
-  opacity: 0;
-  transform: translateX(-100vw);
-  transition: all 1000ms ease-in-out;
+.pageSlider-enter{
+  z-index:9999999;
+  position: fixed;
 }
-.my-node-enter-active {
-  opacity: 1;
-  transform: translateX(0);
-  transition: all 1000ms ease-in-out;
+.pageSlider-enter.left{
+  transform: translate3d(-100%, 0, 0);
 }
-.my-node-exit {
-  opacity: 1;
-  transform: translateX(0);
-  transition: all 1000ms ease-in-out;
+
+.pageSlider-enter.right {
+  transform: translate3d(100%, 0, 0);
 }
-.my-node-exit-active {
-  opacity: 0;
-  transform: translateX(-100vw);
-  transition: all 1000ms ease-in-out;
+
+.pageSlider-enter.pageSlider-enter-active {
+  transform: translate3d(0, 0, 0);
+  transition: all 1000ms;
 }
