@@ -15,7 +15,7 @@ const Transition = ({deviceChk,cursorOuterRef,cursorInnerRef}) => {
           appear>
         <Routes location={location}>
             <Route path="/" element={<Main  deviceChk={deviceChk} cursorOuterRef={cursorOuterRef} cursorInnerRef={cursorInnerRef} />} />
-            <Route path="/:id" element={<DetailPage location={location}/>} />
+            <Route path="/:id" element={<DetailPage location={location} cursorOuterRef={cursorOuterRef} cursorInnerRef={cursorInnerRef}/>} />
         </Routes>
         </CSSTransition>
   </TransitionGroup>

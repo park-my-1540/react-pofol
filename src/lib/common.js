@@ -1,4 +1,3 @@
-
 export function hoverFunc(_this){
     _this.forEach(button => {
         ["mouseenter", "mouseout"].forEach(evt => {
@@ -15,5 +14,4 @@ export function hoverFunc(_this){
         });
       });
 }
-
 

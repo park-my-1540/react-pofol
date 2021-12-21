@@ -16,8 +16,8 @@
                 "pc" : "https://m.lotteshopping.com/main?cstr=0001"
             },
             "image" : {
-                "mo" : "/images/img_sp.png",
-                "pc" : "/images/img_pc.png"
+                "mo" : "/images/img_mo_01.png",
+                "pc" : "/images/img_pc_01.png"
             }
         },
         {
@@ -36,8 +36,8 @@
                 "pc" : "https://www.starbucks.co.kr/index.do"}
             ,
             "image" : {
-                "mo" : "/images/img_sp.png",
-                "pc" : "/images/img_pc.png"
+                "mo" : "/images/img_mo_02.png",
+                "pc" : "/images/img_pc_02.png"
             }
         },
         {
@@ -53,8 +53,8 @@
             "participation" :"70%",
             "url":{"pc" : "https://www.lotteresort.com/main/ko/index"},
             "image" : {
-                "mo" : "/images/img_sp.png",
-                "pc" : "/images/img_pc.png"
+                "mo" : "/images/img_mo_03.png",
+                "pc" : "/images/img_pc_03.png"
             }
         },
         {
@@ -73,8 +73,8 @@
                 "pc" : "https://www.sagewood.co.kr/global/main"}
             ,
             "image" : {
-                "mo" : "/images/img_sp.png",
-                "pc" : "/images/img_pc.png"
+                "mo" : "/images/img_mo_04.png",
+                "pc" : "/images/img_pc_04.png"
             }
         },
         {
@@ -84,14 +84,14 @@
             "hashtag":["MO","TABLET","구축","고도화"],
             "device":["pc","mo"],
             "desc" : "1) 현대카드 이마트 PLCC 추가 2) 실적확인 대쉬보드 고도화",
-            "sub_desc":"1) 카드 등록 페이지 추가 및 수정 작업 \n 2) d3.js를 이용한 실적확인 대쉬보드 추가 및 수정 작업",
+            "sub_desc":"1) 카드 등록 페이지 추가 및 수정 작업 \n 2) d3.js를 이용한 실적확인 대쉬보드 추가 및 수정 작업 \n 3) 보안 이슈로 소스,이미지 없음",
             "date":"2020.01 ~ 2020.12",
             "members":"1명",
             "participation" :"100%",
             "url":{"pc" : null},
             "image" : {
-                "mo" : "",
-                "pc" : ""
+                "mo" : null,
+                "pc" : null
             }
         },
         {
@@ -107,8 +107,8 @@
             "participation" :"60%",
             "url":{"pc" : "https://www.lotteresort.com/main/ko/index"},
             "image" : {
-                "mo" : "/images/img_sp.png",
-                "pc" : "/images/img_pc.png"
+                "mo" : "/images/img_mo_03.png",
+                "pc" : "/images/img_pc_03.png"
             }
         },
         {
@@ -116,7 +116,7 @@
             "title": "CHAR LOTTE",
             "project" : "CAHR LOTTE 구축",
             "hashtag":["MOW"],
-            "device":["mo"],
+            "device":["moOnly"],
             "desc" : "MOW 구축",
             "sub_desc":"샤롯데 모바일 가이드 및 전페이지 구축",
             "date":"2020.01 ~ 2020.12",
@@ -124,7 +124,7 @@
             "participation" :"100%",
             "url":{"mo":"http://www.charlottetheater.co.kr/m/"},
             "image" : {
-                "mo" : "/images/img_sp_02.png"
+                "moOnly" : "/images/img_mo__detail_07.png"
             }
         },
         {
@@ -133,8 +133,8 @@
             "project" : "아시아나 항공 구축",
             "hashtag":["PC","MO","APP","웹접근성 취득"],
             "device":["pc","mo"],
-            "desc" : "아시아나 항공 PC, Mweb, APP 구축",
-            "sub_desc":"mWEb/WebView - 예약 조회,예약 변경,예약 취소,예약 수정 (가이드 토대로 작업)\nPC, Mweb - 다국어 작업, 접근성 작업 및 서포트\nPC - 컨텐츠 페이지 작업 ( 가이드 토대로 작업)",
+            "desc" : "PC, MOW, APP 구축",
+            "sub_desc":"mow/app - 예약 조회,예약 변경,예약 취소,예약 수정 (가이드 토대로 작업)\nPC, MO - 다국어 작업, 접근성 작업 및 서포트\nPC - 컨텐츠 페이지 작업 ( 가이드 토대로 작업)",
             "date":"2020.01 ~ 2020.12",
             "members":"9명",
             "participation" :"40%",
@@ -143,8 +143,8 @@
                 "mo" : "https://m.flyasiana.com/"
             },
             "image" : {
-                "mo" : "/images/img_sp.png",
-                "pc" : "/images/img_pc.png"
+                "mo" : "/images/img_mo_09.png",
+                "pc" : "/images/img_pc_09.png"
             }
         }
     ],
@@ -161,7 +161,7 @@
             "members":"1명",
             "participation" :"100%",
             "url":["https://park-my-1540.github.io/weather-develop"],
-            "image" : ["/images/img_mo_only.png","/images/weaher2.png"]
+            "image" : ["/images/img_mo_11.png","/images/img_mo_detail_11.png"]
         },
         {
             "id":12,
@@ -175,7 +175,7 @@
             "members":"2명",
             "participation" :"100%",
             "url":["https://park-my-1540.github.io/weather-react/"],
-            "image" : ["/images/img_pc.png","/images/weather.png"]
+            "image" : ["/images/img_pc_12.png","/images/img_pc_detail_12.png"]
         },
         {
             "id":13,
@@ -189,7 +189,7 @@
             "members":"2명",
             "participation" :"100%",
             "url":["https://park-my-1540.github.io/movie-react"],
-            "image" : ["/images/img_pc.png","/images/movie.png"]
+            "image" : ["/images/img_pc_13.png","/images/img_pc_detail_13.png"]
         }
     ]
     

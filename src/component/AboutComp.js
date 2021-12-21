@@ -5,9 +5,10 @@ import '../scss/about.scss';
 export default function AboutComp({mainActIdx}){
     const [wid,setWid] = useState();
     const [hei,setHei] = useState();
-    const resize = () =>{
-        let winWid = window.innerWidth;
 
+    const resize = () =>{
+
+        let winWid = window.innerWidth;
         if(winWid > 768){ 
              setWid(Math.ceil(document.querySelectorAll('.about')[0].offsetWidth/2));
              setHei(Math.ceil(document.querySelectorAll('.about')[0].offsetHeight/1.2));
@@ -17,7 +18,11 @@ export default function AboutComp({mainActIdx}){
             setHei(Math.ceil(document.querySelectorAll('.about')[0].offsetHeight/2.5));
         }  
       }
-      window.addEventListener('resize',resize);
+      window.addEventListener('resize',function(){
+           if(document.querySelectorAll('.about').length > 0){
+                resize();
+            }
+      });
 
     useEffect(()=>{
         const h3 = document.querySelectorAll('.about-wrap h3');

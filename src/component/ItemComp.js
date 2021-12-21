@@ -1,17 +1,17 @@
 import React,{ useEffect } from "react";
 import { hoverFunc } from "../lib/common"
 import CustomLink from "./CustomLink";
-
-
-  export default function ItemComp({pofoldata,cont}) {
+export default function ItemComp({pofoldata,cont}) {
     useEffect(() => {
       const hoverTarget = document.querySelectorAll('[data-ui="hover"]');
       hoverFunc(hoverTarget);
     }, [])
 
-
   const project= (
       pofoldata.device.map(device=>{
+        if(pofoldata.image[device] === null){
+          return ;
+        }
         return (
           <a href={pofoldata.url[device]} alt={device} className="prj-link" target="_blank">
             <img src={`${process.env.PUBLIC_URL}${pofoldata.image[device]}`} class={device} alt="a"/>    
@@ -19,20 +19,19 @@ import CustomLink from "./CustomLink";
         )
       })
   )
-    
 
-    const pofol = (
-        <img src={`${process.env.PUBLIC_URL}${pofoldata.image[0]}`} className="mo" alt="a"/>
-    )
+  const pofol = (
+      <img src={`${process.env.PUBLIC_URL}${pofoldata.image[0]}`} className="mo" alt="a"/>
+  )
 
   return (  
       <>
         <div className="inner" id={pofoldata.id}>
-            <div className="prg-top">
+            <div className="prj-top">
               <div className="tag-wrap">
                 {pofoldata.hashtag.map((hs)=><span>{hs}</span>)}
               </div>
-              <h2 className="prg-title">{pofoldata.project}</h2>
+              <h2 className="prj-title">{pofoldata.project}</h2>
               <p className="prj-name">{pofoldata.title}</p>
             </div>
             <div className="etc-box">

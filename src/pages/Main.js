@@ -54,7 +54,11 @@ export default function Main({deviceChk,cursorOuterRef,cursorInnerRef}) {
         point.addEventListener("mouseleave",function(){elementLeave('cursor-grow3','cursor-grow2')});
       })
   },[]);
- 
+
+  /*
+    elementHover : innerRef에 넣을 클래스 inner , outerRef에 넣을 클래스 outer 를 받아서 hover 시 add
+    elementLeave : innerRef에 넣을 클래스 inner , outerRef에 넣을 클래스 outer 를 받아서 leave 시 remove
+  */
   const elementHover =useCallback((inner,outer=inner) => {
     cursorOuterRef.current.classList.add(inner);
     cursorInnerRef.current.classList.add(outer);
@@ -81,7 +85,7 @@ export default function Main({deviceChk,cursorOuterRef,cursorInnerRef}) {
     const isPc_isMain= ()=>{
       typoBox.classList.remove('pc');
       ToPcMain(typoBox);
-      // swiper.mousewheel.enable();
+      swiper.mousewheel.enable();
       transGsap(aside,'left','-9999px',1);
     }
     const isPc_isSub= ()=>{
@@ -89,21 +93,20 @@ export default function Main({deviceChk,cursorOuterRef,cursorInnerRef}) {
       ToPcSub(typoBox);
       typoBox.classList.add('pc');
       typoBox.classList.remove('top');
-      // swiper.mousewheel.disable();
+      swiper.mousewheel.disable();
     }
     const isMo_isMain= ()=>{
       mainResTypoGsap(typoBox);
       typoBox.classList.remove('top');
-      // swiper.mousewheel.disable();
+      swiper.mousewheel.disable();
     }
     const isMo_isSub= ()=>{
       typoBox.classList.add('top');
       mainResTypoGsap(typoBox,false);
-      // swiper.mousewheel.disable();
+      swiper.mousewheel.disable();
     }
-    
     /**
-     * @param {*} activeIndx : 스와이퍼 변경될때 마다 activeIndex로 메인/ 서브 일때 gsap 함수 실행.
+     *  스와이퍼 변경될때 마다 activeIndex로 메인/ 서브 일때 gsap 함수 실행.
      */
     const setPositionFunc = (activeIndx=actIdx)=>{
 
@@ -127,6 +130,7 @@ export default function Main({deviceChk,cursorOuterRef,cursorInnerRef}) {
       }
     };
     setPositionFunc(activeIndx);
+
     /**
      * resize 될때마다 호출
      */
@@ -137,7 +141,11 @@ export default function Main({deviceChk,cursorOuterRef,cursorInnerRef}) {
       else{
         _activeIdx > 0 ? isMo_isSub() : isMo_isMain(false);}  //mo -> main or sub
     }
-    window.addEventListener('resize',resize);
+    window.addEventListener('resize',function () {
+      if(document.querySelectorAll('.wrapper').length > 0){
+        resize();
+      }
+      });
   }
   /*
     resize 될때마다 바로 즉시 반응하게 
@@ -165,7 +173,6 @@ export default function Main({deviceChk,cursorOuterRef,cursorInnerRef}) {
         {
           deviceChk === "mo" && <MoMain/>
         }
-        
         <Header deviceChk={deviceChk} actSec={list[mainActIdx]}/>
         <Aside  deviceChk={deviceChk} actSec={list[mainActIdx]}/>
         <MainTypeComp deviceChk={deviceChk}/>

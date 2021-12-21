@@ -10,23 +10,58 @@ import SwiperCore, { Mousewheel, Pagination, Navigation } from "swiper";
 SwiperCore.use([Mousewheel, Pagination, Navigation]);
 
 export default function PofolComp({data}) {
-  const onChanged = () =>{
-    const swiper_type01 = document.querySelector('.swiper-container.type01'),
-      active_slide = swiper_type01.querySelector('.swiper-slide.swiper-slide-active'),
-      prev_slide = swiper_type01.querySelector('.swiper-slide.swiper-slide-prev'),
-      title = active_slide.querySelector('.prg-top'),
-      pc = active_slide.querySelector('.prj-img .pc'),
-      mo = active_slide.querySelector('.prj-img .mo'),
-      desc = active_slide.querySelector('.desc-wrap'),
-      etc = active_slide.querySelector('.etc-box'),
-      prev_title = prev_slide.querySelector('.prg-top'),
-      prev_pc = prev_slide.querySelector('.prj-img .pc'),
-      prev_mo = prev_slide.querySelector('.prj-img .mo'),
-      prev_desc = prev_slide.querySelector('.desc-wrap'),
-      prev_etc = prev_slide.querySelector('.etc-box');
+  const onChanged = (swiper) =>{
 
-    slideGsap2([title,etc,mo,pc,desc],0);
-    slideGsap3([prev_desc,prev_pc,prev_mo,prev_etc,prev_title],-200);
+    const swiper_type01 = document.querySelector('.swiper-container.type01'), //기준 스와이퍼
+          active_slide = swiper_type01.querySelector('.swiper-slide.swiper-slide-active'), //현재 active 스와이퍼 이 영역은 공통
+          title = active_slide.querySelector('.prj-top'),
+          pc = active_slide.querySelector('.prj-img .pc'),
+          mo = active_slide.querySelector('.prj-img .mo'),
+          desc = active_slide.querySelector('.desc-wrap'),
+          etc = active_slide.querySelector('.etc-box');
+          
+          if(swiper.previousIndex<swiper.activeIndex){
+            slideGsap2([title,etc,mo,pc,desc]); // 다음으로 갈때 제목-휴대폰이미지 - 설명 순
+          }else{
+            slideGsap2([desc,mo,pc,etc,title]); // 전으로 갈때 설명-휴대폰이미지 - 제목 순
+          }
+
+    if(swiper.activeIndex === 0){//첫번째 슬라이드면 prev 제외
+
+      const next_slide = swiper_type01.querySelector('.swiper-slide.swiper-slide-next'), //next
+            next_title = next_slide.querySelector('.prj-top'),
+            next_pc = next_slide.querySelector('.prj-img .pc'),
+            next_mo = next_slide.querySelector('.prj-img .mo'),
+            next_desc = next_slide.querySelector('.desc-wrap'),
+            next_etc = next_slide.querySelector('.etc-box');
+            slideGsap3([next_desc,next_pc,next_mo,next_etc,next_title],200); //next
+
+    }else if(swiper.activeIndex === 7){ //마지막 슬라이드면 next 제외
+      const prev_slide = swiper_type01.querySelector('.swiper-slide.swiper-slide-prev'), //prev
+            prev_title = prev_slide.querySelector('.prj-top'),
+            prev_pc = prev_slide.querySelector('.prj-img .pc'),
+            prev_mo = prev_slide.querySelector('.prj-img .mo'),
+            prev_desc = prev_slide.querySelector('.desc-wrap'),
+            prev_etc = prev_slide.querySelector('.etc-box');
+             slideGsap3([prev_desc,prev_pc,prev_mo,prev_etc,prev_title],-200);  //prev
+    }else{
+      //그 외
+      const prev_slide = swiper_type01.querySelector('.swiper-slide.swiper-slide-prev'),  //prev
+            prev_title = prev_slide.querySelector('.prj-top'),
+            prev_pc = prev_slide.querySelector('.prj-img .pc'),
+            prev_mo = prev_slide.querySelector('.prj-img .mo'),
+            prev_desc = prev_slide.querySelector('.desc-wrap'),
+            prev_etc = prev_slide.querySelector('.etc-box');
+
+      const next_slide = swiper_type01.querySelector('.swiper-slide.swiper-slide-next'),  //next
+            next_title = next_slide.querySelector('.prj-top'),
+            next_pc = next_slide.querySelector('.prj-img .pc'),
+            next_mo = next_slide.querySelector('.prj-img .mo'),
+            next_desc = next_slide.querySelector('.desc-wrap'),
+            next_etc = next_slide.querySelector('.etc-box');
+            slideGsap3([prev_desc,prev_pc,prev_mo,prev_etc,prev_title],-200); //next gsap
+            slideGsap3([next_desc,next_pc,next_mo,next_etc,next_title],200); //prev gsap
+    }
   }
 
   return (
@@ -36,7 +71,6 @@ export default function PofolComp({data}) {
         spaceBetween={30}
         mousewheel={true}
         speed={1500}
-        loop={true}
         pagination={{
           type: "progressbar",
           renderProgressbar : (progressbarFillClass)=>{

@@ -3,7 +3,6 @@
     background: #000;
     font-family: 'IBMPlexSansKR-Regular';
 }
-
 .fixed-wrap{
     position: absolute;
     padding-top: 0;
@@ -15,6 +14,7 @@
         height: 100vh;
         z-index:0;
         background-position: center;
+        background-size: cover;
     }
 }
 .sub-container{
@@ -49,6 +49,7 @@
             a{
                 text-decoration: none;
                 color: #fff;
+                line-height: 2;
             }
             .link-git{
                 display: inline-block;
@@ -207,7 +208,14 @@
                     bottom: 50px;
                 }
             }
-            .btn-site{position: absolute}
+            .btn-site{
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                &:hover .txt{
+                    color:#fff !important;
+                }
+            }
         }
        
         .text-wrap{
@@ -292,6 +300,10 @@
     .sub-container{
         .sub-main{
             height: 90vh;
+            .sub-header{
+                padding: 4% 5%;
+                font-size: 1.2em;
+            }
             .sub-tit{
                 width: 80%;
                 font-size: 1.4em;

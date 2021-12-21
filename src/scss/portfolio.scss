@@ -4,7 +4,7 @@
         overflow: visible;
         height: calc(100% - 100px);
         &.type2{
-          .prg-top,.prj-img,.desc-wrap{
+          .prj-top,.prj-img,.desc-wrap{
             @include clipEffect;
           }
           .prj-img{
@@ -18,9 +18,9 @@
         &.type01{ 
           //translateX(0) 효과를 위해 지정
           .swiper-slide:first-child{
-            .prg-top,.pc, .mo, .desc-wrap, .etc-box{transform: translateX(0);}
+            .prj-top,.pc, .mo,.etc-box,.desc-wrap{transform: translateX(0);}
           }
-            .prg-top,.pc, .mo, .desc-wrap, .etc-box{transform: translateX(200px);}
+            .prj-top,.pc, .mo,.etc-box,.desc-wrap{transform: translateX(200px);}
         }
         .inner{
           padding: 4% 5%;
@@ -91,7 +91,7 @@
     height: 100%;
     padding: 50px;
     @include clear;
-    .prg-title{
+    .prj-title{
       font-size: 3em;
     }
     .prj-desc{
@@ -154,6 +154,14 @@
       right: 40%;
       width: 50%;
       height: 77%;
+      .moOnly{
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 80%;
+        height: auto;
+        z-index: 2;
+      }
       .mo{
         position: absolute;
         bottom: 0;
@@ -286,11 +294,17 @@
 @media (max-width:768px) {
   .portfolio{
     .swiper-container {
-     
       .prj-img{
         width: 75%;
         left: 11%;
         height: 42%;
+        .moOnly{
+          width: auto;
+          height: 120%;
+          left: 0;
+          right: 0;
+          margin: 0 auto;
+        }
         .mo{
           width: 64px;
           height: auto;
@@ -306,17 +320,29 @@
         width: 52%;
         right: 0;
         padding-right: 5%;
+        font-size: 1em;
       }
       .swiper-pagination{
         bottom: -80px;
       }
-    }
-    .inner .desc-wrap + a{
-      left: 83%;
-      &::after{
-        width: 15px;
-        height: 15px;
-        transform: rotate(90deg);
+      .inner {
+        .tag-wrap{
+          margin-bottom: 20px;
+        }
+        .prj-name{
+          padding-top: 15px;
+        }
+        .desc-wrap + a{
+          left: 83%;
+          &::after{
+            width: 15px;
+            height: 15px;
+            transform: rotate(90deg);
+          }
+        }
+        .etc-box{
+          margin-top: 15px;
+        }
       }
     }
 
@@ -327,36 +353,63 @@
       height:calc(100% - 47px);
       &.type2{
         .desc-wrap{
-          top:31%
+          top:28%;
         }
         .prj-img {
           width: 100%;
           .mo{
             width: auto;
             height: 100%;
-            left: auto;
+            left: 7%;
           }
-      }
+        }
+        .sub-desc-wrap {
+          -webkit-line-clamp: 6;
+          line-clamp: 6;
+        }
       }
       .sub-desc-wrap {
         font-size: 0.8em;
-        -webkit-line-clamp: 6;
-        line-clamp: 6;
+        background: $main_1;
       }
-      .prg-title{
-        font-size: 1.5em;
+      .prj-title{
+        font-size: 1.35em;
+      }
+      .prj-desc,.prj-date{
+        padding-bottom: 10px;
       }
       .prj-img{
         width: 90%;
         left: 5%;
         height: 44%;
         bottom: 0;
+        z-index: 0;
+        .pc{
+          width: auto;
+          height: 100%;
+          left: 0;
+          right: auto;
+        }
+        .mo{
+          width: auto;
+          height: 70%;
+          right: 15%;
+          left: auto;
+        }
       }
       .desc-wrap{
         top: 22%;
-      }
-      .sub-desc-wrap {
-        font-size: 0.8em;
+        &+ a{
+          width: 100px;
+          height: 100px;
+          top: 80%;
+          left: 83%;
+          &::after{
+            width: 15px;
+            height: 15px;
+            transform: rotate(90deg);
+          }
+        }
       }
       .tag-wrap span{
         padding: 5px 10px;
@@ -367,23 +420,16 @@
         right: 10%;
       }
     }
-   
-    .inner .desc-wrap + a{
-      width: 100px;
-      height: 100px;
-      top: 80%;
-      left: 83%;
-      &::after{
-        width: 15px;
-        height: 15px;
-        transform: rotate(90deg);
+    .etc-box{
+      .etc-item{
+          @include hoverItem(#fff,$blue_1,55,0.4s);
+          font-size: 0.8em;
       }
     }
     .pofol-pagi-wrap{
       height: 40px;
       bottom: 0;
       .pofol-pagination {
-    
         .swiper-pagination-bullet{
           line-height: 40px;
           font-size: 0.8em;
