@@ -11,15 +11,15 @@ import rootReducer from './module';
 import logger from 'redux-logger';
 import ReduxThunk from 'redux-thunk';
 
+
 const store = createStore(rootReducer,applyMiddleware(ReduxThunk));
 ReactDOM.render(
   <Provider store= {store}>
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <App />
     </BrowserRouter>
   </Provider>,
   document.getElementById('root')
 );
-
 reportWebVitals();
  

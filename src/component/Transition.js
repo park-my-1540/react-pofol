@@ -1,6 +1,6 @@
 import React from "react";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
-import { Routes, Route, useLocation } from "react-router-dom";
+import { useLocation, Routes, Route } from "react-router-dom";
 import "../scss/transition.scss";
 import DetailPage from "../pages/DetailPage"
 import Main from "../pages/Main"
