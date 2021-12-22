@@ -133,7 +133,6 @@ $point_t2 : #fffeac;
 }
 
 @mixin  hoverItem($from,$to,$size,$dur) {
-    // position: relative;
     overflow: hidden;
     border-radius: 50%;
     width: $size+px;

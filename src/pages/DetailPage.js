@@ -61,7 +61,6 @@ function DetailPage({cursorOuterRef,cursorInnerRef}){
                 <div className="fixed-wrap">
                     <div className="fixed-bg" style={{backgroundImage : `url(${process.env.PUBLIC_URL}${project.image[1]})`}}></div>
                 </div>
-                <a href="#none" className="link_git"><span className="blind">깃으로 이동</span></a>
                 <Scrollbar 
                     className="sub-container"
                     onScroll={scrollFunc}
@@ -76,7 +75,7 @@ function DetailPage({cursorOuterRef,cursorInnerRef}){
                         <div className="sub-main">
                             <div className="sub-header">
                                 <Link to="/">HOME</Link>
-                                <a href="#none" className="link-git">PORTFOLO</a>
+                                <a href="https://github.com/park-my-1540" className="link-git" target="_blank">PORTFOLO</a>
                             </div>
                             <h1 className="sub-tit">{project.project}</h1>
                             <div className="tit-scroll-wrap">

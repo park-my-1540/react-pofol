@@ -22,6 +22,7 @@ export default function Main({deviceChk,cursorOuterRef,cursorInnerRef}) {
   const dispatch = useDispatch();
   const mainActIdx = useSelector(state=>state.ui.mainActIdx);
   const [actIdx,setActIdx] = useState();
+  const swiperRef=useRef();
   const list = ["Home",'About','Project','Practice']; //메뉴
   /**
    * init : 
@@ -36,7 +37,8 @@ export default function Main({deviceChk,cursorOuterRef,cursorInnerRef}) {
    * 둘의 차이는 swiper.acitiveIdx 받아 쓰는거
    */
   useEffect(()=>{
-    
+      mainActIdx !== 0 && swiperRef.current.swiper.mousewheel.disable();
+      
       document.querySelectorAll('.main-pagination span').forEach((menu)=>{
         menu.addEventListener("mouseover",function(){elementHover('cursor-grow')});
         menu.addEventListener("mouseleave",function(){elementLeave('cursor-grow')});
@@ -69,6 +71,7 @@ export default function Main({deviceChk,cursorOuterRef,cursorInnerRef}) {
   },[]);
 
   const init = (swiper,activeIndx) =>{
+    console.log(swiperRef.current.swiper);
     setActIdx(activeIndx);
     /**
      * 변수 설정
@@ -83,27 +86,31 @@ export default function Main({deviceChk,cursorOuterRef,cursorInnerRef}) {
     const _activeIdx= activeIndx;
         
     const isPc_isMain= ()=>{
+      console.log("1isPc_isMain");
       typoBox.classList.remove('pc');
       ToPcMain(typoBox);
-      swiper.mousewheel.enable();
+      swiperRef.current.swiper.mousewheel.enable();
       transGsap(aside,'left','-9999px',1);
     }
     const isPc_isSub= ()=>{
+      console.log("1isPc_isSub");
       transGsap(aside,'left','0',1);
       ToPcSub(typoBox);
       typoBox.classList.add('pc');
       typoBox.classList.remove('top');
-      swiper.mousewheel.disable();
+      swiperRef.current.swiper.mousewheel.disable();
     }
     const isMo_isMain= ()=>{
+      console.log("1isMo_isMain");
       mainResTypoGsap(typoBox);
       typoBox.classList.remove('top');
-      swiper.mousewheel.disable();
+      swiperRef.current.swiper.mousewheel.disable();
     }
     const isMo_isSub= ()=>{
+      console.log("1isMo_isSub");
       typoBox.classList.add('top');
       mainResTypoGsap(typoBox,false);
-      swiper.mousewheel.disable();
+      swiperRef.current.swiper.mousewheel.disable();
     }
     /**
      *  스와이퍼 변경될때 마다 activeIndex로 메인/ 서브 일때 gsap 함수 실행.
@@ -194,6 +201,7 @@ export default function Main({deviceChk,cursorOuterRef,cursorInnerRef}) {
                 return `<span class="${className}">  ${index ===0 ? 'Home' : (list[index])}</span>`;
               },
           }} 
+          ref={swiperRef}
           className="mainSwipper">
             <SwiperSlide>
               {CircleComp}

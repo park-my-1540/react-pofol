@@ -21,10 +21,10 @@
             display: inline-block;
             @include clipEffect();
             text-shadow: 
-            0 0.03125em 0 #3a5dae, 
-            0 0.0625em 0 #6ab6df,  
-            0 -0.03125em 0 #eb808e, 
-            0 -0.0625em 0 #fffeac;
+                0 0.03125em 0 #3a5dae, 
+                0 0.0625em 0 #6ab6df,  
+                0 -0.03125em 0 #eb808e, 
+                0 -0.0625em 0 #fffeac;
             &:hover{
                 color:$black_3;
             }
@@ -57,7 +57,7 @@
 }
 
 
-/* 미디어 쿼리 */
+/* 1280 ~  */
 @media (max-width:1280px) {
     .about{
         .inner{
@@ -66,49 +66,30 @@
         .about-wrap{
             width: 100%;
             font-size: 1em;
-            .about-desc{
-
-            }
         }
         #myCanvas{
             top: 0;
         }
     }
 }
-
+/* 768px ~  */
 @media (max-width:768px) {
     .about{
-        #myCanvas{
-            top: auto;
-            bottom: 0;
-            right: 0;
-        }
         .about-wrap{
             margin-bottom: 30px;
             h3{
                 margin-bottom: 30px;
             }
         }
+        #myCanvas{
+            top: auto;
+            bottom: 0;
+            right: 0;
+        }
         .svg-box{
             right: 0;
             left: auto;
             display: none;
         }
-        .img_rotate{
-            position: absolute;
-            right: 0;
-            width: 150px;
-            height: 150px;
-            background: url('../images/img_rotate_txt.PNG') no-repeat;
-            background-size: contain;
-            animation: rotating 15s linear infinite;
-            -webkit-animation: rotating 15s linear infinite;
-            z-index: 0;
-            border: 1px solid red;
-        }
     }
-}
-
-@keyframes rotating {
-    100%{transform: rotate(360deg);}
 }

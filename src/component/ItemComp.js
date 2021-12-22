@@ -33,14 +33,14 @@ export default function ItemComp({pofoldata,cont}) {
         }
         return (
           <a href={pofoldata.url[device]} alt={device} className="prj-link" target="_blank">
-            <img src={`${process.env.PUBLIC_URL}${pofoldata.image[device]}`} class={device} alt="a"/>    
+            <img src={`${process.env.PUBLIC_URL}${pofoldata.image[device]}`} class={device} alt={pofoldata.title}/>    
           </a>
         )
       })
   )
 
   const pofol = (
-      <img src={`${process.env.PUBLIC_URL}${pofoldata.image[0]}`} className="mo" alt="a"/>
+      <img src={`${process.env.PUBLIC_URL}${pofoldata.image[0]}`} className="mo" alt={pofoldata.title}/>
   )
 
   return (  
@@ -70,7 +70,7 @@ export default function ItemComp({pofoldata,cont}) {
                 <p className="prj-date">{pofoldata.date}</p>
                 <p className="prj-desc">{pofoldata.desc}</p>
                 {
-                  !cont&&
+                  cont !== "prac"&&
                     (<div className="sub-desc-wrap">
                           <ul>
                               {

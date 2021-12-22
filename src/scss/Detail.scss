@@ -37,15 +37,15 @@
             background:linear-gradient(to bottom, #000000bd 0%, #0000);
         }
         .sub-header{
-            font-family: 'Cardo';
-            position: absolute;
-            top: 0;
             display: flex;
             justify-content: space-between;
+            position: absolute;
+            top: 0;
             width: 100%;
             padding: 50px;
             font-size: 1.7em;
             z-index: 9;
+            font-family: 'Cardo';
             a{
                 text-decoration: none;
                 color: #fff;

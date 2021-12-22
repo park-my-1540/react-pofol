@@ -15,8 +15,8 @@
 
   .typograpy-wrap{
     position: fixed;
-    font-size: calc(4em + 3vh);
     z-index: 999;
+    font-size: calc(4em + 3vh);
     &.mainTypo{
       left:5%;
       bottom: 35vh;
@@ -25,8 +25,8 @@
     &.momainTypo{
       left: 5%;
       bottom: 20%;
-      font-size: 3em;
       height: 50px;
+      font-size: 3em;
     }
     &.top {
       p{
@@ -35,11 +35,6 @@
         font-size: 0.4em;
         transition: all 0.1s ;
       }
-    }
-    .tag{
-      display: inline-block;
-      font-size: 7em;
-      transition: all 1.5s ease-in-out;
     }
   }
 }
@@ -96,22 +91,21 @@
               background-color: $black_3;
               border-radius: 10px;  
           }
-          
           /* 스크롤바 뒷 배경 설정*/
           &::-webkit-scrollbar-track{
               background-color:  #0001;
           }
         }
         .send-box{
-            background: $black_2;
-            height: 80px;
             position: relative;
+            height: 80px;
+            background: $black_2;
             input{
+                width: calc(100% - 115px);
                 padding:0 15px;
                 height: 80px;
                 background: none;
                 border: none;
-                width: calc(100% - 115px);
                 color: #fff;
                 font-size: 1.1em;
             }
@@ -134,7 +128,7 @@
         position: relative;
         margin: 15px 0;
         -webkit-transform: scale(0);
-        transform: scale(0);
+                transform: scale(0);
         -webkit-transform-origin: 0 0;
                 transform-origin: 0 0;
         -webkit-animation: bounce 500ms linear both;
@@ -472,7 +466,7 @@ Bounce
             0 0 0 #fffeac;
     }
 }
-
+// 768 ~ 
 @media (max-width:768px) {
   .tag-wrap .tag{
     bottom: 40%;

@@ -18,7 +18,7 @@ export default function Header({actSec,deviceChk}){
                     deviceChk === 'mo'   ? actSec === 'Home'? <span>PARK MY's Portfolio</span> : <span></span> : <span>{tit}</span>
                 }
                 </div>
-            <a href="#none" className="link_git"><span className="blind">깃으로 이동</span></a>
+            <a href="https://github.com/park-my-1540" target="_blank" className="link_git"><span className="blind">깃으로 이동</span></a>
         </div>
     );
 }

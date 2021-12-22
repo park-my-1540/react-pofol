@@ -88,9 +88,7 @@ function PofolComp({data}) {
       {
         data.map((data)=>
           <SwiperSlide>
-            <SwiperItem 
-              pofoldata = {data}
-              />
+            <SwiperItem pofoldata = {data}/>
           </SwiperSlide>
       )}
       </Swiper>
