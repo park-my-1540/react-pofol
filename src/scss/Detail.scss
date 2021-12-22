@@ -62,44 +62,23 @@
         }
         .sub-tit{
             @include posCenter2;            
-            opacity: 0;
             color: #fff;
             font-size: 5em;
             z-index: 9;
             text-align: center;
             transform: translate(-50%,-30%);
-            -webkit-clip-path: inset(100% 0 0 0);
-            clip-path: inset(100% 0 0 0);
-            transition: opacity .6s cubic-bezier(.58,.45,.27,.98) 1s;
-            transition-property: opacity,transform,-webkit-clip-path;
-            transition-property: opacity,transform,clip-path;
-            transition-property: opacity,transform,clip-path,-webkit-clip-path;
-            &.on{
-                opacity: 1;
-                -webkit-clip-path: inset(0); 
-                clip-path: inset(0);
-                transform: translate(-50%,-50%);
-            }
+            @include clipEffectTop();
         }
         .tit-scroll-wrap{
             position: absolute;
             bottom: 5%;
-            left: 48%;
+            left: 50%;
+            width: 76px;
+            margin-left: -38px;
             height: 100px;
             z-index: 9;
             font-family: 'Cardo';
-            -webkit-clip-path: inset(100% 0 0 0);
-            clip-path: inset(100% 0 0 0);
-            transition: opacity .6s cubic-bezier(.58,.45,.27,.98) 1.5s;
-            transition-property: opacity,transform,-webkit-clip-path;
-            transition-property: opacity,transform,clip-path;
-            transition-property: opacity,transform,clip-path,-webkit-clip-path;
-            transform: translateX(-50%);
-            &.on{
-                opacity: 1;
-                -webkit-clip-path: inset(0); 
-                clip-path: inset(0);
-            }
+            @include clipEffectTop();
         }
         .tit-scroll{
             margin-top: 77px;
@@ -130,12 +109,7 @@
         .sub-top{
             position: relative;
             font-size: 1.5em;
-            @include clear;
-            .sub-left{
-                float: left;
-                .date{
-                    margin-top: 20px;
-                }
+                .date{margin-top: 20px;}
                 .project{
                     margin: 25px 0 30px;
                     font-size: 2em;
@@ -143,10 +117,9 @@
                         padding-bottom: 2px;
                     }
                 }
-                .tag-wrap{font-size: 0.7em;}
-            }
+            .tag-wrap{font-size: 0.7em;}
             .sub-desc-wrap{
-                float: right;
+                width: 100%;
                 padding: 70px 0;
                 font-family: 'IBMPlexSansKR-Regular';
                 font-size: 1.2em;
@@ -209,6 +182,7 @@
                 }
             }
             .btn-site{
+                display: none;
                 position: absolute;
                 bottom: 0;
                 right: 0;
@@ -217,7 +191,6 @@
                 }
             }
         }
-       
         .text-wrap{
             position: absolute;
             overflow: hidden;
@@ -291,7 +264,7 @@
     }
     .main-box{
         .btn-site{
-            @include hoverItem(#1a1b1c,#fff,100,0.8s);
+            display: none;
         }
     }
   }
@@ -308,6 +281,11 @@
                 width: 80%;
                 font-size: 1.4em;
                 line-height: 1.2;
+            }
+            .tit-scroll-wrap{
+                font-size: 0.8em;
+                width: 60px;
+                margin-left: -30px;
             }
         }
         .sub-content{
@@ -327,7 +305,8 @@
             .main-box{
                 .mo-box .mo{bottom: 66%;}
                 .btn-site{
-                    @include hoverItem(#1a1b1c,#fff,60,0.8s);
+                    display: inline-block;
+                    @include hoverItem(#1a1b1c,#fff,90,0.8s);
                 }
             }
         }

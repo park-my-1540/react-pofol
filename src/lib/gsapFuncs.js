@@ -29,7 +29,6 @@ export function typoGsap(target){
     tl.to(target, {left: '0%',bottom:'0',transform: 'translate(-20%,20%) scale(0.4,0.3)', duration: 2,ease:'elastic.out(1,1.3)'});
     tl.pause();
     tl.play();
-    // target.removeAttribute('style');
 }
 
 // typoGsap-reverse  
@@ -49,24 +48,30 @@ export function clipGsap(target){
     tl.pause();
     tl.play();
 }
-
-export function allToClipGsap(target01,target02,target03,target04){
-        
+export function allToClipGsap(target,dur=0.2){
     var tl = gsap.timeline();
-
-      tl.to(target01, {'-webkit-clip-path': 'inset(0 0% 0 0)','clip-path': 'inset(0 0% 0 0)',duration:0.5})
-        .to(target02, {'-webkit-clip-path': 'inset(0 0% 0 0)','clip-path': 'inset(0 0% 0 0)',duration:0.5})
-        .to(target03, {'-webkit-clip-path': 'inset(0 0% 0 0)','clip-path': 'inset(0 0% 0 0)',duration:0.5})
-        .to(target04, {'-webkit-clip-path': 'inset(0 0% 0 0)','clip-path': 'inset(0 0% 0 0)',duration:0.5})
+    tl.to(target, 1, 
+        {
+            '-webkit-clip-path': 'inset(0% 0% 0% 0%)',
+            'clip-path': 'inset(0% 0% 0% 0%)',
+            stagger:(dur + 0.2),
+            duration:dur 
+        }
+    );
+    tl.play(); 
 }
-export function reverseAllToClipGsap(target01,target02,target03,target04){
+export function reverseAllToClipGsap(target){
         
     var tl = gsap.timeline();
-
-      tl.to(target01, {'-webkit-clip-path': 'inset(0 100% 0 0)','clip-path': 'inset(0 100% 0 0)',duration:0.5})
-        .to(target02, {'-webkit-clip-path': 'inset(0 100% 0 0)','clip-path': 'inset(0 100% 0 0)',duration:0.5})
-        .to(target03, {'-webkit-clip-path': 'inset(0 100% 0 0)','clip-path': 'inset(0 100% 0 0)',duration:0.5})
-        .to(target04, {'-webkit-clip-path': 'inset(0 100% 0 0)','clip-path': 'inset(0 100% 0 0)',duration:0.5})
+    tl.to(target, 1, 
+        {
+            '-webkit-clip-path': 'inset(0 100% 0 0)',
+            'clip-path': 'inset(0 100% 0 0)',
+            stagger:0.5
+            ,duration:0.2
+        }
+    );
+    tl.play(); 
 }
 
 export function mainTypoGsap(target){
@@ -79,18 +84,9 @@ export function mainTypoGsap(target){
         }
     );
 }
-/* 어떤 효과 넣을지 생각좀 해보자 */
-export function slideGsap(target01,target02_pc,target02_mo,target03,target04){
-    var tl = gsap.timeline();
 
-    tl.to(target01, {'-webkit-clip-path': 'inset(0 0% 0 0)','clip-path': 'inset(0 0% 0 0)',duration:0.5})
-      .to(target02_pc, {top: 0,duration:0.5})
-      .to(target02_mo, {left: 0,duration:0.5})
-      .to(target03, {'-webkit-clip-path': 'inset(0 0% 0 0)','clip-path': 'inset(0 0% 0 0)',duration:0.5})
-      .to(target04, {'-webkit-clip-path': 'inset(0 0% 0 0)','clip-path': 'inset(0 0% 0 0)',duration:0.5})
-}
-/* 슬라이드 옆으로 가듯이 */
-export function slideGsap2(target){
+/* 프로젝트 스와이퍼 효과 */
+export function slideGsap(target){
     var tl = gsap.timeline();
     tl.to(target, 1, 
         {
@@ -101,7 +97,8 @@ export function slideGsap2(target){
     );
     tl.play();
 }
-export function slideGsap3(target,_var,flag=true){
+/* practice 스와이퍼 효과 */
+export function slideGsap2(target,_var,flag=true){
     var tl = gsap.timeline();
     tl.fromTo(target, 1, 
         {

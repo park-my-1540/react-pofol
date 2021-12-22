@@ -1,4 +1,5 @@
-export default function Main({msgState,msg,time}){
+import React from "react";
+function Main({msgState,msg,time}){
     const msgMe = (
         <div className="msg-box">
             <p className="profile-img"></p>
@@ -35,3 +36,4 @@ export default function Main({msgState,msg,time}){
     else if(msgState === "msgYou") return msgYou ;
     else if(msgState === "msgLoading") return msgLoading ;
 }
+export default React.memo(Main);

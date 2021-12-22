@@ -4,12 +4,12 @@ import 'swiper/swiper.scss';
 import "swiper/components/navigation/navigation.scss";
 import "swiper/components/pagination/pagination.scss";
 import SwiperItem from "./ItemComp";
-import{slideGsap2,slideGsap3} from "../lib/gsapFuncs";
+import{slideGsap,slideGsap2} from "../lib/gsapFuncs";
 import SwiperCore, { Mousewheel, Pagination, Navigation } from "swiper";
 
 SwiperCore.use([Mousewheel, Pagination, Navigation]);
 
-export default function PofolComp({data}) {
+function PofolComp({data}) {
   const onChanged = (swiper) =>{
 
     const swiper_type01 = document.querySelector('.swiper-container.type01'), //기준 스와이퍼
@@ -21,9 +21,9 @@ export default function PofolComp({data}) {
           etc = active_slide.querySelector('.etc-box');
           
           if(swiper.previousIndex<swiper.activeIndex){
-            slideGsap2([title,etc,mo,pc,desc]); // 다음으로 갈때 제목-휴대폰이미지 - 설명 순
+            slideGsap([title,etc,mo,pc,desc]); // 다음으로 갈때 제목-휴대폰이미지 - 설명 순
           }else{
-            slideGsap2([desc,mo,pc,etc,title]); // 전으로 갈때 설명-휴대폰이미지 - 제목 순
+            slideGsap([desc,mo,pc,etc,title]); // 전으로 갈때 설명-휴대폰이미지 - 제목 순
           }
 
     if(swiper.activeIndex === 0){//첫번째 슬라이드면 prev 제외
@@ -34,7 +34,7 @@ export default function PofolComp({data}) {
             next_mo = next_slide.querySelector('.prj-img .mo'),
             next_desc = next_slide.querySelector('.desc-wrap'),
             next_etc = next_slide.querySelector('.etc-box');
-            slideGsap3([next_desc,next_pc,next_mo,next_etc,next_title],200); //next
+            slideGsap2([next_desc,next_pc,next_mo,next_etc,next_title],200); //next
 
     }else if(swiper.activeIndex === 7){ //마지막 슬라이드면 next 제외
       const prev_slide = swiper_type01.querySelector('.swiper-slide.swiper-slide-prev'), //prev
@@ -43,7 +43,7 @@ export default function PofolComp({data}) {
             prev_mo = prev_slide.querySelector('.prj-img .mo'),
             prev_desc = prev_slide.querySelector('.desc-wrap'),
             prev_etc = prev_slide.querySelector('.etc-box');
-             slideGsap3([prev_desc,prev_pc,prev_mo,prev_etc,prev_title],-200);  //prev
+             slideGsap2([prev_desc,prev_pc,prev_mo,prev_etc,prev_title],-200);  //prev
     }else{
       //그 외
       const prev_slide = swiper_type01.querySelector('.swiper-slide.swiper-slide-prev'),  //prev
@@ -59,8 +59,8 @@ export default function PofolComp({data}) {
             next_mo = next_slide.querySelector('.prj-img .mo'),
             next_desc = next_slide.querySelector('.desc-wrap'),
             next_etc = next_slide.querySelector('.etc-box');
-            slideGsap3([prev_desc,prev_pc,prev_mo,prev_etc,prev_title],-200); //next gsap
-            slideGsap3([next_desc,next_pc,next_mo,next_etc,next_title],200); //prev gsap
+            slideGsap2([prev_desc,prev_pc,prev_mo,prev_etc,prev_title],-200); //next gsap
+            slideGsap2([next_desc,next_pc,next_mo,next_etc,next_title],200); //prev gsap
     }
   }
 
@@ -97,3 +97,4 @@ export default function PofolComp({data}) {
     </>
   );
 }
+export default React.memo(PofolComp)

@@ -1,11 +1,9 @@
-
 import React ,{useEffect,useCallback} from "react";
 import {useLocation,Link } from "react-router-dom";
 import '../scss/import.scss'
 import '../scss/detail.scss'
 import { Scrollbar } from "smooth-scrollbar-react";
-import { transGsap } from "../lib/gsapFuncs";
-import { hoverFunc } from "../lib/common"
+import { allToClipGsap } from "../lib/gsapFuncs";
 function DetailPage({cursorOuterRef,cursorInnerRef}){
     let params = useLocation ();
     let project;
@@ -33,41 +31,13 @@ function DetailPage({cursorOuterRef,cursorInnerRef}){
          * 스크롤 텍스트 애니메이션 효과
          */
         document.querySelectorAll('.prj-link').forEach((link)=>{
-        link.addEventListener("mouseover",function(){elementHover('cursor-hide','cursor-link')});
-        link.addEventListener("mouseleave",function(){elementLeave('cursor-hide','cursor-link')});
+            link.addEventListener("mouseover",function(){elementHover('cursor-hide','cursor-link')});
+            link.addEventListener("mouseleave",function(){elementLeave('cursor-hide','cursor-link')});
         })
 
-        const _target = document.querySelector('.sub-main');
-        transGsap(_target,'marginTop',0);
-     
-        const _target02 = document.querySelector('.fixed-bg');
-        transGsap(_target02,'top',0);
-
-        const _target03 = document.querySelector('.sub-tit');
-        _target03.classList.add('on');
-
-        const _target04 = document.querySelector('.tit-scroll-wrap');
-        _target04.classList.add('on');
-
-        /**
-         * hover 효과
-         */
-        const hoverTarget = document.querySelectorAll('[data-ui="hover"]');
-        hoverFunc(hoverTarget);
-        hoverTarget.forEach(button => {
-          ["mouseenter", "mouseout"].forEach(evt => {
-            button.addEventListener(evt, e => {
-                let _target = e.target.closest('[data-ui="hover"]');
-              let parentOffset = _target.getBoundingClientRect(),
-                  relX = e.pageX - parentOffset.left,
-                  relY = e.pageY - parentOffset.top;
-              const span = _target.getElementsByClassName("hover");
-      
-              span[0].style.top = relY + "px";
-              span[0].style.left = relX + "px";
-            });
-          });
-        });
+        const   _target = document.querySelector('.sub-tit'),
+                _target02 = document.querySelector('.tit-scroll-wrap');
+                allToClipGsap([_target,_target02],0.7)  ;
     }, [])
 
     /**
@@ -117,23 +87,13 @@ function DetailPage({cursorOuterRef,cursorInnerRef}){
                         <div className="sub-content">
                             <div className="inner">
                                 <div className="sub-top">
-                                    <div className="sub-left">
-                                        <div className="sub-title-wrap">
+                                    <div className="sub-title-wrap">
                                         <div className="tag-wrap">
                                             {project.hashtag.map((hs)=><span>{hs}</span>)}
                                         </div>
-                                            <p className="date">{project.date}</p>
-                                            <h2 className="project">{project.project}</h2>
-                                            <h3>{project.title}</h3>
-                                        </div>
-                                        <div className="etc-box">
-                                            <div className="etc-item" data-ui="hover">
-                                                <span className="txt">참여인원</span><span className="txt off">{project.members}</span><span className="hover"></span>
-                                            </div>
-                                            <div className="etc-item" data-ui="hover">
-                                            <span className="txt">참여정도</span><span className="txt off">{project.participation}</span><span className="hover"></span>
-                                            </div>
-                                        </div>
+                                        <p className="date">{project.date}</p>
+                                        <h2 className="project">{project.project}</h2>
+                                        <h3>{project.title}</h3>
                                     </div>
                                     <div className="sub-desc-wrap">
                                         <p className="desc-tit">{project.desc}</p>

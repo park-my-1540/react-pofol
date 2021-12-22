@@ -1,7 +1,7 @@
 import React,{useEffect,useCallback} from "react";
 import { useSelector } from "react-redux";
 import '../scss/chat.scss'
-import { hoverGsap,typoGsap ,reverseTypoGsap,transGsap,mainTypoGsap} from "../lib/gsapFuncs";
+import { hoverGsap,mainTypoGsap} from "../lib/gsapFuncs";
 export default function MainTypeComp({deviceChk}){
     /**
      * 첫번째 인덱스면
@@ -13,15 +13,17 @@ export default function MainTypeComp({deviceChk}){
      * typograpy-wrap에 효과 넣어야함. 
      * event.stopImmediatePropagation()
      */
+    const mainActIdx = useSelector(state=>state.ui.mainActIdx);
 
-    window.onload = function(){
+    useEffect(()=>{
+        changeMainSlideFunc()
         if(document.querySelectorAll('.typograpy-wrap').length > 0){  
             setTimeout(()=>{
             mainTypoGsap(document.querySelectorAll('.typograpy-wrap span'));
         },1000);}
-    }
+        
+    },[mainActIdx])
     
-    const mainActIdx = useSelector(state=>state.ui.mainActIdx);
     const typoEventListner = useCallback((e) => {  // state가 바뀔 때마다 close 함수가 재생성되어, 컴포넌트 업데이터 전과 동일하지 않은 함수로 인식되는 것 같다.
         const typograpy=[...document.querySelectorAll('.typograpy-wrap span')];
         typograpy.forEach((text)=>{
@@ -30,13 +32,8 @@ export default function MainTypeComp({deviceChk}){
         hoverGsap(e.currentTarget) 
     },[]);
 
-    useEffect(()=>{
-      changeMainSlideFunc()
-    },[mainActIdx])
-  
-  function changeMainSlideFunc(){
-         const typograpy=[...document.querySelectorAll('.typograpy-wrap span')];
-
+    const changeMainSlideFunc = useCallback(()=>{
+        const typograpy=[...document.querySelectorAll('.typograpy-wrap span')];
         if(mainActIdx === 0){ //메인 화면이면
             typograpy.forEach((text)=>{
                 text.addEventListener('mouseover',typoEventListner);
@@ -46,7 +43,7 @@ export default function MainTypeComp({deviceChk}){
                 text.removeEventListener('mouseover',typoEventListner);
             })
         }
-  }
+    },[mainActIdx])
 
     return (
         <>

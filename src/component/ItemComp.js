@@ -1,11 +1,30 @@
-import React,{ useEffect } from "react";
-import { hoverFunc } from "../lib/common"
+import React,{ useEffect,useCallback } from "react";
 import CustomLink from "./CustomLink";
 export default function ItemComp({pofoldata,cont}) {
     useEffect(() => {
       const hoverTarget = document.querySelectorAll('[data-ui="hover"]');
       hoverFunc(hoverTarget);
     }, [])
+
+  const hoverFunc = useCallback(
+   (_this)=>
+      {
+        _this.forEach(button => {
+          ["mouseenter", "mouseout"].forEach(evt => {
+            button.addEventListener(evt, e => {
+              let _target = e.target.closest('[data-ui="hover"]'),
+                  span = _target.getElementsByClassName("hover");
+              let parentOffset = _target.getBoundingClientRect(),
+                  relX = e.pageX - parentOffset.left,
+                  relY = e.pageY - parentOffset.top;
+      
+              span[0].style.top = relY + "px";
+              span[0].style.left = relX + "px";
+            });
+          });
+        });
+      },
+    []);
 
   const project= (
       pofoldata.device.map(device=>{
