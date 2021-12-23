@@ -8,7 +8,7 @@ export default function Main({msgList,onLoading,onAddAsync,onUpdated}){
 
     const [inputs,setInputs] = useState();
     const nextId = useRef(2);
-    const fadeChat = ['반갑습니다.','열심히 하겠습니다.','즐거운 하루 보내세요~~','잘 부탁드립니다 ^^'];
+    const fadeChat = ['반갑습니다.','열심히 하겠습니다.','즐거운 하루 보내세요~~','잘 부탁드립니다 ^^','계속해서 성장하고 싶습니다!!!'];
     const rand_1_fatChat = Math.floor(Math.random() * (fadeChat.length-1)) + 1
 
     useEffect(()=>{
