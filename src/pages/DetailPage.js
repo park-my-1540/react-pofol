@@ -4,11 +4,15 @@ import '../scss/import.scss'
 import '../scss/detail.scss'
 import { Scrollbar } from "smooth-scrollbar-react";
 import { allToClipGsap } from "../lib/gsapFuncs";
+/**
+ * DetailPage
+ * practice 디테일 페이지
+ */
 function DetailPage({cursorOuterRef,cursorInnerRef}){
     let params = useLocation ();
     let project;
     if(params.state != null){
-        project = params.state.state; 
+        project = params.state; 
     }
     /*
     elementHover : innerRef에 넣을 클래스 inner , outerRef에 넣을 클래스 outer 를 받아서 hover 시 add

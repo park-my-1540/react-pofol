@@ -2,25 +2,35 @@ import React,{useEffect,useState,useCallback} from "react";
 import {allToClipGsap,reverseAllToClipGsap} from '../lib/gsapFuncs';
 import TagCanvas from "tag-canvas";
 import '../scss/about.scss';
+/**
+ * AboutComp : 두번째 슬라이드 자기소개 컴포넌트
+ */
 export default function AboutComp({mainActIdx}){
     const [wid,setWid] = useState();
     const [hei,setHei] = useState();
+    /**
+     * resize 될때마다 tagCanvas의 wid,height 조정
+     */
     const resize = useCallback( () =>{
 
         let winWid = window.innerWidth;
         if(winWid > 768){ 
              setWid(Math.ceil(document.querySelectorAll('.about')[0].offsetWidth/2));
-             setHei(Math.ceil(document.querySelectorAll('.about')[0].offsetHeight/1.2));
+             setHei(Math.ceil(document.querySelectorAll('.about')[0].offsetHeight/1.5));
         }
         else{
             setWid(Math.ceil(document.querySelectorAll('.about')[0].offsetWidth/1.5));
             setHei(Math.ceil(document.querySelectorAll('.about')[0].offsetHeight/2));
         }  
       },[]);
+
       window.addEventListener('resize',function(){
            if(document.querySelectorAll('.about').length > 0){resize();}
       });
 
+    /*
+      활성화된 메인 인덱스 변경 될때마다 gsaop 호출
+    */
     useEffect(()=>{
         const aboutBox = document.querySelector('.about-wrap');
         const h3 = aboutBox.querySelector('.about-wrap h3');
@@ -33,27 +43,30 @@ export default function AboutComp({mainActIdx}){
             reverseAllToClipGsap([h3,desc,desc2]);
         }
         resize();
-            try {
-              TagCanvas.Start('myCanvas','tags',{
-                    outlineColour: '#ffffff80',
-                    reverse: true,
-                    depth: 0.8,
-                    maxSpeed: 0.05,
-                    textFont: null,
-                    textColour: null,
-                    weightMode:'both',
-                    weight: true,
-                    weightGradient: {
-                        0: '#eb808e', 
-                        0.66: '#6ab6df', 
-                        1:    '#3a5dae',
-                    }
-                }
-              );
-            } catch(e) {
-              document.getElementById('myCanvasContainer').style.display = 'none';
-            }
     },[mainActIdx]);
+
+    useEffect(()=>{
+        try {
+            TagCanvas.Start('myCanvas','tags',{
+                outlineColour: '#ffffff80',
+                reverse: true,
+                depth: 0.8,
+                maxSpeed: 0.05,
+                textFont: null,
+                textColour: null,
+                weightMode:'both',
+                weight: true,
+                weightGradient: {
+                    0: '#eb808e', 
+                    0.66: '#6ab6df', 
+                    1:    '#3a5dae',
+                }
+            }
+        );
+        } catch(e) {
+            document.getElementById('myCanvasContainer').style.display = 'none';
+        }
+    },[]);
     return(
         <>
         <div className="about">

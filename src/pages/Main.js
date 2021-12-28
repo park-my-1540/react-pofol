@@ -18,24 +18,25 @@ import {mainUpdate} from "../module/ui";
 
 SwiperCore.use([ Pagination,Navigation,Mousewheel]);
 
+/**
+ * Main : 
+ * 1. useEffect => 마우스 포인터 클래스 변경되는 이벤트 연결
+ * 2. 스와이퍼 변경 될때 onChanged 호출
+ * 3. 윈도우 사이즈(deviceChk)와 활성화된 메인스와이퍼 인덱스(mainActIdx)에 따라 
+ * 
+ *    pc면서 메인이면 isPc_icMain  함수 호출
+ *    pc면서 서브면 isPc_isSub 함수 호출
+ *    mo면서 메인이면 isMo_isMain 함수 호출
+ *    mo면서 서브면 isMo_isSub 함수 호출
+ */
+
 export default function Main({deviceChk,cursorOuterRef,cursorInnerRef}) {
   const dispatch = useDispatch();
   const mainActIdx = useSelector(state=>state.ui.mainActIdx);
   const [actIdx,setActIdx] = useState();
   const swiperRef=useRef();
   const list = ["Home",'About','Project','Practice']; //메뉴
-  /**
-   * init : 
-   * 무슨일이 일어나야 하는가?
-   * -> 메인일때 : 마우스 디저블, chat위치 변경, tag 위치변경, motag 위치 변경,  pc일때 aside 위치 변경 
-   * -> 그외일때 : 마우스 디저블, chat위치 변경, tag 위치변경, motag 위치 변경,  pc일때 aside 위치 변경 
-   * onchanged : 
-   * 무슨일이 일어나야 하는가?
-   * -> 메인일떄 : 마우스 디져블, chat 위치 변경,tag 위치 변경, motag 위치 변경 ,pc 일때 aside 위치 변경
-   * -> 그외일때 : 마우스 이너블, chat 위치 변경,tag 위치 변경, motag 위치 변경 ,pc 일때 aside 위치 변경
-   * 
-   * 둘의 차이는 swiper.acitiveIdx 받아 쓰는거
-   */
+
   useEffect(()=>{
       mainActIdx !== 0 && swiperRef.current.swiper.mousewheel.disable();
       
@@ -70,8 +71,18 @@ export default function Main({deviceChk,cursorOuterRef,cursorInnerRef}) {
     cursorInnerRef.current.classList.remove(outer);
   },[]);
 
+  /**
+   * init 
+   * @param {*} swiper 
+   * @param {*} activeIndx : 현재 활성화된 인덱스 인수
+   * 
+   * isPc_icMain : gsap 커스텀함수 호출, 휠 활성화, aside 메뉴 왼쪽으로 사라지게 함
+   * isPc_isSub  : gsap 커스텀함수 호출, 휠비활성화, aside 메뉴 왼쪽에서 화면에 노출
+   * isMo_isMain : gsap 커스텀함수 호출, 휠비활성화, 로고텍스트 스타일 변경
+   * isMo_isSub  : gsap 커스텀함수 호출, 휠비활성화, 로고텍스트 스타일 변경
+   * 
+   */
   const init = (swiper,activeIndx) =>{
-    console.log(swiperRef.current.swiper);
     setActIdx(activeIndx);
     /**
      * 변수 설정
@@ -86,14 +97,12 @@ export default function Main({deviceChk,cursorOuterRef,cursorInnerRef}) {
     const _activeIdx= activeIndx;
         
     const isPc_isMain= ()=>{
-      console.log("1isPc_isMain");
       typoBox.classList.remove('pc');
       ToPcMain(typoBox);
       swiperRef.current.swiper.mousewheel.enable();
       transGsap(aside,'left','-9999px',1);
     }
     const isPc_isSub= ()=>{
-      console.log("1isPc_isSub");
       transGsap(aside,'left','0',1);
       ToPcSub(typoBox);
       typoBox.classList.add('pc');
@@ -101,13 +110,11 @@ export default function Main({deviceChk,cursorOuterRef,cursorInnerRef}) {
       swiperRef.current.swiper.mousewheel.disable();
     }
     const isMo_isMain= ()=>{
-      console.log("1isMo_isMain");
       mainResTypoGsap(typoBox);
       typoBox.classList.remove('top');
       swiperRef.current.swiper.mousewheel.disable();
     }
     const isMo_isSub= ()=>{
-      console.log("1isMo_isSub");
       typoBox.classList.add('top');
       mainResTypoGsap(typoBox,false);
       swiperRef.current.swiper.mousewheel.disable();
@@ -118,7 +125,7 @@ export default function Main({deviceChk,cursorOuterRef,cursorInnerRef}) {
     const setPositionFunc = (activeIndx=actIdx)=>{
 
       if(activeIndx > 0){ //메인만 아니면
-          transGsap(msgBox,'right',-msgBox.offsetWidth,1); //msg 날라감
+          transGsap(msgBox,'right',-msgBox.offsetWidth,1); //msg 오로ㅡㄴ쪽으로 사라짐
           transGsap(tagWrap,'left','-999px',0.5);
           transGsap(motagWrap,'left','-999px',0.5);
           transGsap(chatBtn,'left','-999px',0.5);
@@ -137,9 +144,9 @@ export default function Main({deviceChk,cursorOuterRef,cursorInnerRef}) {
       }
     };
     setPositionFunc(activeIndx);
-
-    /**
-     * resize 될때마다 호출
+    /*
+     * resize 될때마다 바로 즉시 반응하게 
+      스토어에 저장한 값이 아닌 windeow.innerWidth로 바로 잡음.
      */
     const resize = () =>{
       let winWid = window.innerWidth;
@@ -154,16 +161,18 @@ export default function Main({deviceChk,cursorOuterRef,cursorInnerRef}) {
       }
       });
   }
-  /*
-    resize 될때마다 바로 즉시 반응하게 
-    스토어에 저장한 값이 아닌 windeow.innerWidth로 바로 잡음.
-   */
+  /**
+   * onChanged
+   * 메인 스와이퍼 인덱스 업데이트 함수 디스패치
+   * 현재 활성화된 인덱스 상태변경
+   * init 호출
+   */ 
   const onChanged = (swiper) =>{
       dispatch(mainUpdate(swiper.activeIndex));
       setActIdx(swiper.activeIndex);
       init(swiper,swiper.activeIndex);
   };
-  
+  // 메인에 노출되는 원 컴포넌트
   const CircleComp =  (
     <>
     <div className="circle-box">

@@ -8,12 +8,15 @@ import{allToClipGsap} from "../lib/gsapFuncs";
 import SwiperCore, { Mousewheel, Pagination, Navigation } from "swiper";
 import {useSelector} from "react-redux";
 SwiperCore.use([Mousewheel, Pagination, Navigation]);
-
+/**
+ * pracComp
+ * 연습예제 스와이퍼
+ */
 export default function PracComp({data,cont}) {
   const actIdx = useSelector(state=>state.ui.mainActIdx);
   const pofolIdx = useSelector(state=>state.ui.pofolActIdx);
   useEffect(()=>{
-    if(actIdx===3){
+    if(actIdx===3){ //연습예제 스와이퍼에 오면 gsap 호출
       onChanged();
     }
   },[actIdx])
@@ -39,7 +42,7 @@ export default function PracComp({data,cont}) {
           el: '.pofol-pagination',
           clickable:true,
           renderBullet:function(index,className){
-            const list = ["Home",'About','Portfolio'];
+            const list = ["First",'Second','Third'];
             return `<p class="${className}"><span>${list[index]}</span></p>`
           }
       }} 

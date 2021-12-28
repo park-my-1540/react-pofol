@@ -11,7 +11,7 @@ export function transGsap(target,attr,val,dur=2){
      topTo.play();
 }
 
-// hoverGsap 
+// hoverGsap : target hover시 
 export function hoverGsap(target){
     let tl = gsap.timeline();
     tl.to(target, 0.5, 
@@ -158,7 +158,7 @@ export function ToPcMain(target,flag=true){
     var tl = gsap.timeline();
     tl.to(target, 1, 
         {
-            bottom: '35vh', //pc로 회귀
+            bottom: '35vh', 
             transform : 'translate(0,0) scale(1,1)',
             ease:'elastic.out(1,1.3)',
         }

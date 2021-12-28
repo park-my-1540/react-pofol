@@ -1,11 +1,17 @@
 import React,{ useEffect,useCallback } from "react";
 import CustomLink from "./CustomLink";
+/*
+  SwiperItem 컴포넌트
+*/
 export default function ItemComp({pofoldata,cont}) {
     useEffect(() => {
       const hoverTarget = document.querySelectorAll('[data-ui="hover"]');
       hoverFunc(hoverTarget);
-    }, [])
+    }, []);
 
+  /*
+    hoverFunc : 참가인원, 참겨정도 circle hover 이벤트
+  */
   const hoverFunc = useCallback(
    (_this)=>
       {
@@ -62,9 +68,7 @@ export default function ItemComp({pofoldata,cont}) {
                 </div>
             </div>
             <div className="prj-img">
-              {
-               cont === "prac" ?  pofol :project
-              }
+              { cont === "prac" ?  pofol :project}
             </div>
             <div className="desc-wrap">
                 <p className="prj-date">{pofoldata.date}</p>
@@ -73,13 +77,17 @@ export default function ItemComp({pofoldata,cont}) {
                   cont !== "prac"&&
                     (<div className="sub-desc-wrap">
                           <ul>
-                              {
-                                  pofoldata.sub_desc.split("\n").map((i,key) =><li key={key}>{i}</li>)
-                              }
+                              {pofoldata.sub_desc.split("\n").map((i,key) =><li key={key}>{i}</li>)}
                           </ul>
                     </div>)
                 }
             </div>
+            {/* 
+              practice 컴포넌트 일경우 detaipPage로 페이지 이동 
+              to : 조회한 id
+              state : 조회한 pofol  데이터
+              CustomLink 컴포넌트에 to, state 전달
+            */}
             {
               cont && (
                 <CustomLink 

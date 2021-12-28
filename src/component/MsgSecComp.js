@@ -1,7 +1,11 @@
 import React,{useEffect,useState,useRef,useCallback,useMemo} from "react"
 import MsgComp from "./MsgComp";
 
-export default function Main({msgList,onLoading,onAddAsync,onUpdated}){
+/*
+    MsgSecComp 
+        useEffect -> chatStart 호출
+ */
+export default function MsgSecComp({msgList,onLoading,onAddAsync,onUpdated}){
     useEffect(()=>{
         chatStart();
     },[]);
@@ -52,7 +56,7 @@ export default function Main({msgList,onLoading,onAddAsync,onUpdated}){
             onAddAsync(0,"msgMe", "안녕하세요",currentTime);
             setTimeout(()=>{
                 onLoading(1);
-                onAddAsync(1,"msgMe", "안녕하세요222",currentTime);
+                onAddAsync(1,"msgMe", "박미영입니다.",currentTime);
             },2000)
         },
     []

@@ -4,12 +4,6 @@ export default function  AnimatedCursor({cursorOuterRef,cursorInnerRef}){
 
   useEffect(() => {
     window.addEventListener("mousemove", onMouseMove);
-    /*
-    window니까 안잃어버리는데  
-    menu 이런식으로 달아두면 사라져버리지. 않을까. 혹은 그래서 ref로 한건가
-    */
-
-      
     }, [])
    /*
     cursorOuterRef : 마우스 포인터
