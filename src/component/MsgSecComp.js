@@ -5,9 +5,11 @@ import MsgComp from "./MsgComp";
     MsgSecComp 
         useEffect -> chatStart 호출
  */
-export default function MsgSecComp({msgList,onLoading,onAddAsync,onUpdated}){
+let count = 0; //pc, mo 두번 렌더링 되어 chatStart 두번 호출 방지
+function MsgSecComp({msgList,onLoading,onAddAsync,onUpdated}){
     useEffect(()=>{
-        chatStart();
+        count === 0 && chatStart();
+        return ()=> ++count
     },[]);
 
     const [inputs,setInputs] = useState();
@@ -101,3 +103,5 @@ export default function MsgSecComp({msgList,onLoading,onAddAsync,onUpdated}){
         </>
     )
 }
+
+export default React.memo(MsgSecComp);

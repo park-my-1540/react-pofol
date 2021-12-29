@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector,useDispatch } from "react-redux";
-import {update_msg,change_msgAsync,loading,set_timeAsync} from "../module/messages";
+import {update_msg,change_msgAsync,loading} from "../module/messages";
 import MsgSecComp from "../component/MsgSecComp";
 import '../scss/chat.scss'
 /*
@@ -26,4 +26,4 @@ function MessageContainer(){
     return <MsgSecComp msgList={msgList} onUpdated={onUpdated} onLoading={onLoading} onAddAsync={onAddAsync}/>;
 }
 
-export default MessageContainer;
+export default React.memo(MessageContainer);

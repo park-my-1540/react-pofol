@@ -36,13 +36,13 @@
 - scss
 
 ## 채팅 프로세스
-1. PC -> Main 에서 호출 / MO -> MoMain 에서 호출
+1. PC -> Main 컴포넌트에서 MessageContainer 호출 / MO -> MoMain컴포넌에서  MessageContainer 호출
 2. MessageContainer에서 store에서 msgList 가져다 MesSecComp 컴포넌트에 전달
 3. MessageContainer에서 액션생성 함수 MesSecComp 컴포넌트에 전달
     + `onLoading` : 해당 msg 로딩 상태로 update
     + `onUpdated` : 상대방이 입력한 msg 메시지 update
     + `onAddAsync` : msgList에 답장 msg 추가 
-\\\\
+\
 4. MesSecComp에서 chatStart 호출  - [chatStart] : 인사말 먼저 출력
    <pre><code>
      const chatStart = useCallback(
@@ -57,7 +57,7 @@
     []
     );
     </code></pre>   
-\\
+\
 5. 메시지 입력후 send 클릭시 sendMsg 호출 - [sendMsg] : 입력한 메시지 채팅창에 츨력 (store에 msgList 추가됨)
     <pre><code>
        const sendMsg = useCallback(
@@ -68,7 +68,7 @@
     [inputs]
     );
     </code></pre> 
-\\
+\
 6. msgList state 변경 될때 마다 답장 출력됨 : [onAddAsync] : 답장 메시지 출력
     <pre><code>
      useEffect(()=>{
