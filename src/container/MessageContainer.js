@@ -16,16 +16,14 @@ function MessageContainer(){
 
     /*
         onLoading : 해당 msg 로딩 상태로 update
-        onUpdated : 해당 msg 로딩완료 상태로 update
-        onAddAsync : msgList에 msg 추가 
-        onsetTimeAsync : 현재 시각 update
+        onUpdated : 상대방 입력한 msg  update
+        onAddAsync : msgList에 답장 msg 추가 
     */
     const onLoading = (id) => dispatch(loading(id));
     const onUpdated = (id,text,target,time) => dispatch(update_msg(id,text,target,time)); 
     const onAddAsync =(id,text,target,time) => dispatch(change_msgAsync(id,text,target,time));
-    const onsetTimeAsync = (id) => dispatch(set_timeAsync(id));
         
-    return <MsgSecComp msgList={msgList} onUpdated={onUpdated} onLoading={onLoading} onsetTimeAsync={onsetTimeAsync} onAddAsync={onAddAsync}/>;
+    return <MsgSecComp msgList={msgList} onUpdated={onUpdated} onLoading={onLoading} onAddAsync={onAddAsync}/>;
 }
 
 export default MessageContainer;

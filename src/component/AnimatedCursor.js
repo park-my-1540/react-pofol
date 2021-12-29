@@ -30,6 +30,9 @@ export default function  AnimatedCursor({cursorOuterRef,cursorInnerRef}){
    * requestAnimationFrame : requestAnimationFrame(반복할 함수) , 스스로를 호출하지 않음.
    */
   let previousTime;
+  /*
+    animateOuterCursor : 
+   */
   const animateOuterCursor = useCallback(
     (timestamp) => {
       if (previousTime !== undefined) {

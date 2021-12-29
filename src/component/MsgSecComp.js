@@ -12,8 +12,8 @@ export default function MsgSecComp({msgList,onLoading,onAddAsync,onUpdated}){
 
     const [inputs,setInputs] = useState();
     const nextId = useRef(2);
-    const fadeChat = ['반갑습니다.','열심히 하겠습니다.','즐거운 하루 보내세요~~','잘 부탁드립니다 ^^','계속해서 성장하고 싶습니다!!!'];
-    const rand_1_fatChat = Math.floor(Math.random() * (fadeChat.length-1)) + 1
+    const fakeChat = ['반갑습니다.','열심히 하겠습니다.','즐거운 하루 보내세요~~','잘 부탁드립니다 ^^','계속해서 성장하고 싶습니다!!!'];
+    const rand_1_fatChat = Math.floor(Math.random() * (fakeChat.length-1)) + 1
 
     useEffect(()=>{
         /**
@@ -24,7 +24,7 @@ export default function MsgSecComp({msgList,onLoading,onAddAsync,onUpdated}){
         if(msgList.length && msgList[msgList.length-1].target === "msgYou"){
             setTimeout(()=>{
                 onLoading(nextId.current);
-                onAddAsync(nextId.current++,"msgMe", fadeChat[rand_1_fatChat],currentTime);
+                onAddAsync(nextId.current++,"msgMe", fakeChat[rand_1_fatChat],currentTime);
             },2000)
         }
         const objDiv = document.getElementById("content");

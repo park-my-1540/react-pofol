@@ -10,11 +10,9 @@ import SwiperCore, { Mousewheel, Pagination, Navigation } from "swiper";
 SwiperCore.use([Mousewheel, Pagination, Navigation]);
 
 function PofolComp({data}) {
-
   /*
     onChanged : 스와이퍼 변경할때 마다 움직이는 효과 gsap 함수 호출
   */
-
   const onChanged = (swiper) =>{
     const swiper_type01 = document.querySelector('.swiper-container.type01'), //기준 스와이퍼
           active_slide = swiper_type01.querySelector('.swiper-slide.swiper-slide-active'), //현재 active 스와이퍼 이 영역은 공통
